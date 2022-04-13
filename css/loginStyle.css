@@ -67,3 +67,83 @@ div > img{
 .divLogin{
     width: 32.99%;
 }
+
+@media (min-width: 768px) { 
+    .inputLogin{
+        width: 45%;
+        margin: auto;
+        font-size: 10px!important;
+    }
+    .inputRegister{
+        width: 45%;
+        margin: auto;
+        font-size: 10px!important;
+    }
+    input::-webkit-input-placeholder {
+        font-size: 10px;
+        line-height: 3;
+    }
+ }
+
+ @media (max-width: 768px) { 
+    .divImage{
+        display: none!important;
+    }
+    .inputLogin{
+        width: 100%;
+        margin: auto;
+        font-size: 14px!important;
+    }
+    .inputRegister{
+        width: 100%;
+        margin: auto;
+        font-size: 14px!important;
+    }
+    input::-webkit-input-placeholder {
+        font-size: 14px;
+        line-height: 3;
+    }
+    .divLogin{
+        width: 100%!important;
+        height: 100vh;
+    }
+    .login-form{
+        margin-bottom: 100px!important;
+    }
+ }
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) { 
+    .inputLogin{
+        width: 75%;
+        margin: auto;
+        font-size: 14px!important;
+    }
+    .inputRegister{
+        width: 75%;
+        margin: auto;
+        font-size: 14px!important;
+    }
+    input::-webkit-input-placeholder {
+        font-size: 14px;
+        line-height: 3;
+    }
+ }
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) { 
+    .inputLogin{
+        width: 100%;
+        margin: auto;
+        font-size: 17px!important;
+    }
+    .inputRegister{
+        width: 100%;
+        margin: auto;
+        font-size: 17px!important;
+    }
+    input::-webkit-input-placeholder {
+        font-size: 17px!important;
+        line-height: 3;
+    }
+ }
