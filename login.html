@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
 </head>
 
 <body>
@@ -26,15 +28,24 @@
                     <input id="loginEmail" type="text" class="form-control" placeholder="Your Email *" value="" />
                 </div>
                 <div class="form-group inputLogin">
-                    <input id="loginPassword" type="password" class="form-control" placeholder="Your Password *" value="" />
+                    <input id="loginPassword" type="password" class="form-control" placeholder="Your Password *"
+                        value="" />
                 </div>
                 <div class="form-group inputLogin">
-                    <input id="login" type="submit" class="btnSubmit" value="Login" />
+                    <button id="login" type="button" class="btn btn-light">Login</button>
                 </div>
                 <div class="form-group">
-                    <a href="#" class="btnForgetPwd">Forget Password?</a>
+                    <a href="#" class="">Forget Password?</a>
                 </div>
+                <div class="form-group">
+                    <a id="chgRegister" href="" class="">Still don't have an account?</a>
+                </div>
+            </div>
+            <div class="register-form">
                 <h3>Register</h3>
+                <div class="form-group inputRegister">
+                    <input id="registerName" type="text" class="form-control" placeholder="Name *" value="" />
+                </div>
                 <div class="form-group inputRegister">
                     <input id="registerUsername" type="text" class="form-control" placeholder="Username *" value="" />
                 </div>
@@ -42,26 +53,29 @@
                     <input id="registerEmail" type="text" class="form-control" placeholder="Your Email *" value="" />
                 </div>
                 <div class="form-group inputRegister">
-                    <input id="registerEmail" type="password" class="form-control" placeholder="Your Password *" value="" />
+                    <input id="registerPassword" type="password" class="form-control" placeholder="Your Password *"
+                        value="" />
                 </div>
                 <div class="form-group text-center inputRegister">
-                    <input id="register" type="submit" class="btnSubmit" value="Register" />
+                    <button id="register" type="button" class="btn btn-light">Register</button>
+                </div>
+                <div class="form-group text-center inputRegister">
+                    <button id="bckLogin" type="button" class="btn btn-secondary"><span><i class="fa-solid fa-arrow-left"></i></span> Login</button>
                 </div>
             </div>
         </div>
-        <!-- Optional JavaScript -->
-        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <script
-        src="https://code.jquery.com/jquery-3.6.0.js"
-        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
-        crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
         </script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
         </script>
-        <script src="js/login.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js" integrity="sha256-0H3Nuz3aug3afVbUlsu12Puxva3CP4EhJtPExqs54Vg=" crossorigin="anonymous"></script>    <script src="js/login.js"></script>
 </body>
 
 </html>
