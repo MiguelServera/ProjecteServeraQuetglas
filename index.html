@@ -1,567 +1,132 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang='en'>
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset='UTF-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
   <title>Index</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
-    integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="css/indexStyle.css">
+  <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css'
+    integrity='sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l' crossorigin='anonymous'>
+  <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+  <link rel='stylesheet' href='css/indexStyle.css'>
 </head>
 
 <body>
   <div>
-    <nav class="navbar navbar-expand sticky-top justify-content-between bg-dark">
-      <div class="nav navbar-nav">
-        <a class="nav-item nav-link text-light active" href="#">Spot Social</a>
-        <a class="nav-item nav-link text-light" href="#">Spot Gente</a>
-        <a class="nav-item nav-link text-light" href="#">Spot Música</a>
+    <nav class='navbar navbar-expand sticky-top justify-content-between bg-dark'>
+      <div class='nav navbar-nav'>
+        <a class='nav-item nav-link text-light active' href='#'>Spot Social</a>
+        <a class='nav-item nav-link text-light' href='#'>Spot Gente</a>
+        <a class='nav-item nav-link text-light' href='#'>Spot Música</a>
       </div>
-      <div class="nav navbar-nav">
-        <div class="search-box">
-          <input class="search-input" type="text" name="" placeholder="Search">
-          <a href="#" class="search-btn">
-            <i class="fa fa-search"></i>
+      <div class='nav navbar-nav'>
+        <div class='search-box'>
+          <input class='search-input' type='text' name='' placeholder='Search'>
+          <a href='#' class='search-btn'>
+            <i class='fa fa-search'></i>
           </a>
         </div>
-        <a class="nav-item nav-link text-light active" href="#"><i class="fa fa-moon-o"></i></a>
-        <a class="nav-item nav-link text-light active" href="#"><i class="fa fa-globe" aria-hidden="true"></i></a>
-        <a class="nav-item nav-link text-light active" href="#"><i class="fa fa-key" aria-hidden="true"></i></a>
+        <a class='nav-item nav-link text-light active' href='#'><i class='fa fa-moon-o'></i></a>
+        <a class='nav-item nav-link text-light active' href='#'><i class='fa fa-globe' aria-hidden='true'></i></a>
+        <a class='nav-item nav-link text-light active' href='#'><i class='fa fa-key' aria-hidden='true'></i></a>
       </div>
     </nav>
-    <div class="main-container d-flex pt-4">
-      <div class="suggested col-3">
-        <h2 class="text-center mb-4">RECOMENDATIONS</h2>
-        <div class="suggestion">
-          <div class="d-flex">
-            <img class="userIcon mr-2" src="img/userIcon.png" alt="" />
-            <div class="userInfo mw-100">
-              <div class="name">
-                <span>@Elnito</span>
+    <div class='main-container d-flex pt-4'>
+      <div class='suggested col-3'>
+        <h2 class='text-center mb-4'>RECOMENDATIONS</h2>
+        <!--<div class='suggestion'>
+          <div class='d-flex'>
+            <img class='userIcon mr-2' src='img/userIcon.png' alt='' />
+            <div class='userInfo mw-100'>
+              <div class='name'>
+                <input id="userId" type="hidden" name="">
+                <span>Pep</span>
               </div>
-              <div class="description">
-                <span>Pues mira soy alguien moreno s s s s</span>
-              </div>
-            </div>
-          </div>
-          <button type="button" class="btn btn-primary followButton">Follow</button>
-        </div>
-        <div class="suggestion">
-          <div class="d-flex">
-            <img class="userIcon mr-2" src="img/userIcon.png" alt="" />
-            <div class="userInfo mw-100">
-              <div class="name">
-                <span>@Elnito</span>
-              </div>
-              <div class="description">
-                <span>Pues mira soy alguien moreno s s s s</span>
+              <div class='description'>
+                <span>Pues mira soy Pep</span>
               </div>
             </div>
           </div>
-          <button type="button" class="btn btn-primary followButton">Follow</button>
-        </div>
-        <div class="suggestion">
-          <div class="d-flex">
-            <img class="userIcon mr-2" src="img/userIcon.png" alt="" />
-            <div class="userInfo mw-100">
-              <div class="name">
-                <span>@Elnito</span>
+          <button type='button' class='btn btn-primary followButton'>Follow</button>
+        </div>-->
+      </div>
+
+      <div class='posts col-6'>
+        <h2 class='text-center mb-4'>POSTS</h2>
+        <div class='userPost overflow-hidden'>
+          <div class='d-flex overflow-hidden'>
+            <img class='userIcon mr-2' src='img/userIcon.png' alt='' />
+            <div class='userInfo mw-100 w-100'>
+              <div class='name'>
+                <span id='user'>@Elmorenito</span>
               </div>
-              <div class="description">
-                <span>Pues mira soy alguien moreno s s s s</span>
-              </div>
-            </div>
-          </div>
-          <button type="button" class="btn btn-primary followButton">Follow</button>
-        </div>
-        <div class="suggestion">
-          <div class="d-flex">
-            <img class="userIcon mr-2" src="img/userIcon.png" alt="" />
-            <div class="userInfo mw-100">
-              <div class="name">
-                <span>@Elnito</span>
-              </div>
-              <div class="description">
-                <span>Pues mira soy alguien moreno s s s s</span>
+              <div id='textPost' class='text w-100' contenteditable=''>
               </div>
             </div>
           </div>
-          <button type="button" class="btn btn-primary followButton">Follow</button>
-        </div>
-        <div class="suggestion">
-          <div class="d-flex">
-            <img class="userIcon mr-2" src="img/userIcon.png" alt="" />
-            <div class="userInfo mw-100">
-              <div class="name">
-                <span>@Elnito</span>
-              </div>
-              <div class="description">
-                <span>Pues mira soy alguien moreno s s s s</span>
-              </div>
-            </div>
-          </div>
-          <button type="button" class="btn btn-primary followButton">Follow</button>
-        </div>
-        <div class="suggestion">
-          <div class="d-flex">
-            <img class="userIcon mr-2" src="img/userIcon.png" alt="" />
-            <div class="userInfo mw-100">
-              <div class="name">
-                <span>@Elnito</span>
-              </div>
-              <div class="description">
-                <span>Pues mira soy alguien moreno s s s s</span>
-              </div>
-            </div>
-          </div>
-          <button type="button" class="btn btn-primary followButton">Follow</button>
-        </div>
-        <div class="suggestion">
-          <div class="d-flex">
-            <img class="userIcon mr-2" src="img/userIcon.png" alt="" />
-            <div class="userInfo mw-100">
-              <div class="name">
-                <span>@Elnito</span>
-              </div>
-              <div class="description">
-                <span>Pues mira soy alguien moreno s s s s</span>
-              </div>
-            </div>
-          </div>
-          <button type="button" class="btn btn-primary followButton">Follow</button>
-        </div>
-        <div class="suggestion">
-          <div class="d-flex">
-            <img class="userIcon mr-2" src="img/userIcon.png" alt="" />
-            <div class="userInfo mw-100">
-              <div class="name">
-                <span>@Elnito</span>
-              </div>
-              <div class="description">
-                <span>Pues mira soy alguien moreno s s s s</span>
-              </div>
-            </div>
-          </div>
-          <button type="button" class="btn btn-primary followButton">Follow</button>
-        </div>
-        <div class="suggestion">
-          <div class="d-flex">
-            <img class="userIcon mr-2" src="img/userIcon.png" alt="" />
-            <div class="userInfo mw-100">
-              <div class="name">
-                <span>@Elnito</span>
-              </div>
-              <div class="description">
-                <span>Pues mira soy alguien moreno s s s s</span>
-              </div>
-            </div>
-          </div>
-          <button type="button" class="btn btn-primary followButton">Follow</button>
-        </div>
-        <div class="suggestion">
-          <div class="d-flex">
-            <img class="userIcon mr-2" src="img/userIcon.png" alt="" />
-            <div class="userInfo mw-100">
-              <div class="name">
-                <span>@Elnito</span>
-              </div>
-              <div class="description">
-                <span>Pues mira soy alguien moreno s s s s</span>
-              </div>
-            </div>
-          </div>
-          <button type="button" class="btn btn-primary followButton">Follow</button>
-        </div>
-        <div class="suggestion">
-          <div class="d-flex">
-            <img class="userIcon mr-2" src="img/userIcon.png" alt="" />
-            <div class="userInfo mw-100">
-              <div class="name">
-                <span>@Elnito</span>
-              </div>
-              <div class="description">
-                <span>Pues mira soy alguien moreno s s s s</span>
-              </div>
-            </div>
-          </div>
-          <button type="button" class="btn btn-primary followButton">Follow</button>
-        </div>
-        <div class="suggestion">
-          <div class="d-flex">
-            <img class="userIcon mr-2" src="img/userIcon.png" alt="" />
-            <div class="userInfo mw-100">
-              <div class="name">
-                <span>@Elnito</span>
-              </div>
-              <div class="description">
-                <span>Pues mira soy alguien moreno s s s s</span>
-              </div>
-            </div>
-          </div>
-          <button type="button" class="btn btn-primary followButton">Follow</button>
-        </div>
-        <div class="suggestion">
-          <div class="d-flex">
-            <img class="userIcon mr-2" src="img/userIcon.png" alt="" />
-            <div class="userInfo mw-100">
-              <div class="name">
-                <span>@Elnito</span>
-              </div>
-              <div class="description">
-                <span>Pues mira soy alguien moreno s s s s</span>
-              </div>
-            </div>
-          </div>
-          <button type="button" class="btn btn-primary followButton">Follow</button>
-        </div>
-        <div class="suggestion">
-          <div class="d-flex">
-            <img class="userIcon mr-2" src="img/userIcon.png" alt="" />
-            <div class="userInfo mw-100">
-              <div class="name">
-                <span>@Elnito</span>
-              </div>
-              <div class="description">
-                <span>Pues mira soy alguien moreno s s s s</span>
-              </div>
-            </div>
-          </div>
-          <button type="button" class="btn btn-primary followButton">Follow</button>
-        </div>
-        <div class="suggestion">
-          <div class="d-flex">
-            <img class="userIcon mr-2" src="img/userIcon.png" alt="" />
-            <div class="userInfo mw-100">
-              <div class="name">
-                <span>@Elnito</span>
-              </div>
-              <div class="description">
-                <span>Pues mira soy alguien moreno s s s s</span>
-              </div>
-            </div>
-          </div>
-          <button type="button" class="btn btn-primary followButton">Follow</button>
-        </div>
-        <div class="suggestion">
-          <div class="d-flex">
-            <img class="userIcon mr-2" src="img/userIcon.png" alt="" />
-            <div class="userInfo mw-100">
-              <div class="name">
-                <span>@Elnito</span>
-              </div>
-              <div class="description">
-                <span>Pues mira soy alguien moreno s s s s</span>
-              </div>
-            </div>
-          </div>
-          <button type="button" class="btn btn-primary followButton">Follow</button>
-        </div>
-        <div class="suggestion">
-          <div class="d-flex">
-            <img class="userIcon mr-2" src="img/userIcon.png" alt="" />
-            <div class="userInfo mw-100">
-              <div class="name">
-                <span>@Elnito</span>
-              </div>
-              <div class="description">
-                <span>Pues mira soy alguien moreno s s s s</span>
-              </div>
-            </div>
-          </div>
-          <button type="button" class="btn btn-primary followButton">Follow</button>
-        </div>
-        <div class="suggestion">
-          <div class="d-flex">
-            <img class="userIcon mr-2" src="img/userIcon.png" alt="" />
-            <div class="userInfo mw-100">
-              <div class="name">
-                <span>@Elnito</span>
-              </div>
-              <div class="description">
-                <span>Pues mira soy alguien moreno s s s s</span>
-              </div>
-            </div>
-          </div>
-          <button type="button" class="btn btn-primary followButton">Follow</button>
-        </div>
-        <div class="suggestion">
-          <div class="d-flex">
-            <img class="userIcon mr-2" src="img/userIcon.png" alt="" />
-            <div class="userInfo mw-100">
-              <div class="name">
-                <span>@Elnito</span>
-              </div>
-              <div class="description">
-                <span>Pues mira soy alguien moreno s s s s</span>
-              </div>
-            </div>
-          </div>
-          <button type="button" class="btn btn-primary followButton">Follow</button>
-        </div>
-        <div class="suggestion">
-          <div class="d-flex">
-            <img class="userIcon mr-2" src="img/userIcon.png" alt="" />
-            <div class="userInfo mw-100">
-              <div class="name">
-                <span>@Elnito</span>
-              </div>
-              <div class="description">
-                <span>Pues mira soy alguien moreno s s s s</span>
-              </div>
-            </div>
-          </div>
-          <button type="button" class="btn btn-primary followButton">Follow</button>
-        </div>
-        <div class="suggestion">
-          <div class="d-flex">
-            <img class="userIcon mr-2" src="img/userIcon.png" alt="" />
-            <div class="userInfo mw-100">
-              <div class="name">
-                <span>@Elnito</span>
-              </div>
-              <div class="description">
-                <span>Pues mira soy alguien moreno s s s s</span>
-              </div>
-            </div>
-          </div>
-          <button type="button" class="btn btn-primary followButton">Follow</button>
-        </div>
-        <div class="suggestion">
-          <div class="d-flex">
-            <img class="userIcon mr-2" src="img/userIcon.png" alt="" />
-            <div class="userInfo mw-100">
-              <div class="name">
-                <span>@Elnito</span>
-              </div>
-              <div class="description">
-                <span>Pues mira soy alguien moreno s s s s</span>
-              </div>
-            </div>
-          </div>
-          <button type="button" class="btn btn-primary followButton">Follow</button>
-        </div>
-        <div class="suggestion">
-          <div class="d-flex">
-            <img class="userIcon mr-2" src="img/userIcon.png" alt="" />
-            <div class="userInfo mw-100">
-              <div class="name">
-                <span>@Elnito</span>
-              </div>
-              <div class="description">
-                <span>Pues mira soy alguien moreno s s s s</span>
-              </div>
-            </div>
-          </div>
-          <button type="button" class="btn btn-primary followButton">Follow</button>
-        </div>
-        <div class="suggestion">
-          <div class="d-flex">
-            <img class="userIcon mr-2" src="img/userIcon.png" alt="" />
-            <div class="userInfo mw-100">
-              <div class="name">
-                <span>@Elnito</span>
-              </div>
-              <div class="description">
-                <span>Pues mira soy alguien moreno s s s s</span>
-              </div>
-            </div>
-          </div>
-          <button type="button" class="btn btn-primary followButton">Follow</button>
-        </div>
-        <div class="suggestion">
-          <div class="d-flex">
-            <img class="userIcon mr-2" src="img/userIcon.png" alt="" />
-            <div class="userInfo mw-100">
-              <div class="name">
-                <span>@Elnito</span>
-              </div>
-              <div class="description">
-                <span>Pues mira soy alguien moreno s s s s</span>
-              </div>
-            </div>
-          </div>
-          <button type="button" class="btn btn-primary followButton">Follow</button>
-        </div>
-        <div class="suggestion">
-          <div class="d-flex">
-            <img class="userIcon mr-2" src="img/userIcon.png" alt="" />
-            <div class="userInfo mw-100">
-              <div class="name">
-                <span>@Elnito</span>
-              </div>
-              <div class="description">
-                <span>Pues mira soy alguien moreno s s s s</span>
-              </div>
-            </div>
-          </div>
-          <button type="button" class="btn btn-primary followButton">Follow</button>
-        </div>
-        <div class="suggestion">
-          <div class="d-flex">
-            <img class="userIcon mr-2" src="img/userIcon.png" alt="" />
-            <div class="userInfo mw-100">
-              <div class="name">
-                <span>@Elnito</span>
-              </div>
-              <div class="description">
-                <span>Pues mira soy alguien moreno s s s s</span>
-              </div>
-            </div>
-          </div>
-          <button type="button" class="btn btn-primary followButton">Follow</button>
-        </div>
-        <div class="suggestion">
-          <div class="d-flex">
-            <img class="userIcon mr-2" src="img/userIcon.png" alt="" />
-            <div class="userInfo mw-100">
-              <div class="name">
-                <span>@Elnito</span>
-              </div>
-              <div class="description">
-                <span>Pues mira soy alguien moreno s s s s</span>
-              </div>
-            </div>
-          </div>
-          <button type="button" class="btn btn-primary followButton">Follow</button>
-        </div>
-        <div class="suggestion">
-          <div class="d-flex">
-            <img class="userIcon mr-2" src="img/userIcon.png" alt="" />
-            <div class="userInfo mw-100">
-              <div class="name">
-                <span>@Elnito</span>
-              </div>
-              <div class="description">
-                <span>Pues mira soy alguien moreno s s s s</span>
-              </div>
-            </div>
-          </div>
-          <button type="button" class="btn btn-primary followButton">Follow</button>
-        </div>
-        <div class="suggestion">
-          <div class="d-flex">
-            <img class="userIcon mr-2" src="img/userIcon.png" alt="" />
-            <div class="userInfo mw-100">
-              <div class="name">
-                <span>@Elnito</span>
-              </div>
-              <div class="description">
-                <span>Pues mira soy alguien moreno s s s s</span>
-              </div>
-            </div>
-          </div>
-          <button type="button" class="btn btn-primary followButton">Follow</button>
-        </div>
-        <div class="suggestion">
-          <div class="d-flex">
-            <img class="userIcon mr-2" src="img/userIcon.png" alt="" />
-            <div class="userInfo mw-100">
-              <div class="name">
-                <span>@Elnito</span>
-              </div>
-              <div class="description">
-                <span>Pues mira soy alguien moreno s s s s</span>
-              </div>
-            </div>
-          </div>
-          <button type="button" class="btn btn-primary followButton">Follow</button>
-        </div>
-        <div class="suggestion">
-          <div class="d-flex">
-            <img class="userIcon mr-2" src="img/userIcon.png" alt="" />
-            <div class="userInfo mw-100">
-              <div class="name">
-                <span>@Elnito</span>
-              </div>
-              <div class="description">
-                <span>Pues mira soy alguien moreno s s s s</span>
-              </div>
-            </div>
-          </div>
-          <button type="button" class="btn btn-primary followButton">Follow</button>
-        </div>
-        <div class="suggestion">
-          <div class="d-flex">
-            <img class="userIcon mr-2" src="img/userIcon.png" alt="" />
-            <div class="userInfo mw-100">
-              <div class="name">
-                <span>@Elnito</span>
-              </div>
-              <div class="description">
-                <span>Pues mira soy alguien moreno s s s s</span>
-              </div>
-            </div>
-          </div>
-          <button type="button" class="btn btn-primary followButton">Follow</button>
-        </div>
-        <div class="suggestion">
-          <div class="d-flex">
-            <img class="userIcon mr-2" src="img/userIcon.png" alt="" />
-            <div class="userInfo mw-100">
-              <div class="name">
-                <span>@Elnito</span>
-              </div>
-              <div class="description">
-                <span>Pues mira soy alguien moreno s s s s</span>
-              </div>
-            </div>
-          </div>
-          <button type="button" class="btn btn-primary followButton">Follow</button>
-        </div>
-        <div class="suggestion">
-          <div class="d-flex">
-            <img class="userIcon mr-2" src="img/userIcon.png" alt="" />
-            <div class="userInfo mw-100">
-              <div class="name">
-                <span>@Elnito</span>
-              </div>
-              <div class="description">
-                <span>Pues mira soy alguien moreno s s s s</span>
-              </div>
-            </div>
-          </div>
-          <button type="button" class="btn btn-primary followButton">Follow</button>
+          <button type='button' class='sendButton btn btn-primary sendPost'>Send</button>
         </div>
       </div>
 
-      <div class="posts col-6">
-        <h2 class="text-center mb-4">POSTS</h2>
-        <div class="userPost">
-          <div class="d-flex">
-            <img class="userIcon mr-2" src="img/userIcon.png" alt="" />
-            <div class="userInfo mw-100 w-100">
-              <div class="name">
-                <span id="user">@Elmorenito</span>
-              </div>
-              <div id="textPost" class="text w-100" contenteditable="">
-              </div>
-            </div>
-          </div>
-          <button type="button" class="btn btn-primary sendPost">Send</button>
-        </div>
-      </div>
-
-      <div class="messages col-3">
-        <h2 class="text-center mb-4">MESSAGES</h2>
-        <div class="message">
-          <div class="d-flex">
-            <img class="userIcon mr-2" src="img/userIcon.png" alt="" />
-            <div class="userInfo mw-100">
-              <div class="name">
+      <div class='messages col-3'>
+        <h2 class='text-center mb-4'>MESSAGES</h2>
+        <!--<div class='message'>
+          <div class='d-flex'>
+            <img class='userIcon mr-2' src='img/userIcon.png' alt='' />
+            <div class='userInfo mw-100'>
+              <div class='name'>
                 <span>@Elnito</span>
               </div>
-              <div class="description">
-                <span>Pues mira soy alguien moreno s s s s</span>
+              <div class='description'>
+                <span></span>
               </div>
             </div>
           </div>
+        </div>-->
+        <button type="button" class="newMessage btn btn-primary" data-toggle="modal" data-target="#myModal"><i class="fa fa-feather"></i></button>
+      </div>
+    </div>
+    <div class="modal fade" id="myModal" role="dialog">
+      <div class="modal-dialog">
+      
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">New Message</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <div class="modal-body">
+            <div class='search-box w-100'>
+              <input id="searchFollower" class='search-input w-100' type='text' name='' placeholder='Search'>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
         </div>
+        
       </div>
     </div>
   </div>
+  <script src='https://code.jquery.com/jquery-3.6.0.js' integrity='sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk='
+    crossorigin='anonymous'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js'
+    integrity='sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1' crossorigin='anonymous'>
+  </script>
+  <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js'
+    integrity='sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM' crossorigin='anonymous'>
+  </script>
+  <script src='https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js'
+    integrity='sha256-0H3Nuz3aug3afVbUlsu12Puxva3CP4EhJtPExqs54Vg=' crossorigin='anonymous'></script>
+    <script
+    src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"
+    integrity="sha256-xH4q8N0pEzrZMaRmd7gQVcTZiFei+HfRTBPJ1OGXC0k="
+    crossorigin="anonymous"></script>
+    <script src="js/jquery.ui.autocomplete.scroll.js"></script>
+    <script src="js/jquery.ui.autocomplete.scroll.min.js"></script>
+    <script src='js/posts.js'></script>
 </body>
 
 </html>

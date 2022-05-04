@@ -1,9 +1,8 @@
-const url = "http://localhost/SpotTheMusic/SpotTheMusic_API/SpotTheMusic_API/public/api"
+const url = "http://stm.projectebaleart.com/public/api"
 $(function () {
-    Cookies.set('user', "elUsuarioBlanco");
-    console.log(Cookies.get('user'));
-    //Cookies.remove('user');
-    console.log(Cookies.get('user'));
+    Cookies.set('user', "aaa");
+    Cookies.remove("user");
+
     $("#register").click(function (e) { 
         e.preventDefault();
         verifyEmail();
@@ -67,7 +66,8 @@ function loginUser(){
         },
         dataType: "json",
         success: function (response) {
-            Cookies.set('user', response.user);
+            Cookies.set('user', response.id_user);
+            window.location.href="http://localhost/SpotTheMusic/ProjecteServeraQuetglas/";
         }
     });
 }
