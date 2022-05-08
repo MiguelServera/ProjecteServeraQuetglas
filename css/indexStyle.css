@@ -139,7 +139,7 @@ div>img {
     display: none; /* for Chrome, Safari, and Opera */
 }
 
-.usersPost{
+.usersPost, .followerChat{
     padding: 10px;
     outline: 1px solid; /* use instead of border */
     margin-top: 1px;
@@ -168,6 +168,10 @@ ul.ui-autocomplete {
     overflow-y: auto;
     overflow-x: hidden;
     list-style-type: none;
+}
+
+.userMessage{
+    float: right;  
 }
 
 @media (min-width: 768px) {

@@ -1,14 +1,20 @@
 const url = "http://stm.projectebaleart.com/public/api"
 let user = "";
+let username = "";
 
-(Cookies.get("user") != undefined)
-?user = Cookies.get("user")
-:window.location.href="http://localhost/SpotTheMusic/ProjecteServeraQuetglas/";
+if(Cookies.get("user") != undefined)
+{
+    user = Cookies.get("user");
+    username = Cookies.get("username");
+} else {
+    window.location.href="http://localhost/SpotTheMusic/ProjecteServeraQuetglas/login.html";
+}
 
 $(function () {
-    $(".user").text(user);
+    $(".user").text(username);
     getPosts();
     randomSuggests();
+    getFollowersMessages();
 
     $(".sendPost").click(function (e) { 
         e.preventDefault();
@@ -43,6 +49,8 @@ function getPosts() {
         url: url+"/posts/"+user,
         dataType: "json",
         success: function (response) {
+            console.log("POSTS");
+            console.log(response);
             response.forEach(element => {
                 $(".posts").append("<div class='usersPost'>"+
                 "<div class='d-flex'>"+
@@ -103,8 +111,8 @@ function followUser(parent){
         type: "POST",
         url: url+"/followers",
         data: {
-            "userFollows":2,
-            "userFollowed":8
+            "userFollows":parent,
+            "userFollowed":user
         },
         dataType: "json",
         success: function (response) {
@@ -118,8 +126,8 @@ function deleteFollowUser(parent){
         type: "DELETE",
         url: url+"/followers",
         data: {
-            "userFollows":2,
-            "userFollowed":8
+            "userFollows":parent,
+            "userFollowed":user
         },
         dataType: "json",
         success: function (response) {
@@ -166,23 +174,24 @@ function getFollowersMessages(){
         success: function (response) {
             console.log(response);
             response.forEach(element => {
-                $("#followersMessages").append("<div class='followerChat'>"+
+                $("#followersMessages").append("<div id='"+element['userFollows']+"' class='followerChat'>"+
                 "<div class='d-flex'>"+
                   "<img class='userIcon mr-2' src='img/userIcon.png' alt='' />"+
                   "<div class='userInfo mw-100'>"+
                     "<div class='name'>"+
-                      "<span>"+element['username']+"</span>"+
+                      "<span>"+element['userFollows']+"</span>"+
                     "</div>"+
                     "<div class='message'>"+
                       "<span>Oye habla conmigo vamos!</span>"+
                     "</div>"+
                   "</div>"+
                 "</div>"+
-              "</div>'");
+              "</div>");
             });
-            $(".followButton").click(function (e) { 
-                let parent = $(this).parent().attr("id");
-                followUser(parent);
+            $(".followerChat").click(function (e) { 
+                let idFollower = $(this).attr("id");
+                $("#chatFollower").modal('show');
+                $("#newMessages").modal('hide');
             });
         }
     });
