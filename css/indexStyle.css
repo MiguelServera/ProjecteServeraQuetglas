@@ -139,6 +139,16 @@ div>img {
     display: none; /* for Chrome, Safari, and Opera */
 }
 
+.posts {
+    -ms-overflow-style: none; /* for Internet Explorer, Edge */
+    scrollbar-width: none; /* for Firefox */
+    overflow-y: scroll; 
+}
+
+.posts::-webkit-scrollbar {
+    display: none; /* for Chrome, Safari, and Opera */
+}
+
 .usersPost, .followerChat{
     padding: 10px;
     outline: 1px solid; /* use instead of border */
@@ -146,8 +156,8 @@ div>img {
     margin-left: 1px;
 }
 
-.userPost{
-    margin-bottom: 10px;
+.userPost, .usersPost{
+    margin-bottom: 1px;
 }
 
 .main-container{
@@ -171,7 +181,52 @@ ul.ui-autocomplete {
 }
 
 .userMessage{
-    float: right;  
+    float: right;
+    background-color: rgb(253, 226, 185);
+    border-radius: 5px 5px 5px 5px;
+    padding: 10px;
+}
+
+.userMessage > *{
+    float: right;
+}
+
+.textMessageUser > *{
+    float: right;
+}
+
+.followerMessage{
+    background-color: rgb(255, 168, 255);
+    border-radius: 5px 5px 5px 5px;
+    padding: 10px;
+}
+
+.messages{
+    height: 90%;
+}
+
+.modal-dialog { 
+    height: 95vh !important;
+ }
+ 
+.modal-content {
+ 
+    /* 80% of window height */
+ 
+    height: 95vh!important; 
+}   
+
+.followersMessages{
+    height: 100%;
+}
+
+.messages>div{
+    margin: 10px 0px 10px 0px;
+}
+
+.posts{
+    overflow-y: scroll; 
+    height: 85vh;
 }
 
 @media (min-width: 768px) {

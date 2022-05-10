@@ -7,7 +7,7 @@ if(Cookies.get("user") != undefined)
     user = Cookies.get("user");
     username = Cookies.get("username");
 } else {
-    window.location.href="http://localhost/SpotTheMusic/ProjecteServeraQuetglas/login.html";
+    window.location.href="http://localhost/ProjecteServeraQuetglas/login.html";
 }
 
 $(function () {
@@ -51,6 +51,7 @@ function getPosts() {
         success: function (response) {
             console.log("POSTS");
             console.log(response);
+            $(".usersPost").remove();
             response.forEach(element => {
                 $(".posts").append("<div class='usersPost'>"+
                 "<div class='d-flex'>"+
@@ -84,6 +85,7 @@ function insertPost(){
         },
         dataType: "json",
         success: function (response) {
+            getPosts();
             console.log(response);
         }, error: function(response){
             console.log(response);

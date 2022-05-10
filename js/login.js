@@ -68,7 +68,7 @@ function loginUser(){
         success: function (response) {
             Cookies.set('user', response.id_user);
             Cookies.set('username', response.username);
-            window.location.href="http://localhost/SpotTheMusic/ProjecteServeraQuetglas/";
+            window.location.href="http://localhost/ProjecteServeraQuetglas/";
         }
     });
 }
