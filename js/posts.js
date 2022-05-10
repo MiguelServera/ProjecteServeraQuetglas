@@ -7,7 +7,7 @@ if(Cookies.get("user") != undefined)
     user = Cookies.get("user");
     username = Cookies.get("username");
 } else {
-    window.location.href="http://localhost/ProjecteServeraQuetglas/login.html";
+    window.location.href="http://localhost/SpotTheMusic/ProjecteServeraQuetglas/login.html";
 }
 
 $(function () {

@@ -229,6 +229,46 @@ ul.ui-autocomplete {
     height: 85vh;
 }
 
+.person {
+    width: 50px;
+    height: 50px;
+    position: relative;
+  }
+  
+  img {
+    height: 100%;
+    width: 100%;
+  }
+  
+  .status-circle-dis {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: grey;
+    border: 2px solid white;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+  }
+
+  .status-circle-conn {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: rgb(91, 180, 32);
+    border: 2px solid white;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+  }
+
+  #map {
+    height: 400px;
+    /* The height is 400 pixels */
+    width: 100%;
+    /* The width is the width of the web page */
+  }
+
 @media (min-width: 768px) {
     .inputLogin {
         width: 45%;
