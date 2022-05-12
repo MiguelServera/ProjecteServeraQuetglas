@@ -7,35 +7,20 @@ if(Cookies.get("user") != undefined)
     user = Cookies.get("user");
     username = Cookies.get("username");
 } else {
-    window.location.href="http://localhost/SpotTheMusic/ProjecteServeraQuetglas/login.html";
+    window.location.href="http://localhost/ProjecteServeraQuetglas/login.html";
 }
 
 $(function () {
     $(".user").text(username);
     getPosts();
     randomSuggests();
-    getFollowersMessages();
 
     $(".sendPost").click(function (e) { 
         e.preventDefault();
         insertPost();
     });
 
-    let availableFollowers = [
-
-      ];
-
-      $( "#searchFollower" ).autocomplete({
-        open : function(){
-            $(".ui-autocomplete:visible").css({top:"+=5",left:"-=6"});
-        },
-        source: availableFollowers
-      });
-
-      jQuery.ui.autocomplete.prototype._resizeMenu = function () {
-        var ul = this.menu.element;
-        ul.outerWidth(this.element.outerWidth());
-      }
+    
 
     $(".followButton").click(function (e) { 
         e.preventDefault();
@@ -89,21 +74,6 @@ function insertPost(){
             console.log(response);
         }, error: function(response){
             console.log(response);
-        }
-    });
-}
-
-function insertMessage(){
-    $.ajax({
-        type: "POST",
-        url: "url"+"",
-        data: {
-            "message":$("#textMessage").val(),
-            "user":$("#user").val()
-        },
-        dataType: "json",
-        success: function (response) {
-            
         }
     });
 }

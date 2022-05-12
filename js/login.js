@@ -1,7 +1,7 @@
 const url = "http://stm.projectebaleart.com/public/api"
 $(function () {
     $(".spinner").hide();
-    $("#login-form").keypress(function(event){
+    $(".login-form").keypress(function(event){
         var keycode = (event.keyCode ? event.keyCode : event.which);
         if(keycode == '13'){
           $("#login").click();
@@ -75,7 +75,7 @@ function loginUser(){
             Cookies.set('user', response.id_user);
             Cookies.set('username', response.username);
             $(".spinner").hide();
-            window.location.href="http://localhost/SpotTheMusic/ProjecteServeraQuetglas/";
+            window.location.href="http://localhost/ProjecteServeraQuetglas/";
         }
     });
 }
