@@ -1,7 +1,12 @@
 const url = "http://stm.projectebaleart.com/public/api"
 $(function () {
-    Cookies.set('user', "aaa");
-    Cookies.remove("user");
+    $(".spinner").hide();
+    $("#login-form").keypress(function(event){
+        var keycode = (event.keyCode ? event.keyCode : event.which);
+        if(keycode == '13'){
+          $("#login").click();
+        }
+    });
 
     $("#register").click(function (e) { 
         e.preventDefault();
@@ -11,6 +16,7 @@ $(function () {
 
     $("#login").click(function (e) { 
         e.preventDefault();
+        $(".spinner").show();
         loginUser();
     });
 
@@ -68,6 +74,7 @@ function loginUser(){
         success: function (response) {
             Cookies.set('user', response.id_user);
             Cookies.set('username', response.username);
+            $(".spinner").hide();
             window.location.href="http://localhost/SpotTheMusic/ProjecteServeraQuetglas/";
         }
     });

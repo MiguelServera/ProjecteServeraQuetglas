@@ -60,7 +60,7 @@ function getPosts() {
                     "<div class='name'>"+
                         "<span id='user'>"+element['user']+"</span>"+
                     "</div>"+
-                    "<div id='textPost' class='text w-100'>"+
+                    "<div class='text w-100'>"+
                         "<span>"+element['text']+"</span>"+
                     "</div>"+
                   "</div>"+

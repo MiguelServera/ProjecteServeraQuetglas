@@ -151,13 +151,20 @@ div>img {
 
 .usersPost, .followerChat{
     padding: 10px;
-    outline: 1px solid; /* use instead of border */
+    outline: 1pt solid rgba(199, 199, 199, 0.788);
     margin-top: 1px;
     margin-left: 1px;
 }
 
 .userPost, .usersPost{
     margin-bottom: 1px;
+}
+
+.userPost{
+    padding: 10px;
+    background-color: antiquewhite;
+    border-radius: 5px;
+    margin-bottom: 10px;
 }
 
 .main-container{
@@ -189,6 +196,13 @@ ul.ui-autocomplete {
 
 .userMessage > *{
     float: right;
+}
+
+#textPost{
+    border: 1pt solid rgb(73, 73, 73);
+    margin-bottom: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
 }
 
 .textMessageUser > *{
