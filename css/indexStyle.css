@@ -1,7 +1,7 @@
 body,
 html {
     overflow: hidden !important;
-    background-color: rgb(70, 70, 77);
+    background-color: rgb(255, 255, 255);
 }
 
 span {
@@ -90,84 +90,95 @@ div>img {
     background-color: rgb(243, 243, 243);
 }
 
-.search-box{
+.search-box {
     padding-top: 5px;
 }
 
-.classNORESPONSIVE{
+.classNORESPONSIVE {}
 
-}
-
-.userIcon{
+.userIcon {
     width: 50px;
     height: 50px;
     border-radius: 50px;
     border: 1px solid;
 }
 
-.followButton, .newMessage{
+.followButton,
+.newMessage {
     float: right;
 }
 
-.sendButton{
+.sendButton {
     clear: right;
     float: right;
 }
 
-.suggestion{
+.suggestion {
     margin-bottom: 100px;
 }
 
-.suggested{
-    overflow-y: scroll; 
+.suggested {
+    overflow-y: scroll;
     height: 95vh;
 }
 
-.text{
+.text {
     -ms-word-break: break-all;
     word-break: break-all;
-    white-space: pre-wrap 
+    white-space: pre-wrap
 }
 
 .suggested {
-    -ms-overflow-style: none; /* for Internet Explorer, Edge */
-    scrollbar-width: none; /* for Firefox */
-    overflow-y: scroll; 
+    -ms-overflow-style: none;
+    /* for Internet Explorer, Edge */
+    scrollbar-width: none;
+    /* for Firefox */
+    overflow-y: scroll;
 }
 
 .suggested::-webkit-scrollbar {
-    display: none; /* for Chrome, Safari, and Opera */
+    display: none;
+    /* for Chrome, Safari, and Opera */
 }
 
 .posts {
-    -ms-overflow-style: none; /* for Internet Explorer, Edge */
-    scrollbar-width: none; /* for Firefox */
-    overflow-y: scroll; 
+    -ms-overflow-style: none;
+    /* for Internet Explorer, Edge */
+    scrollbar-width: none;
+    /* for Firefox */
+    overflow-y: scroll;
 }
 
 .posts::-webkit-scrollbar {
-    display: none; /* for Chrome, Safari, and Opera */
+    display: none;
+    /* for Chrome, Safari, and Opera */
 }
 
-.usersPost, .followerChat{
+.usersPost,
+.followerChat {
     padding: 10px;
     outline: 1pt solid rgba(199, 199, 199, 0.788);
     margin-top: 1px;
     margin-left: 1px;
 }
 
-.userPost, .usersPost{
+.followerMessage{
+    float: left;
+}
+
+.userPost,
+.usersPost {
     margin-bottom: 1px;
 }
 
-.userPost{
+.userPost {
     padding: 10px;
     background-color: antiquewhite;
     border-radius: 5px;
     margin-bottom: 10px;
 }
 
-.main-container{
+.main-container {
     background-color: #fff;
 }
 
@@ -175,71 +186,72 @@ ul.ui-autocomplete {
     z-index: 1100;
 }
 
-.modal-body{
+.modal-body {
     height: 400px;
 }
 
 .ui-autocomplete {
-    color: black;    
+    color: black;
     max-height: 100px;
     overflow-y: auto;
     overflow-x: hidden;
     list-style-type: none;
 }
 
-.userMessage{
+.userMessage {
     float: right;
     background-color: rgb(253, 226, 185);
     border-radius: 5px 5px 5px 5px;
     padding: 10px;
 }
 
-.userMessage > *{
+.userMessage>* {
     float: right;
 }
 
-#textPost{
+#textPost {
     border: 1pt solid rgb(73, 73, 73);
     margin-bottom: 10px;
     margin-top: 10px;
     border-radius: 5px;
 }
 
-.textMessageUser > *{
+.textMessageUser>* {
     float: right;
 }
 
-.followerMessage{
+.followerMessage {
     background-color: rgb(255, 168, 255);
     border-radius: 5px 5px 5px 5px;
     padding: 10px;
 }
 
-.messages{
+.messages {
     height: 90%;
+    overflow: scroll;
 }
 
-.modal-dialog { 
+.modal-dialog {
     height: 95vh !important;
- }
- 
-.modal-content {
- 
-    /* 80% of window height */
- 
-    height: 95vh!important; 
-}   
+}
 
-.followersMessages{
+.modal-content {
+
+    /* 80% of window height */
+
+    height: 95vh !important;
+}
+
+.followersMessages {
     height: 100%;
 }
 
-.messages>div{
+.messages>div {
     margin: 10px 0px 10px 0px;
 }
 
-.posts{
-    overflow-y: scroll; 
+.posts {
+    overflow-y: scroll;
     height: 85vh;
 }
 
@@ -247,14 +259,22 @@ ul.ui-autocomplete {
     width: 50px;
     height: 50px;
     position: relative;
-  }
-  
-  img {
+}
+
+#events{
+    width: 90%;
+}
+
+.event{
+    width: 25%;
+}
+
+img {
     height: 100%;
     width: 100%;
-  }
-  
-  .status-circle-dis {
+}
+
+.status-circle-dis {
     width: 15px;
     height: 15px;
     border-radius: 50%;
@@ -263,9 +283,9 @@ ul.ui-autocomplete {
     bottom: 0;
     right: 0;
     position: absolute;
-  }
+}
 
-  .status-circle-conn {
+.status-circle-conn {
     width: 15px;
     height: 15px;
     border-radius: 50%;
@@ -274,14 +294,29 @@ ul.ui-autocomplete {
     bottom: 0;
     right: 0;
     position: absolute;
-  }
+}
 
-  #map {
-    height: 400px;
+#map {
+    height: 350px;
     /* The height is 400 pixels */
     width: 100%;
     /* The width is the width of the web page */
-  }
+}
+
+.container-people{
+    overflow: auto;
+    height: 100vh;
+}
+
+#inputUser {
+    width: 90%;
+}
+
+#buttonInput {
+    width: 9%;
+    text-align: center;
+    margin: auto;
+}
 
 @media (min-width: 768px) {
     .inputLogin {

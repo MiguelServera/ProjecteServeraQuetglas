@@ -137,34 +137,3 @@ function randomSuggests(){
         }
     });
 }
-
-function getFollowersMessages(){
-    $.ajax({
-        type: "GET",
-        url: url+"/followers/"+user,
-        dataType: "json",
-        success: function (response) {
-            console.log(response);
-            response.forEach(element => {
-                $("#followersMessages").append("<div id='"+element['userFollows']+"' class='followerChat'>"+
-                "<div class='d-flex'>"+
-                  "<img class='userIcon mr-2' src='img/userIcon.png' alt='' />"+
-                  "<div class='userInfo mw-100'>"+
-                    "<div class='name'>"+
-                      "<span>"+element['userFollows']+"</span>"+
-                    "</div>"+
-                    "<div class='message'>"+
-                      "<span>Oye habla conmigo vamos!</span>"+
-                    "</div>"+
-                  "</div>"+
-                "</div>"+
-              "</div>");
-            });
-            $(".followerChat").click(function (e) { 
-                let idFollower = $(this).attr("id");
-                $("#chatFollower").modal('show');
-                $("#newMessages").modal('hide');
-            });
-        }
-    });
-}
