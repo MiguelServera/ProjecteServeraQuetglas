@@ -1,5 +1,4 @@
-body,
-html {
+body {
     overflow: hidden !important;
     background-color: rgb(255, 255, 255);
 }
@@ -101,6 +100,28 @@ div>img {
     height: 50px;
     border-radius: 50px;
     border: 1px solid;
+}
+
+.userIconS {
+    width: 25px;
+    height: 25px;
+    border-radius: 50px;
+    border: 1px solid white;
+}
+
+.userProfile{
+    color: #fff;
+    margin: auto;
+    margin-left: 20px!important;
+    padding-right: 5px;
+}
+
+ul, li, a{
+    list-style: none !important;
+    text-decoration: none !important;
+}
+.dropdown-menu {
+    min-width: 9rem;
 }
 
 .followButton,
@@ -228,7 +249,20 @@ ul.ui-autocomplete {
 
 .messages {
     height: 90%;
-    overflow: scroll;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+
+
+.textUserMessage{
+    width: 80%;
+    word-break: break-all;
+}
+
+.main-container{
+    height: 100vh;
+    overflow-y: auto!important;
 }
 
 .modal-dialog {
@@ -316,6 +350,14 @@ img {
     width: 9%;
     text-align: center;
     margin: auto;
+}
+
+.card {
+    width: 350px;
+    background-color: #efefef;
+    border: none;
+    cursor: pointer;
+    transition: all 0.5s;
 }
 
 @media (min-width: 768px) {

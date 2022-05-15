@@ -11,6 +11,7 @@ if(Cookies.get("user") != undefined)
 }
 
 $(function () {
+
     $(".user").text(username);
     getPosts();
     randomSuggests();
@@ -31,7 +32,7 @@ $(function () {
 function getPosts() {
     $.ajax({
         type: "GET",
-        url: url+"/posts/"+user,
+        url: url+"/posts/"+user+"/follows",
         dataType: "json",
         success: function (response) {
             console.log("POSTS");
@@ -52,7 +53,6 @@ function getPosts() {
                 "</div>"+
                 "</div>");
             });
-
         }, error: function(response){
             console.log(response);
         }
