@@ -11,12 +11,9 @@ body{
     height: 100vh;
 }
 
-.navbar{
-    height: 10%;
-}
 .main-container{
     overflow-y: auto!important;
-    height: 90%;
+    height: 90vh;
 }
 
 #carouselExampleIndicators{

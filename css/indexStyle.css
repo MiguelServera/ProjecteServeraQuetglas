@@ -103,8 +103,8 @@ div>img {
 }
 
 .userIconS {
-    width: 25px;
-    height: 25px;
+    width: 40px;
+    height: 40px;
     border-radius: 50px;
     border: 1px solid white;
 }
@@ -121,7 +121,17 @@ ul, li, a{
     text-decoration: none !important;
 }
 .dropdown-menu {
-    min-width: 9rem;
+    min-width: 8rem;
+}
+
+.relleno {
+    width: 20px;
+}
+
+.searchIcon{
+    position: absolute;
+    top: 15px;
+    left: -30px;
 }
 
 .followButton,
@@ -358,6 +368,14 @@ ul.ui-autocomplete {
     border: none;
     cursor: pointer;
     transition: all 0.5s;
+}
+
+#searchSmth{
+    padding: 0.2rem;
+}
+
+.navbar{
+    height: 6vh;
 }
 
 @media (min-width: 768px) {

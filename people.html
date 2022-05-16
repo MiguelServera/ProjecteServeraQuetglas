@@ -16,61 +16,74 @@
 </head>
 
 <body>
-    <div>
-        <nav class='navbar navbar-expand sticky-top justify-content-between bg-dark'>
-            <div class='nav navbar-nav'>
-                <a class='nav-item nav-link text-light active' href='index.html'>Spot Social</a>
-                <a class='nav-item nav-link text-light' href='people.html'>Spot Gente</a>
-                <a class='nav-item nav-link text-light' href='#'>Spot Música</a>
-            </div>
-            <div class='nav navbar-nav'>
-                <div class='search-box'>
-                    <input class='search-input' type='text' name='' placeholder='Search'>
-                    <a href='#' class='search-btn'>
-                        <i class='fa fa-search'></i>
-                    </a>
+    <nav class='navbar navbar-expand sticky-top justify-content-between bg-dark'>
+        <div class='nav navbar-nav'>
+            <a class='nav-item nav-link text-light active' href='index.html'>Spot Social</a>
+            <a class='nav-item nav-link text-light' href='people.html'>Spot Gente</a>
+            <a class='nav-item nav-link text-light' href='#'>Spot Música</a>
+        </div>
+        <div class='nav navbar-nav'>
+            <div class='search-box d-flex'>
+                <div id="searchSmth" class="form-outline d-flex">
+                    <input type="search" class="form-control" placeholder="Search..." aria-label="Search" />
                 </div>
-                <a class='nav-item nav-link text-light active' href='#'><i class='fa fa-moon-o'></i></a>
-                <a class='nav-item nav-link text-light active' href='#'><i class='fa fa-globe'
-                        aria-hidden='true'></i></a>
-                <a class='nav-item nav-link text-light active' href='#'><i class='fa fa-key' aria-hidden='true'></i></a>
             </div>
-        </nav>
+            <div class="dropdown d-flex">
+                <div class="searchIcon">
+                    <a href=""><i class="fa fa-search" aria-hidden="true"></i></a>
+                </div>
+                <div class="relleno"></div>
+                <a class='nav-item nav-link text-light active' data-toggle="dropdown" href='#'><img class='userIconS'
+                        src="img/userIcon.png" alt=""></a>
+                <div class="dropdown-menu pull-left w-25 mw-25" style="right: 0; left: auto;"
+                    aria-labelledby="dropdownMenuButton m-auto">
+                    <a class="dropdown-item" href="profile.html"><i class="fa fa-user-circle" aria-hidden="true"></i>
+                        Profile</a>
+                    <button class="dropdown-item" type="button"><i class="fas fa-cog"></i> Config</button>
+                </div>
+            </div>
 
-        <div class='main-container pt-4 container-events container'>
-            <div class="d-flex">
-                <div class="col-2">
-                    <div class="people">
-                        <div class='person m-1'>
-                            <img src="https://cdn2.iconfinder.com/data/icons/flatfaces-everyday-people-square/128/beard_male_man_face_avatar-512.png" />
-                            <div class='status-circle-dis'>
-                            </div>
+        </div>
+    </nav>
+
+    <div class='main-container pt-4 container-events container'>
+        <div class="d-flex">
+            <div class="col-2">
+                <div class="people">
+                    <div class='person m-1'>
+                        <img
+                            src="https://cdn2.iconfinder.com/data/icons/flatfaces-everyday-people-square/128/beard_male_man_face_avatar-512.png" />
+                        <div class='status-circle-dis'>
                         </div>
-                        <div class='person m-1'>
-                            <img src="https://cdn2.iconfinder.com/data/icons/flatfaces-everyday-people-square/128/beard_male_man_face_avatar-512.png" />
-                            <div class='status-circle-conn'>
-                            </div>
+                    </div>
+                    <div class='person m-1'>
+                        <img
+                            src="https://cdn2.iconfinder.com/data/icons/flatfaces-everyday-people-square/128/beard_male_man_face_avatar-512.png" />
+                        <div class='status-circle-conn'>
                         </div>
                     </div>
                 </div>
-                <div class="col-10">
-                    <div id="map"></div>
-                </div>
             </div>
-            <div id="events-container d-flex">
-                <div class="event">
-                    <h4>Titulo Evento</h4>
-                    <img src="img/parque.jpg" alt="">
-                    <p class="descripcionEvento">Curabitur ut tempor mi, a commodo purus. Maecenas condimentum dignissim ligula non euismod. Integer porttitor sodales lorem quis tristique. Mauris quis ligula eget quam porttitor vulputate. Etiam nec massa sodales, faucibus augue nec, mollis risus. Nulla finibus lorem tincidunt, euismod tortor in, posuere orci. Curabitur porttitor nisi efficitur convallis semper. Pellentesque consequat consequat orci, vitae interdum lectus tincidunt eu.</p>
-                </div>
+            <div class="col-10">
+                <div id="map"></div>
+            </div>
+        </div>
+        <div id="events-container d-flex">
+            <div class="event">
+                <h4>Titulo Evento</h4>
+                <img src="img/parque.jpg" alt="">
+                <p class="descripcionEvento">Curabitur ut tempor mi, a commodo purus. Maecenas condimentum dignissim
+                    ligula non euismod. Integer porttitor sodales lorem quis tristique. Mauris quis ligula eget quam
+                    porttitor vulputate. Etiam nec massa sodales, faucibus augue nec, mollis risus. Nulla finibus lorem
+                    tincidunt, euismod tortor in, posuere orci. Curabitur porttitor nisi efficitur convallis semper.
+                    Pellentesque consequat consequat orci, vitae interdum lectus tincidunt eu.</p>
             </div>
         </div>
     </div>
 </body>
 <script
-src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDPi0Q-QHx_iiXqU-8w6eYxPyimr4-_kog&callback=initMap&v=weekly"
-defer
-></script>
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDPi0Q-QHx_iiXqU-8w6eYxPyimr4-_kog&callback=initMap&v=weekly"
+    defer></script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
     crossorigin="anonymous"></script>
@@ -80,7 +93,7 @@ defer
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
-    <script src="js/people.js"></script>
+<script src="js/people.js"></script>
 </body>
 
 </html>

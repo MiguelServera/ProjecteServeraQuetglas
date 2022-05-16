@@ -15,36 +15,38 @@
 </head>
 
 <body>
-  <div>
-    <nav class='navbar navbar-expand sticky-top justify-content-between bg-dark'>
-      <div class='nav navbar-nav'>
-        <a class='nav-item nav-link text-light active' href='index.html'>Spot Social</a>
-        <a class='nav-item nav-link text-light' href='people.html'>Spot Gente</a>
-        <a class='nav-item nav-link text-light' href='#'>Spot Música</a>
+  <nav class='navbar navbar-expand sticky-top justify-content-between bg-dark'>
+    <div class='nav navbar-nav'>
+      <a class='nav-item nav-link text-light active' href='index.html'>Spot Social</a>
+      <a class='nav-item nav-link text-light' href='people.html'>Spot Gente</a>
+      <a class='nav-item nav-link text-light' href='#'>Spot Música</a>
+    </div>
+    <div class='nav navbar-nav'>
+      <div class='search-box d-flex'>
+        <div id="searchSmth" class="form-outline d-flex">
+          <input type="search" class="form-control" placeholder="Search..." aria-label="Search" />
+        </div>
       </div>
-      <div class='nav navbar-nav'>
-        <div class='search-box'>
-          <input class='search-input' type='text' name='' placeholder='Search'>
-          <a href='#' class='search-btn'>
-            <i class='fa fa-search'></i>
-          </a>
+      <div class="dropdown d-flex">
+        <div class="searchIcon">
+          <a href=""><i class="fa fa-search" aria-hidden="true"></i></a>
         </div>
-        <div class="dropdown d-flex">
-          <div class="userProfile" data-toggle="dropdown">Joselitooo</div>
-          <a class='nav-item nav-link text-light active' data-toggle="dropdown" href='#'><img class='userIconS'
-              src="img/userIcon.png" alt=""></a>
-          <div class="dropdown-menu w-25 mw-25" aria-labelledby="dropdownMenuButton m-auto">
-            <a class="dropdown-item" href="profile.html">Profile</a>
-            <button class="dropdown-item" type="button">Configuration</button>
-          </div>
+        <div class="relleno"></div>
+        <a class='nav-item nav-link text-light active' data-toggle="dropdown" href='#'><img class='userIconS'
+            src="img/userIcon.png" alt=""></a>
+        <div class="dropdown-menu pull-left w-25 mw-25" style="right: 0; left: auto;"
+          aria-labelledby="dropdownMenuButton m-auto">
+          <a class="dropdown-item" href="profile.html"><i class="fa fa-user-circle" aria-hidden="true"></i> Profile</a>
+          <button class="dropdown-item" type="button"><i class="fas fa-cog"></i> Config</button>
         </div>
+      </div>
 
-      </div>
-    </nav>
-    <div class='main-container d-flex pt-4'>
-      <div class='suggested col-3'>
-        <h2 class='text-center mb-4'>RECOMENDATIONS</h2>
-        <!--<div class='suggestion'>
+    </div>
+  </nav>
+  <div class='main-container d-flex pt-4'>
+    <div class='suggested col-3'>
+      <h2 class='text-center mb-4'>RECOMENDATIONS</h2>
+      <!--<div class='suggestion'>
           <div class='d-flex'>
             <img class='userIcon mr-2' src='img/userIcon.png' alt='' />
             <div class='userInfo mw-100'>
@@ -59,28 +61,28 @@
           </div>
           <button type='button' class='btn btn-primary followButton'>Follow</button>
         </div>-->
-      </div>
+    </div>
 
-      <div class='posts col-6'>
-        <h2 class='text-center mb-4'>POSTS</h2>
-        <div class='userPost overflow-hidden'>
-          <div class='d-flex overflow-hidden'>
-            <img class='userIcon mr-2' src='img/userIcon.png' alt='' />
-            <div class='userInfo mw-100 w-100'>
-              <div class='name'>
-                <span class='user'></span>
-              </div>
-              <div id='textPost' class='text w-100' contenteditable=''>
-              </div>
+    <div class='posts col-6'>
+      <h2 class='text-center mb-4'>POSTS</h2>
+      <div class='userPost overflow-hidden'>
+        <div class='d-flex overflow-hidden'>
+          <img class='userIcon mr-2' src='img/userIcon.png' alt='' />
+          <div class='userInfo mw-100 w-100'>
+            <div class='name'>
+              <span class='user'></span>
+            </div>
+            <div id='textPost' class='text w-100' contenteditable=''>
             </div>
           </div>
-          <button type='button' class='sendButton btn btn-primary sendPost'>Send</button>
         </div>
+        <button type='button' class='sendButton btn btn-primary sendPost'>Send</button>
       </div>
+    </div>
 
-      <div class='messsages col-3'>
-        <h2 class='text-center mb-4'>MESSAGES</h2>
-        <!--<div class='message'>
+    <div class='messsages col-3'>
+      <h2 class='text-center mb-4'>MESSAGES</h2>
+      <!--<div class='message'>
           <div class='d-flex'>
             <img class='userIcon mr-2' src='img/userIcon.png' alt='' />
             <div class='userInfo mw-100'>
@@ -93,59 +95,58 @@
             </div>
           </div>
         </div>-->
-        <button type="button" class="newMessage btn btn-primary" data-toggle="modal" data-target="#newMessages"><i
-            class="fa fa-feather"></i></button>
-      </div>
+      <button type="button" class="newMessage btn btn-primary" data-toggle="modal" data-target="#newMessages"><i
+          class="fa fa-feather"></i></button>
     </div>
-    <div class="modal fade" id="newMessages" role="dialog">
-      <div class="modal-dialog">
+  </div>
+  <div class="modal fade" id="newMessages" role="dialog">
+    <div class="modal-dialog">
 
-        <!-- Modal content-->
-        <div class="modal-content">
-          <div class="modal-header">
-            <h4 class="modal-title">New Message</h4>
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">New Message</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class='search-box w-100'>
+            <input id="searchFollower" class='search-input w-100' type='text' name='' placeholder='Search'>
           </div>
-          <div class="modal-body">
-            <div class='search-box w-100'>
-              <input id="searchFollower" class='search-input w-100' type='text' name='' placeholder='Search'>
-            </div>
-            <div id="followersMessages">
-              <h3>New message</h3>
+          <div id="followersMessages">
+            <h3>New message</h3>
 
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
           </div>
         </div>
-
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
       </div>
+
     </div>
+  </div>
 
-    <div class="modal fade" id="chatFollower" role="dialog">
-      <div class="modal-dialog">
+  <div class="modal fade" id="chatFollower" role="dialog">
+    <div class="modal-dialog">
 
-        <!-- Modal content-->
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5>ElFollowerEnCustion</h5>
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-          </div>
-          <div class="modal-body">
-            <div class="followersMessages">
-              <div id="msg" class="messages">
-              </div>
-              <input type="text" name="" id="inputUser">
-              <button id="buttonInput"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5>ElFollowerEnCustion</h5>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="followersMessages">
+            <div id="msg" class="messages">
             </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <input type="text" name="" id="inputUser">
+            <button id="buttonInput"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
           </div>
         </div>
-
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
       </div>
+
     </div>
   </div>
   <script src='https://code.jquery.com/jquery-3.6.0.js' integrity='sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk='
