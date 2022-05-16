@@ -19,7 +19,6 @@
 </head>
 
 <body>
-    <div>
         <nav class='navbar navbar-expand sticky-top justify-content-between bg-dark'>
             <div class='nav navbar-nav'>
                 <a class='nav-item nav-link text-light active' href='index.html'>Spot Social</a>
@@ -38,24 +37,129 @@
                     <a class='nav-item nav-link text-light active' data-toggle="dropdown" href='#'><img
                             class='userIconS' src="img/userIcon.png" alt=""></a>
                     <div class="dropdown-menu w-25 mw-25" aria-labelledby="dropdownMenuButton m-auto">
-                        <button class="dropdown-item" type="button">Profile</button>
+                        <a class="dropdown-item" href="profile.html">Profile</a>
                         <button class="dropdown-item" type="button">Configuration</button>
-                        <button class="dropdown-item" type="button"></button>
                     </div>
                 </div>
 
             </div>
         </nav>
-    </div>
     <div class="main-container">
-        <div class="container mt-4 mb-4 d-flex justify-content-center">
-            <div class="image d-flex flex-column justify-content-center align-items-center card p-4">
+        <div class="container mt-4 mb-4 d-flex profileContainer justify-content-center">
+            <div class="col-4 image d-flex flex-column justify-content-center align-items-center card p-4">
                 <img src="img/userIcon.png" class="userImgProfile" alt="">
                 <h5>nombredeusuario</h5>
                 <h6>@nombredeusuario</h6>
-                <span>Vestibulum dapibus felis turpis, id laoreet risus pretium a. Ut sollicitudin finibus nibh, at feugiat nunc iaculis id. Sed quis ante diam. Aliquam ac sem vel urna rhoncus finibus non ac libero. Sed varius semper dapibus. Integer erat tortor, imperdiet eu justo vel, finibus pellentesque justo. Quisque luctus malesuada sapien. Pellentesque commodo dictum accumsan. Morbi blandit arcu velit, ut sollicitudin mi bibendum ut. Sed sollicitudin neque id ex dignissim aliquet.</span>
+                <span>Vestibulum dapibus felis turpis, id laoreet risus pretium a. Ut sollicitudin finibus nibh, at
+                    feugiat nunc iaculis id. Sed quis ante diam. Aliquam ac sem vel urna rhoncus finibus non ac libero.
+                    Sed varius semper dapibus.</span>
+                <span> Music categories: Pop, Rock, Metal, Chill</span>
+                <span><b>1234434 Followers</b></span>
+            </div>
+            <div id="profilePosts" class="col-8 mh-100 h-100 overflow-auto">
+
             </div>
         </div>
+        <div class="container">
+            <button class="btn btn-primary w-100" type="button" data-toggle="collapse" data-target="#collapseExample"
+                aria-expanded="false" aria-controls="collapseExample">
+                <i class="fas fa-arrow-down"></i>
+            </button>
+            <div class="collapse" id="collapseExample">
+                <div class="card card-body w-100">
+                    <div id="carouselExampleIndicators" class="carousel slide" data-interval="false">
+                        <ol class="carousel-indicators">
+                            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                        </ol>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <div class="d-flex h-100 justify-content-center">
+                                    <div class="eventProfile col-6">
+                                        <h4>Titulo Evento</h4>
+                                        <img src="img/parque.jpg" alt="">
+                                        <p class="descripcionEvento">Curabitur ut tempor mi, a commodo purus. Maecenas
+                                            condimentum dignissim ligula non euismod. Integer porttitor sodales lorem
+                                            quis tristique. Mauris quis ligula eget quam porttitor vulputate. Etiam nec
+                                            massa sodales, faucibus augue nec, mollis risus. Nulla finibus lorem
+                                            tincidunt, euismod tortor in, posuere orci. Curabitur porttitor nisi
+                                            efficitur convallis semper. Pellentesque consequat consequat orci, vitae
+                                            interdum lectus tincidunt eu.Curabitur ut tempor mi, a commodo purus. Maecenas
+                                            condimentum dignissim ligula non euismod. Integer porttitor sodales lorem
+                                            quis tristique. Mauris quis ligula eget quam porttitor vulputate. Etiam nec
+                                            massa sodales, faucibus augue nec, mollis risus. Nulla finibus lorem
+                                            tincidunt, euismod tortor in, posuere orci. Curabitur porttitor nisi
+                                            efficitur convallis semper. Pellentesque consequat consequat orci, vitae
+                                            interdum lectus tincidunt eu.Curabitur ut tempor mi, a commodo purus. Maecenas
+                                            condimentum dignissim ligula non euismod. Integer porttitor sodales lorem
+                                            quis tristique. Mauris quis ligula eget quam porttitor vulputate. Etiam nec
+                                            massa sodales, faucibus augue nec, mollis risus. Nulla finibus lorem
+                                            tincidunt, euismod tortor in, posuere orci. Curabitur porttitor nisi
+                                            efficitur convallis semper. Pellentesque consequat consequat orci, vitae
+                                            interdum lectus tincidunt eu.Curabitur ut tempor mi, a commodo purus. Maecenas
+                                            condimentum dignissim ligula non euismod. Integer porttitor sodales lorem
+                                            quis tristique. Mauris quis ligula eget quam porttitor vulputate. Etiam nec
+                                            massa sodales, faucibus augue nec, mollis risus. Nulla finibus lorem
+                                            tincidunt, euismod tortor in, posuere orci. Curabitur porttitor nisi
+                                            efficitur convallis semper. Pellentesque consequat consequat orci, vitae
+                                            interdum lectus tincidunt eu.Curabitur ut tempor mi, a commodo purus. Maecenas
+                                            condimentum dignissim ligula non euismod. Integer porttitor sodales lorem
+                                            quis tristique. Mauris quis ligula eget quam porttitor vulputate. Etiam nec
+                                            massa sodales, faucibus augue nec, mollis risus. Nulla finibus lorem
+                                            tincidunt, euismod tortor in, posuere orci. Curabitur porttitor nisi
+                                            efficitur convallis semper. Pellentesque consequat consequat orci, vitae
+                                            interdum lectus tincidunt eu.</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="carousel-item">
+                                <div class="d-flex">
+                                    <div class="eventProfile">
+                                        <h4>Titulo Evento</h4>
+                                        <img src="img/parque.jpg" alt="">
+                                        <p class="descripcionEvento">Curabitur ut tempor mi, a commodo purus. Maecenas
+                                            condimentum dignissim ligula non euismod. Integer porttitor sodales lorem
+                                            quis tristique. Mauris quis ligula eget quam porttitor vulputate. Etiam nec
+                                            massa sodales, faucibus augue nec, mollis risus. Nulla finibus lorem
+                                            tincidunt, euismod tortor in, posuere orci. Curabitur porttitor nisi
+                                            efficitur convallis semper. Pellentesque consequat consequat orci, vitae
+                                            interdum lectus tincidunt eu.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="d-flex">
+                                    <div class="eventProfile">
+                                        <h4>Titulo Evento</h4>
+                                        <img src="img/parque.jpg" alt="">
+                                        <p class="descripcionEvento">Curabitur ut tempor mi, a commodo purus. Maecenas
+                                            condimentum dignissim ligula non euismod. Integer porttitor sodales lorem
+                                            quis tristique. Mauris quis ligula eget quam porttitor vulputate. Etiam nec
+                                            massa sodales, faucibus augue nec, mollis risus. Nulla finibus lorem
+                                            tincidunt, euismod tortor in, posuere orci. Curabitur porttitor nisi
+                                            efficitur convallis semper. Pellentesque consequat consequat orci, vitae
+                                            interdum lectus tincidunt eu.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button"
+                            data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button"
+                            data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -63,16 +167,17 @@
         integrity='sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=' crossorigin='anonymous'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js'
         integrity='sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1' crossorigin='anonymous'>
-        </script>
+    </script>
     <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js'
         integrity='sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM' crossorigin='anonymous'>
-        </script>
+    </script>
     <script src='https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js'
         integrity='sha256-0H3Nuz3aug3afVbUlsu12Puxva3CP4EhJtPExqs54Vg=' crossorigin='anonymous'></script>
     <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"
         integrity="sha256-xH4q8N0pEzrZMaRmd7gQVcTZiFei+HfRTBPJ1OGXC0k=" crossorigin="anonymous"></script>
     <script src="js/jquery.ui.autocomplete.scroll.js"></script>
     <script src="js/jquery.ui.autocomplete.scroll.min.js"></script>
+    <script src="js/profile.js"></script>
 </body>
 
 </html>

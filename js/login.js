@@ -75,7 +75,7 @@ function loginUser(){
             Cookies.set('user', response.id_user);
             Cookies.set('username', response.username);
             $(".spinner").hide();
-            window.location.href="http://localhost/SpotTheMusic/ProjecteServeraQuetglas/";
+            window.location.href="http://localhost/ProjecteServeraQuetglas/";
         }
     });
 }

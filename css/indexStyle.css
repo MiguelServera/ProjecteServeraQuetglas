@@ -303,7 +303,7 @@ ul.ui-autocomplete {
     width: 25%;
 }
 
-img {
+.event>img {
     height: 100%;
     width: 100%;
 }
