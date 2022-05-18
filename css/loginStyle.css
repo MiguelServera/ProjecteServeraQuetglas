@@ -1,3 +1,9 @@
+body
+{
+ padding:0;
+ margin:0;
+}  
+
 body,
 html {
     overflow: hidden !important;
@@ -24,9 +30,13 @@ html {
 
 .login-form {
     padding: 5%;
-    background: linear-gradient(90deg, rgb(70, 70, 77) 0%, rgb(136, 130, 130) 100%);
-    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
     height: 100%;
+    z-index: 9999;
+}
+
+a{
+    text-decoration: none!important;
+    color: #fff!important;
 }
 
 .login-form h3 {
@@ -37,14 +47,26 @@ html {
 
 .register-form {
     padding: 5%;
-    background: linear-gradient(90deg, rgb(70, 70, 77) 0%, rgb(136, 130, 130) 100%);
-    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
     height: 100%;
+    z-index: 9999;
 }
 
 .register-form h3 {
     text-align: center;
     color: #fff;
+}
+
+.background-image {
+  width: 24%;
+  text-align: center;
+  background-image:url("../img/headphonesCut.jpg");
+  background-size: cover;
+  -webkit-filter: blur(13px);
+  -moz-filter: blur(13px);
+  -o-filter: blur(13px);
+  -ms-filter: blur(13px);
+  filter: blur(13px);
+  z-index: -1;
 }
 
 .btnSubmit {
@@ -78,8 +100,13 @@ div>img {
 .divLogin {
     height: 100vh;
     align-items: center;
+    background-image:url("../img/headphonesCut.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     width: 24.99%;
     background-color: rgb(70, 70, 77);
+    border-left: 1pt inset black;
 }
 
 .classNORESPONSIVE{

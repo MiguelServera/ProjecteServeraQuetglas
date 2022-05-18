@@ -24,7 +24,7 @@
     <div class='nav navbar-nav'>
       <div class='search-box d-flex'>
         <div id="searchSmth" class="form-outline d-flex">
-          <input type="search" class="form-control" placeholder="Search..." aria-label="Search" />
+          <input id="searcher" type="search" class="form-control" placeholder="Search..." aria-label="Search" />
         </div>
       </div>
       <div class="dropdown d-flex">
@@ -38,6 +38,8 @@
           aria-labelledby="dropdownMenuButton m-auto">
           <a class="dropdown-item" href="profile.html"><i class="fa fa-user-circle" aria-hidden="true"></i> Profile</a>
           <button class="dropdown-item" type="button"><i class="fas fa-cog"></i> Config</button>
+          <a id="logOut" class="dropdown-item" href="profile.html"><i class="fas fa-sign-out-alt    "></i>
+            Log out</a>
         </div>
       </div>
 
@@ -72,8 +74,7 @@
             <div class='name'>
               <span class='user'></span>
             </div>
-            <div id='textPost' class='text w-100' contenteditable=''>
-            </div>
+            <div id='textPost' class='text w-100' contenteditable='true'></div>
           </div>
         </div>
         <button type='button' class='sendButton btn btn-primary sendPost'>Send</button>
@@ -165,6 +166,7 @@
   <script src="js/jquery.ui.autocomplete.scroll.min.js"></script>
   <script src='js/posts.js'></script>
   <script src='js/messages.js'></script>
+  <script src="js/autocomplete.js"></script>
 </body>
 
 </html>

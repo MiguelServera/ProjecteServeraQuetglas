@@ -54,6 +54,14 @@ body{
     width: 100%;
 }
 
+.card{
+    cursor: default!important;
+}
+
+#editProfile{
+    cursor: pointer;
+}
+
 .descripcionEvento{
     height: 100%;
 }

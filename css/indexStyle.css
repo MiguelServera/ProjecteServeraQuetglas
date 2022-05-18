@@ -11,67 +11,8 @@ span {
     white-space: pre-wrap
 }
 
-.login-container {
-    margin-top: 5%;
-    margin-bottom: 5%;
-}
-
-.login-logo {
-    position: relative;
-    margin-left: -41.5%;
-}
-
-.login-logo img {
-    position: absolute;
-    width: 20%;
-    margin-top: 19%;
-    background: #282726;
-    padding: 5%;
-}
-
-.login-form {
-    padding: 5%;
-    background: linear-gradient(90deg, rgb(70, 70, 77) 0%, rgb(136, 130, 130) 100%);
-    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
-    height: 100%;
-}
-
-.login-form h3 {
-    text-align: center;
-    margin-bottom: 10%;
-    color: #fff;
-}
-
-.register-form {
-    padding: 5%;
-    background: linear-gradient(90deg, rgb(70, 70, 77) 0%, rgb(136, 130, 130) 100%);
-    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
-    height: 100%;
-}
-
-.register-form h3 {
-    text-align: center;
-    color: #fff;
-}
-
-.btnSubmit {
-    font-weight: 600;
-    width: 50%;
-    color: #282726;
-    background-color: #fff;
-    border: none;
-    padding: 2%;
-}
-
-.btnForgetPwd {
-    color: #fff;
-    font-weight: 600;
-    text-decoration: none;
-}
-
-.btnForgetPwd:hover {
-    text-decoration: none;
-    color: #fff;
+*{
+    font-size: 11pt;
 }
 
 div>img {
@@ -219,6 +160,7 @@ ul.ui-autocomplete {
 
 .modal-body {
     height: 400px;
+    overflow: auto;
 }
 
 .ui-autocomplete {
@@ -227,7 +169,18 @@ ul.ui-autocomplete {
     overflow-y: auto;
     overflow-x: hidden;
     list-style-type: none;
+    background-color: rgb(255, 245, 245);
+    border-radius: 10px;
 }
+
+input[type=search]::-ms-clear { display: none; width : 0; height: 0; }
+input[type=search]::-ms-reveal { display: none; width : 0; height: 0; }
+/* clears the ‘X’ from Chrome */
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration { display: none; }
+
 
 .userMessage {
     float: right;
@@ -245,6 +198,7 @@ ul.ui-autocomplete {
     margin-bottom: 10px;
     margin-top: 10px;
     border-radius: 5px;
+    height: 50%;
 }
 
 .textMessageUser>* {
@@ -374,9 +328,6 @@ ul.ui-autocomplete {
     padding: 0.2rem;
 }
 
-.navbar{
-    height: 6vh;
-}
 
 @media (min-width: 768px) {
     .inputLogin {

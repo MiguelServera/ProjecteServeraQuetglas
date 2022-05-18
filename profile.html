@@ -28,7 +28,7 @@
         <div class='nav navbar-nav'>
             <div class='search-box d-flex'>
                 <div id="searchSmth" class="form-outline d-flex">
-                    <input type="search" class="form-control" placeholder="Search..." aria-label="Search" />
+                    <input id="searcher" type="search" class="form-control" placeholder="Search..." aria-label="Search" />
                 </div>
             </div>
             <div class="dropdown d-flex">
@@ -43,6 +43,8 @@
                     <a class="dropdown-item" href="profile.html"><i class="fa fa-user-circle" aria-hidden="true"></i>
                         Profile</a>
                     <button class="dropdown-item" type="button"><i class="fas fa-cog"></i> Config</button>
+                    <a id="logOut" class="dropdown-item" href="profile.html"><i class="fas fa-sign-out-alt    "></i>
+                        Log out</a>
                 </div>
             </div>
 
@@ -54,11 +56,14 @@
                 <img src="img/userIcon.png" class="userImgProfile" alt="">
                 <h5>nombredeusuario</h5>
                 <h6>@nombredeusuario</h6>
-                <span>Vestibulum dapibus felis turpis, id laoreet risus pretium a. Ut sollicitudin finibus nibh, at
+                <p>Vestibulum dapibus felis turpis, id laoreet risus pretium a. Ut sollicitudin finibus nibh, at
                     feugiat nunc iaculis id. Sed quis ante diam. Aliquam ac sem vel urna rhoncus finibus non ac libero.
-                    Sed varius semper dapibus.</span>
+                    Sed varius semper dapibus.</p>
                 <span> Music categories: Pop, Rock, Metal, Chill</span>
                 <span><b>1234434 Followers</b></span>
+
+                <span id="editProfile"><i class="fas fa-pencil-alt    "></i> Editar perfil</span>
+
             </div>
             <div id="profilePosts" class="col-8 mh-100 h-100 overflow-auto">
 
@@ -167,7 +172,40 @@
                 </div>
             </div>
         </div>
-
+        <div class="modal fade" id="profileModal" role="dialog">
+            <div class="modal-dialog">
+        
+              <!-- Modal content-->
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5>ElusuarioEncuestion</h5>
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                  <div class="d-flex align-items-center col-12 flex-column justify-content-center text-center">
+                    <img class="w-50 h-50 text-center justify-content-center" src="img/userIcon.png" alt="">
+                    <div id="inputDescription" class="w-100" contenteditable="true"></div>
+                    <input id="inputName" class="w-100 m-3 form-control" type="text" placeholder="Name">
+                    <input id="inputUsername" class="w-100 m-3 form-control" type="text" placeholder="Username">
+                    <input id="inputEmail" class="w-100 m-3 form-control" type="text" placeholder="E-mail">
+                    <input id="inputPassword" class="w-100 m-3 form-control" type="text" placeholder="Password">
+                    <input id="inputConfirmPassword" class="w-100 m-3 form-control" type="text" placeholder="Confirm Password">
+                    <div>
+                        Deseas compartir tu ubicación a los demás usuarios?<br><p></p><input type="checkbox" name="" class="m-2" id="ubicationAgreementYes">Si<input class="m-2" type="checkbox" name="" id="ubicationAgreementNo">No
+                    </div>
+                    <button id="updateUbication" type="button" class="btn btn-outline-primary">Actualizar ubicación</button>
+                    <span id="textUbication">Tú ubicación es:</br></span>
+                    <input id="inputUbication" type="hidden" name="">
+                </div>
+                </div>
+                <div class="modal-footer">
+                  <button id="saveProfileButton" type="button" class="btn btn-primary" data-dismiss="modal">Guardar</button>
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+        
+            </div>
+          </div>
     </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -175,10 +213,10 @@
         integrity='sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=' crossorigin='anonymous'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js'
         integrity='sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1' crossorigin='anonymous'>
-        </script>
+    </script>
     <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js'
         integrity='sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM' crossorigin='anonymous'>
-        </script>
+    </script>
     <script src='https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js'
         integrity='sha256-0H3Nuz3aug3afVbUlsu12Puxva3CP4EhJtPExqs54Vg=' crossorigin='anonymous'></script>
     <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"
@@ -186,6 +224,7 @@
     <script src="js/jquery.ui.autocomplete.scroll.js"></script>
     <script src="js/jquery.ui.autocomplete.scroll.min.js"></script>
     <script src="js/profile.js"></script>
+    <script src="js/autocomplete.js"></script>
 </body>
 
 </html>
