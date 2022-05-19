@@ -60,7 +60,6 @@ $(function () {
                 name: $("#inputName").val(),
                 username: $("#inputUsername").val(),
                 location: $("#inputUbication").text(),
-                email: $("#inputEmail").val(),
                 description: $("#inputDescription").text()
             },
             dataType: "dataType",
@@ -83,6 +82,10 @@ function getPosts() {
             console.log("POSTS");
             console.log(response);
             $(".usersPost").remove();
+            if (response.length == 0) {
+                $("#profilePosts").addClass("d-flex");
+                $("#profilePosts").html("<h3 id='warningPostsProfile' class='d-flex w-100 text-center flex-column justify-content-center align-items-center'>THIS USER DOESN'T HAVE ANY POSTS YET</h3>");
+            }
             response.forEach(element => {
                 $("#profilePosts").append("<div class='usersPost'>" +
                     "<div class='d-flex'>" +
@@ -116,12 +119,17 @@ function getProfile(){
             console.log(response);
             $("#inputName").val(response['name']);
             $("#inputUsername").val(response['username']);
-            let location = response['location'];
-            let textUbication = "Location: </br>- "+location.substr(0, location.indexOf(','))+"</br>- "+location.substr(location.indexOf(',')+1);
-            console.log(textUbication);
-            $("#textUbication").html(textUbication);
+            $("#inputEmail").val(response['email']);
+            if (response['location'] != null) {
+                let location = response['location'];
+                let textUbication = "Location: </br>- "+location.substr(0, location.indexOf(','))+"</br>- "+location.substr(location.indexOf(',')+1);
+                $("#textUbication").html(textUbication);
+            }
             $("#inputEmail").val(response['email']);
             $("#inputDescription").text(response['description']);
+            $("#nameProfile").text(response['name']);
+            $("#usernameProfile").text(response['username']);
+            $("#descriptionProfile").text(response['description']);
         },
         error: function (response) {
             console.log(response);
