@@ -116,7 +116,10 @@ function getProfile(){
             console.log(response);
             $("#inputName").val(response['name']);
             $("#inputUsername").val(response['username']);
-            $("#textUbication").val(response['ubication']);
+            let location = response['location'];
+            let textUbication = "Location: </br>- "+location.substr(0, location.indexOf(','))+"</br>- "+location.substr(location.indexOf(',')+1);
+            console.log(textUbication);
+            $("#textUbication").html(textUbication);
             $("#inputEmail").val(response['email']);
             $("#inputDescription").text(response['description']);
         },

@@ -109,7 +109,7 @@ function deleteFollowUser(parent) {
 function randomSuggests() {
     $.ajax({
         type: "GET",
-        url: url + "/users",
+        url: url + "/followers/"+user+"/new",
         dataType: "json",
         success: function (response) {
             let availableFollowers = [];
@@ -133,6 +133,8 @@ function randomSuggests() {
                 let parent = $(this).parent().attr("id");
                 followUser(parent);
             });
+        }, error: function(response){
+            console.log(response);
         }
     });
 }
