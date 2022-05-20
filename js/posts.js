@@ -6,7 +6,7 @@ if (Cookies.get("user") != undefined) {
     user = Cookies.get("user");
     username = Cookies.get("username");
 } else {
-    window.location.href = "http://localhost/SpotTheMusic/ProjecteServeraQuetglas/login.html";
+    window.location.href = "http://localhost/ProjecteServeraQuetglas/login.html";
 }
 
 $(function () {
@@ -86,7 +86,7 @@ function followUser(parent) {
         },
         dataType: "json",
         success: function (response) {
-            console.log(response);
+            randomSuggests();
         }
     });
 }
@@ -114,6 +114,7 @@ function randomSuggests() {
         success: function (response) {
             let availableFollowers = [];
             console.log(response);
+            $(".suggestion").remove();
             response.forEach(element => {
                 $(".suggested").append("<div id='" + element['id_user'] + "' class='suggestion'>" +
                     "<div class='d-flex'>" +
@@ -129,7 +130,9 @@ function randomSuggests() {
                     "</div>" +
                     "<button type='button' class='btn btn-primary followButton'>Follow</button></div>");
             });
-            $(".followButton").click(function (e) {
+            $(".suggestion").hide();
+            $(".suggestion").fadeIn();
+            $(".followButton").one("click",function (e) {
                 let parent = $(this).parent().attr("id");
                 followUser(parent);
             });
