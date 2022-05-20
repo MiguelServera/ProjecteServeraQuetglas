@@ -6,7 +6,7 @@ if (Cookies.get("user") != undefined) {
     user = Cookies.get("user");
     username = Cookies.get("username");
 } else {
-    window.location.href = "http://localhost/ProjecteServeraQuetglas/login.html";
+    window.location.href = "http://localhost/SpotTheMusic/ProjecteServeraQuetglas/login.html";
 }
 
 $(function () {
@@ -81,8 +81,8 @@ function followUser(parent) {
         type: "POST",
         url: url + "/followers",
         data: {
-            "userFollows": parent,
-            "userFollowed": user
+            "userFollows": user,
+            "userFollowed": parent
         },
         dataType: "json",
         success: function (response) {
