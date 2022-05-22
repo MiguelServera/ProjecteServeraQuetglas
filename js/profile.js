@@ -53,20 +53,19 @@ $(function () {
 
     $("#saveProfileButton").click(function (e) { 
         e.preventDefault();
+
+        var myFormData = new FormData();
+        let files = $("#inputImg")[0].files;
+        myFormData.append('picture', files[0]);
         $.ajax({
-            type: "PUT",
-            url: url+"/users/"+user,
-            data: {
-                name: $("#inputName").val(),
-                username: $("#inputUsername").val(),
-                location: $("#inputUbication").text(),
-                description: $("#inputDescription").text()
-            },
-            dataType: "dataType",
+            type: "POST",
+            url: "http://stm.projectebaleart.com/public/api/users/"+user+"/image",
+            data: myFormData,
+            processData: false,
+            contentType: false,
             success: function (response) {
                 console.log(response);
             }, error: function (response){
-                console.log("error");
                 console.log(response);
             }
         });

@@ -11,6 +11,10 @@ body{
     height: 100vh;
 }
 
+#inputDescription{
+    cursor: auto;
+}
+
 .main-container{
     overflow-y: auto!important;
     height: 90vh;

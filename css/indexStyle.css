@@ -126,6 +126,10 @@ ul, li, a{
     /* for Chrome, Safari, and Opera */
 }
 
+[contentEditable=true]:empty:not(:focus):before{
+    content:attr(data-text)
+}
+
 .usersPost,
 .followerChat {
     padding: 10px;

@@ -49,7 +49,7 @@ function retrieveMessagesFromUser() {
           $(".messages").append("<div id='" + element['id_message'] + "' class='followerMessage w-75'>" +
             "<div class='userInfo mw-100 w-100'>" +
             "<div id='' class='textMessageFollower w-100 d-flex'>" +
-            "<img class='userIcon mr-2' src='img/userIcon.png' alt='' />" +
+            "<img class='userIcon mr-2' src='"+element['picture']+"' alt='' />" +
             "<p>" + element['text'] + "</p>" +
             "</div>" +
             "</div>" +
@@ -59,7 +59,7 @@ function retrieveMessagesFromUser() {
             "<div class='userInfo mw-100 w-100'>" +
             "<div id='' class='textMessage w-100 d-flex'>" +
             "<p class='textUserMessage'>" + element['text'] + "</p>" +
-            "<img class='userIcon mr-2' src='img/userIcon.png' alt='' />" +
+            "<img class='userIcon mr-2' src='"+element['picture']+"' alt='' />" +
             "</div>" +
             "</div>" +
             "</div>");
@@ -85,7 +85,7 @@ function getFollowersMessages() {
       response.forEach(element => {
         $("#followersMessages").append("<div id='" + element['userFollows'] + "' class='followerChat'>" +
           "<div class='d-flex'>" +
-          "<img class='userIcon mr-2' src='img/userIcon.png' alt='' />" +
+          "<img class='userIcon mr-2' src='"+element['picture']+"' alt='' />" +
           "<div class='userInfo mw-100'>" +
           "<div class='name'>" +
           "<span>" + element['userFollows'] + "</span>" +

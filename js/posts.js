@@ -37,7 +37,7 @@ function getPosts() {
                 response.forEach(element => {
                     $(".posts").append("<div class='usersPost'>" +
                         "<div class='d-flex'>" +
-                        "<img class='userIcon mr-2' src='https://randomuser.me/api/portraits/men/47.jpg' alt='' />" +
+                        "<img class='userIcon mr-2' src='"+element['picture']+"' alt='' />" +
                         "<div class='userInfo mw-100 w-100'>" +
                         "<div class='name'>" +
                         "<span id='user'>" + element['user'] + "</span>" +
@@ -119,7 +119,7 @@ function randomSuggests() {
             response.forEach(element => {
                 $(".suggested").append("<div id='" + element['id_user'] + "' class='suggestion'>" +
                     "<div class='d-flex'>" +
-                    "<img class='userIcon mr-2' src='img/userIcon.png' alt='' />" +
+                    "<img class='userIcon mr-2' src='"+element['picture']+"' alt='' />" +
                     "<div class='userInfo mw-100'>" +
                     "<div class='name'>" +
                     "<span>" + element['username'] + "</span>" +
