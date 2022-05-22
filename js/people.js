@@ -1,3 +1,14 @@
+const url = "http://stm.projectebaleart.com/public/api"
+let user = "";
+let username = "";
+
+if (Cookies.get("user") != undefined) {
+    user = Cookies.get("user");
+    username = Cookies.get("username");
+} else {
+    window.location.href = "http://localhost/ProjecteServeraQuetglas/login.html";
+}
+
 $(document).ready(function () {
     initMap();
 
@@ -7,7 +18,22 @@ $(document).ready(function () {
       Cookies.remove("username");
       window.location = "http://localhost/ProjecteServeraQuetglas/login.html";
   });
+
+  getPeopleNearby()
 });
+
+function getPeopleNearby(){
+  $.ajax({
+    type: "GET",
+    url: url+"/users/11/nearby",
+    dataType: "json",
+    success: function (response) {
+      console.log(response);
+    }, error: function(response){
+      console.log(response);
+    }
+  });
+}
 
 function initMap() {
     // The location of Uluru
@@ -44,3 +70,21 @@ function initMap() {
   }
   
   window.initMap = initMap;
+
+  function loadXHR(url) {
+
+    return new Promise(function(resolve, reject) {
+        try {
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", url);
+            xhr.responseType = "blob";
+            xhr.onerror = function() {reject("Network error.")};
+            xhr.onload = function() {
+                if (xhr.status === 200) {resolve(xhr.response)}
+                else {reject("Loading error:" + xhr.statusText)}
+            };
+            xhr.send();
+        }
+        catch(err) {reject(err.message)}
+    });
+}

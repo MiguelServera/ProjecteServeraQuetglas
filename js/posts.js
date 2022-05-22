@@ -31,24 +31,25 @@ function getPosts() {
         url: url + "/posts/" + user + "/follows",
         dataType: "json",
         success: function (response) {
-            console.log("POSTS");
             console.log(response);
-            $(".usersPost").remove();
-            response.forEach(element => {
-                $(".posts").append("<div class='usersPost'>" +
-                    "<div class='d-flex'>" +
-                    "<img class='userIcon mr-2' src='https://randomuser.me/api/portraits/men/47.jpg' alt='' />" +
-                    "<div class='userInfo mw-100 w-100'>" +
-                    "<div class='name'>" +
-                    "<span id='user'>" + element['user'] + "</span>" +
-                    "</div>" +
-                    "<div class='text w-100'>" +
-                    "<span>" + element['text'] + "</span>" +
-                    "</div>" +
-                    "</div>" +
-                    "</div>" +
-                    "</div>");
-            });
+            if (response.status != 0) {
+                $(".usersPost").remove();
+                response.forEach(element => {
+                    $(".posts").append("<div class='usersPost'>" +
+                        "<div class='d-flex'>" +
+                        "<img class='userIcon mr-2' src='https://randomuser.me/api/portraits/men/47.jpg' alt='' />" +
+                        "<div class='userInfo mw-100 w-100'>" +
+                        "<div class='name'>" +
+                        "<span id='user'>" + element['user'] + "</span>" +
+                        "</div>" +
+                        "<div class='text w-100'>" +
+                        "<span>" + element['text'] + "</span>" +
+                        "</div>" +
+                        "</div>" +
+                        "</div>" +
+                        "</div>");
+                });
+            }
         },
         error: function (response) {
             console.log(response);
@@ -109,7 +110,7 @@ function deleteFollowUser(parent) {
 function randomSuggests() {
     $.ajax({
         type: "GET",
-        url: url + "/followers/"+user+"/new",
+        url: url + "/followers/" + user + "/new",
         dataType: "json",
         success: function (response) {
             let availableFollowers = [];
@@ -132,11 +133,11 @@ function randomSuggests() {
             });
             $(".suggestion").hide();
             $(".suggestion").fadeIn();
-            $(".followButton").one("click",function (e) {
+            $(".followButton").one("click", function (e) {
                 let parent = $(this).parent().attr("id");
                 followUser(parent);
             });
-        }, error: function(response){
+        }, error: function (response) {
             console.log(response);
         }
     });
