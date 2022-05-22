@@ -15,6 +15,10 @@ body{
     cursor: auto;
 }
 
+#profileImg{
+    border-radius: 50%;
+}
+
 .main-container{
     overflow-y: auto!important;
     height: 90vh;

@@ -116,6 +116,7 @@ function getProfile(){
         success: function (response) {
             console.log("Hello");
             console.log(response);
+            $("#profileImg").attr("src",response['picture']);
             $("#inputName").val(response['name']);
             $("#inputUsername").val(response['username']);
             $("#inputEmail").val(response['email']);
