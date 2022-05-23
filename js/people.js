@@ -25,10 +25,25 @@ $(document).ready(function () {
 function getPeopleNearby(){
   $.ajax({
     type: "GET",
-    url: url+"/users/11/nearby",
+    url: url+"/users/11/nearby/2",
     dataType: "json",
     success: function (response) {
       console.log(response);
+      response.result.forEach(element => {
+      $(".people").append("<div class='d-flex'>"+
+      "<img class='userIcon mr-2' src='"+element['picture']+"' alt='' />"+
+      "<div class='userInfo mw-100'>"+
+      "<div class='name'>"+
+      "<input id='"+element['id_user']+"' type='hidden' name=''>"+
+      "<span>"+element['username']+"</span>"+
+      "</div>"+
+      "<div class='description'>"+
+      "<span>Pues mira soy Pep</span>"+
+      "</div>"+
+      "</div>"+
+      "</div>");
+      });
+      
     }, error: function(response){
       console.log(response);
     }

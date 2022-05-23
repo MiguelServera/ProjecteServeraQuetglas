@@ -41,8 +41,17 @@ $(function () {
         }
     });
 
-    getPosts();
-    getProfile();
+    if (getUrlParameter("user") != false) {
+        let otherUser = getUrlParameter("user");
+        $("#editProfile").hide();
+        getProfile(otherUser);
+        getPosts(otherUser);
+        $("#followButton").show();
+    } else {
+        getProfile(user);
+        getPosts(user);
+        $("#followButton").hide();
+    }
 
     $("#logOut").click(function (e) { 
         e.preventDefault();
@@ -72,10 +81,10 @@ $(function () {
     });
 });
 
-function getPosts() {
+function getPosts(userP) {
     $.ajax({
         type: "GET",
-        url: url + "/posts/" + user,
+        url: url + "/posts/" + userP,
         dataType: "json",
         success: function (response) {
             console.log("POSTS");
@@ -84,22 +93,26 @@ function getPosts() {
             if (response.length == 0) {
                 $("#profilePosts").addClass("d-flex");
                 $("#profilePosts").html("<h3 id='warningPostsProfile' class='d-flex w-100 text-center flex-column justify-content-center align-items-center'>THIS USER DOESN'T HAVE ANY POSTS YET</h3>");
+            } else {
+                $("#profilePosts").removeClass("d-flex");
+                $("#warningPostsProfile").remove();
+                response.forEach(element => {
+                    $("#profilePosts").append("<div class='usersPost'>" +
+                        "<div class='d-flex'>" +
+                        "<img class='userIcon mr-2' src='https://randomuser.me/api/portraits/men/47.jpg' alt='' />" +
+                        "<div class='userInfo mw-100 w-100'>" +
+                        "<div class='name'>" +
+                        "<span id='user'>" + element['user'] + "</span>" +
+                        "</div>" +
+                        "<div class='text w-100'>" +
+                        "<span>" + element['text'] + "</span>" +
+                        "</div>" +
+                        "</div>" +
+                        "</div>" +
+                        "</div>");
+                });
             }
-            response.forEach(element => {
-                $("#profilePosts").append("<div class='usersPost'>" +
-                    "<div class='d-flex'>" +
-                    "<img class='userIcon mr-2' src='https://randomuser.me/api/portraits/men/47.jpg' alt='' />" +
-                    "<div class='userInfo mw-100 w-100'>" +
-                    "<div class='name'>" +
-                    "<span id='user'>" + element['user'] + "</span>" +
-                    "</div>" +
-                    "<div class='text w-100'>" +
-                    "<span>" + element['text'] + "</span>" +
-                    "</div>" +
-                    "</div>" +
-                    "</div>" +
-                    "</div>");
-            });
+            
         },
         error: function (response) {
             console.log(response);
@@ -107,11 +120,12 @@ function getPosts() {
     });
 }
 
-function getProfile(){
+function getProfile(userP){
     console.log("Hello");
+
     $.ajax({
         type: "GET",
-        url: url + "/users/" + user,
+        url: url + "/users/" + userP,
         dataType: "json",
         success: function (response) {
             console.log("Hello");
@@ -136,3 +150,19 @@ function getProfile(){
         }
     });
 }
+
+function getUrlParameter(sParam) {
+    var sPageURL = window.location.search.substring(1),
+        sURLVariables = sPageURL.split('&'),
+        sParameterName,
+        i;
+
+    for (i = 0; i < sURLVariables.length; i++) {
+        sParameterName = sURLVariables[i].split('=');
+
+        if (sParameterName[0] === sParam) {
+            return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+        }
+    }
+    return false;
+};
