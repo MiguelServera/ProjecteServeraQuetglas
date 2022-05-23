@@ -19,6 +19,11 @@ body{
     border-radius: 50%;
 }
 
+img[src$="#custom_marker"]{
+    border: 2px solid #900 !important;
+    border-radius:50%;
+}
+
 .main-container{
     overflow-y: auto!important;
     height: 90vh;

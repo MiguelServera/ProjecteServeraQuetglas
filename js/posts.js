@@ -1,4 +1,3 @@
-const url = "http://stm.projectebaleart.com/public/api"
 let user = "";
 let username = "";
 
@@ -23,6 +22,9 @@ $(function () {
     $(".followButton").click(function (e) {
         e.preventDefault();
     });
+
+    getProfile();
+    
 });
 
 function getPosts() {

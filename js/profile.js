@@ -1,4 +1,3 @@
-const url = "http://stm.projectebaleart.com/public/api"
 let user = "";
 let username = "";
 
@@ -78,6 +77,25 @@ $(function () {
                 console.log(response);
             }
         });
+
+        $.ajax({
+            type: "PUT",
+            url: url+"/users/"+user,
+            data: {
+                name: $("#inputName").val(),
+                username: $("#inputUsername").val(),
+                location: $("#inputUbication").text(),
+                description: $("#inputDescription").text(),
+                image: $("#inputImg").val()
+            },
+            dataType: "dataType",
+            success: function (response) {
+                console.log(response);
+            }, error: function (response){
+                console.log("error");
+                console.log(response);
+            }
+        });
     });
 });
 
@@ -122,7 +140,6 @@ function getPosts(userP) {
 
 function getProfile(userP){
     console.log("Hello");
-
     $.ajax({
         type: "GET",
         url: url + "/users/" + userP,
