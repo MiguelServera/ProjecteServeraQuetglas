@@ -117,7 +117,7 @@ function getPosts(userP) {
                 response.forEach(element => {
                     $("#profilePosts").append("<div class='usersPost'>" +
                         "<div class='d-flex'>" +
-                        "<img class='userIcon mr-2' src='https://randomuser.me/api/portraits/men/47.jpg' alt='' />" +
+                        "<img class='userIcon mr-2' src='"+userLogged.picture+"' alt='' />" +
                         "<div class='userInfo mw-100 w-100'>" +
                         "<div class='name'>" +
                         "<span id='user'>" + element['user'] + "</span>" +

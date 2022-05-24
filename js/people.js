@@ -22,7 +22,7 @@ $(document).ready(function () {
 function getPeopleNearby() {
   $.ajax({
     type: "GET",
-    url: url + "/users/11/nearby/2",
+    url: url + "/users/11/nearby/0",
     dataType: "json",
     success: function (response) {
       console.log(response);
@@ -74,13 +74,13 @@ function initMap(array) {
 
   // The map, centered at Uluru
   const map = new google.maps.Map(document.getElementById("map"), {
-    zoom: 10,
+    zoom: 11,
     center: myLatLng,
     position: myLatLng,
   });
 
 
-  const icon = {
+  let icon = {
     url: userLogged.picture + '#custom_marker', // url
     scaledSize: new google.maps.Size(40, 40), // scaled size
     origin: new google.maps.Point(0, 0), // origin
@@ -93,9 +93,10 @@ function initMap(array) {
   });
 
   array.forEach(element => {
+    icon.url = element.img + '#custom_marker';
     console.log(element);
     marker = new google.maps.Marker({
-      position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+      position: new google.maps.LatLng(parseFloat(element['latitudVar']), parseFloat(element['longitudVar'])),
       map: map,
       icon: icon
     })

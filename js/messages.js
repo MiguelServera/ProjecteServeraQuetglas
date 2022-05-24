@@ -14,7 +14,8 @@ $(function () {
     Cookies.remove("username");
     window.location = "http://localhost/ProjecteServeraQuetglas/login.html";
 });
-
+getRecentChats();
+getRecentChats();
 });
 
 function insertMessage() {
@@ -38,7 +39,7 @@ function retrieveMessagesFromUser() {
   console.log("Entré!");
   $.ajax({
     type: "GET",
-    url: url + "/messages/" + user + "/" + otherUser,
+    url: url + "/messages/chat/" + user + "/" + otherUser,
     dataType: "json",
     success: function (response) {
       console.log("Hello");
@@ -92,6 +93,41 @@ function getFollowersMessages() {
           "</div>" +
           "<div class='message'>" +
           "<span>Oye habla conmigo vamos!</span>" +
+          "</div>" +
+          "</div>" +
+          "</div>" +
+          "</div>");
+      });
+      $(".followerChat").click(function (e) {
+        otherUser = $(this).attr("id");
+        console.log("Yo: " + user + " - " + otherUser);
+        retrieveMessagesFromUser();
+        $("#chatFollower").modal('show');
+        $("#newMessages").modal('hide');
+      });
+    }
+  });
+
+  
+}
+
+function getRecentChats() {
+  $.ajax({
+    type: "GET",
+    url: url + "/messages/list/" + user,
+    dataType: "json",
+    success: function (response) {
+      console.log("Recent"+response);
+      response.forEach(element => {
+        $("#allChats").append("<div id='" + element[0]['id_user'] + "' class='followerChat overflow-hidden'>" +
+          "<div class='d-flex'>" +
+          "<img class='userIcon mr-2' src='"+element[0]['picture']+"' alt='' />" +
+          "<div class='userInfo mw-100'>" +
+          "<div class='name'>" +
+          "<span>" + element[0]['username'] + "</span>" +
+          "</div>" +
+          "<div class='message'>" +
+          "<span>"+element[1]['text']+"</span>" +
           "</div>" +
           "</div>" +
           "</div>" +

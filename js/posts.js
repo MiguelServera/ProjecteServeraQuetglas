@@ -22,9 +22,6 @@ $(function () {
     $(".followButton").click(function (e) {
         e.preventDefault();
     });
-
-    getProfile();
-    
 });
 
 function getPosts() {
@@ -118,6 +115,14 @@ function randomSuggests() {
             let availableFollowers = [];
             console.log(response);
             $(".suggestion").remove();
+            if (response.length == 0) {
+                console.log("Hola");
+                $("#suggested").hide();
+                $(".messsages").removeClass("col-3");
+                $(".messsages").addClass("col-4");
+                $(".posts").removeClass("col-6");
+                $(".posts").addClass("col-8");
+            }
             response.forEach(element => {
                 $(".suggested").append("<div id='" + element['id_user'] + "' class='suggestion'>" +
                     "<div class='d-flex'>" +

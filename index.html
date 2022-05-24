@@ -15,7 +15,7 @@
 </head>
 
 <body>
-  <nav class='navbar navbar-expand sticky-top justify-content-between bg-dark'>
+  <nav class='navbar navbar-expand sticky-top justify-content-between navMenu'>
     <div class='nav navbar-nav'>
       <a class='nav-item nav-link text-light active' href='index.html'>Spot Social</a>
       <a class='nav-item nav-link text-light' href='people.html'>Spot Gente</a>
@@ -46,7 +46,7 @@
     </div>
   </nav>
   <div class='main-container d-flex pt-4'>
-    <div class='suggested col-3'>
+    <div id="suggested" class='suggested col-3'>
       <h2 class='text-center mb-4'>RECOMENDATIONS</h2>
       <!--<div class='suggestion'>
           <div class='d-flex'>
@@ -61,7 +61,7 @@
               </div>
             </div>
           </div>
-          <button type='button' class='btn btn-primary followButton'>Follow</button>
+          <button type='button' class='btn btn-dark followButton'>Follow</button>
         </div>-->
     </div>
 
@@ -77,16 +77,17 @@
             <div id='textPost' class='text w-100' contenteditable='true'></div>
           </div>
         </div>
-        <button type='button' class='sendButton btn btn-primary sendPost'>Send</button>
+        <button type='button' class='sendButton btn btn-dark sendPost'>Send</button>
       </div>
     </div>
 
-    <div class='messsages col-3'>
-      <h2 class='text-center mb-4'>MESSAGES</h2>
-      <div id="allChats">
+    <div class='messsages chatsDiv col-3'>
+      <h2 class='text-center mb-4'>MESSAGES       <button type="button" class="newMessage btn btn-dark" data-toggle="modal" data-target="#newMessages"><i
+        class="fa fa-feather"></i></button></h2>
+      <div id="allChats" class="overflow-auto">
 
       </div>
-      <button type='button' class='btn btn-primary followButton'>Follow</button>
+
     </div>
     <!--<div class='message'>
           <div class='d-flex'>
@@ -101,8 +102,6 @@
             </div>
           </div>
         </div>-->
-    <button type="button" class="newMessage btn btn-primary" data-toggle="modal" data-target="#newMessages"><i
-        class="fa fa-feather"></i></button>
   </div>
   </div>
   <div class="modal fade" id="newMessages" role="dialog">
