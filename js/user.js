@@ -8,22 +8,16 @@ if (Cookies.get("user") != undefined) {
 }
 
 var userLogged = {
-    id_user: 0,
-    name : "ABC",
-    username : 18,
-    email : "CSE",
-    password : 90,
-    picture : "",
-    location: ''
+
 };
-$.ajax({
+$(document).ready(function () {
+    $.ajax({
         type: "GET",
         url: url + "/users/" + user,
         dataType: "json",
+        async: false,
         success: function (response) {
-            console.log("Hello");
-            console.log(response);
-            userLogged.name = response['id_user'];
+            userLogged.id_user = response['id_user'];
             userLogged.name = response['name'];
             userLogged.username = response['username'];
             userLogged.email = response['email'];
@@ -34,5 +28,6 @@ $.ajax({
         },
         error: function (response) {
             console.log(response);
-    }
+        }
+    });
 });

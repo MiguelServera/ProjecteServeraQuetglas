@@ -15,7 +15,6 @@ $(function () {
     window.location = "http://localhost/ProjecteServeraQuetglas/login.html";
 });
 getRecentChats();
-getRecentChats();
 });
 
 function insertMessage() {
@@ -29,8 +28,8 @@ function insertMessage() {
     },
     dataType: "json",
     success: function (response) {
-      console.log(response);
       retrieveMessagesFromUser();
+      getRecentChats();
     }
   });
 }
@@ -42,8 +41,6 @@ function retrieveMessagesFromUser() {
     url: url + "/messages/chat/" + user + "/" + otherUser,
     dataType: "json",
     success: function (response) {
-      console.log("Hello");
-      console.log(response);
       $(".messages").empty();
       response.forEach(element => {
         if (element['userFrom'] != user) {
@@ -69,9 +66,6 @@ function retrieveMessagesFromUser() {
       $("#msg").scrollTop($("#msg")[0].scrollHeight);
 
     }, error: function (response) {
-      console.log("bbai");
-
-      console.log(response);
     }
   });
 }
@@ -82,7 +76,6 @@ function getFollowersMessages() {
     url: url + "/followers/" + user,
     dataType: "json",
     success: function (response) {
-      console.log(response);
       response.forEach(element => {
         $("#followersMessages").append("<div id='" + element['userFollows'] + "' class='followerChat'>" +
           "<div class='d-flex'>" +
@@ -117,7 +110,7 @@ function getRecentChats() {
     url: url + "/messages/list/" + user,
     dataType: "json",
     success: function (response) {
-      console.log("Recent"+response);
+      $("#allChats").empty();
       response.forEach(element => {
         $("#allChats").append("<div id='" + element[0]['id_user'] + "' class='followerChat overflow-hidden'>" +
           "<div class='d-flex'>" +
@@ -135,7 +128,6 @@ function getRecentChats() {
       });
       $(".followerChat").click(function (e) {
         otherUser = $(this).attr("id");
-        console.log("Yo: " + user + " - " + otherUser);
         retrieveMessagesFromUser();
         $("#chatFollower").modal('show');
         $("#newMessages").modal('hide');

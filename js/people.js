@@ -22,16 +22,13 @@ $(document).ready(function () {
 function getPeopleNearby() {
   $.ajax({
     type: "GET",
-    url: url + "/users/11/nearby/0",
+    url: url + "/users/"+userLogged.id_user+"/nearby/0",
     dataType: "json",
     success: function (response) {
-      console.log(response);
       let location = "";
       let ubicationUser
       let array = []
       response.result.forEach(element => {
-        console.log("Los de la ubi");
-        console.log(element);
         if (element['id_user'] != userLogged.id_user) {
           location = element['location'];
           let longitud = location.substr(0, location.indexOf(','));
@@ -58,7 +55,6 @@ function getPeopleNearby() {
       });
       initMap(array)
     }, error: function (response) {
-      console.log(response);
     }
   });
 }
@@ -93,10 +89,11 @@ function initMap(array) {
   });
 
   array.forEach(element => {
-    icon.url = element.img + '#custom_marker';
+    console.log("He añadido algo");
+    icon.url = element['img'] + '#custom_marker';
     console.log(element);
     marker = new google.maps.Marker({
-      position: new google.maps.LatLng(parseFloat(element['latitudVar']), parseFloat(element['longitudVar'])),
+      position: new google.maps.LatLng(parseFloat(element['longitudVar']), parseFloat(element['latitudVar'])),
       map: map,
       icon: icon
     })
