@@ -36,10 +36,10 @@ function getPosts() {
                 response.forEach(element => {
                     $(".posts").append("<div class='usersPost'>" +
                         "<div class='d-flex'>" +
-                        "<img class='userIcon mr-2' src='"+element['picture']+"' alt='' />" +
+                        "<img class='userIcon mr-2' src='"+element['user']['picture']+"' alt='' />" +
                         "<div class='userInfo mw-100 w-100'>" +
                         "<div class='name'>" +
-                        "<span id='user'>" + element['user'] + "</span>" +
+                        "<span id='user'>" + element['user']['username'] + "</span>" +
                         "</div>" +
                         "<div class='text w-100'>" +
                         "<span>" + element['text'] + "</span>" +

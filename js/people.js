@@ -26,7 +26,6 @@ function getPeopleNearby() {
     dataType: "json",
     success: function (response) {
       let location = "";
-      let ubicationUser
       let array = []
       response.result.forEach(element => {
         if (element['id_user'] != userLogged.id_user) {
