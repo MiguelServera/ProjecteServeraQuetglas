@@ -9,11 +9,20 @@ if (Cookies.get("user") != undefined) {
 }
 
 $(document).ready(function () {
+
+  $(".peopleDiv2").hide();
   $("#logOut").click(function (e) {
     e.preventDefault();
     Cookies.remove("user");
     Cookies.remove("username");
     window.location = "http://localhost/ProjecteServeraQuetglas/login.html";
+  });
+
+  $(".filtersButton").click(function (e) { 
+    e.preventDefault();
+    $(".peopleDiv").fadeOut(500, ()=>{
+      $(".peopleDiv2").fadeIn(500);
+    });
   });
 
   getPeopleNearby()
@@ -38,7 +47,7 @@ function getPeopleNearby() {
             img: element['picture']
           })
           imagen = element["picture"];
-          $(".people").append("<div class='d-flex'>" +
+          $(".people").append("<div class='d-flex peopleNearby'>" +
             "<img class='userIcon mr-2' src='" + element['picture'] + "' alt='' />" +
             "<div class='userInfo mw-100'>" +
             "<div class='name'>" +

@@ -99,6 +99,10 @@ a:link {
     width: 20px;
 }
 
+.peopleNearby{
+    padding-top: 20px;
+}
+
 .searchIcon {
     position: absolute;
     top: 15px;
@@ -122,6 +126,28 @@ a:link {
 .suggested {
     overflow-y: scroll;
     height: 95vh;
+}
+
+.textMessageFollower{
+    height: max-content;
+}
+
+.textUserMessage{
+    height: max-content;
+}
+
+.textMessageFollower > p{
+    width: 80%!important;
+    word-wrap: break-word;
+    height: 100%;
+    padding-top: 10px;
+}
+
+.textMessage > p{
+    width: 80%!important;
+    word-wrap: break-word;
+    height: 100%;
+    padding-top: 10px;
 }
 
 .allChats {
@@ -178,6 +204,8 @@ a:link {
 
 .followerMessage {
     float: left;
+    width: max-content;
+    height: max-content;
 }
 
 .userPost,
@@ -194,6 +222,7 @@ a:link {
 
 .main-container {
     background-color: #fff;
+    overflow-x: hidden;
 }
 
 ul.ui-autocomplete {
@@ -237,10 +266,13 @@ input[type="search"]::-webkit-search-results-decoration {
 
 
 .userMessage {
-    float: right;
+    margin-left: auto!important;
     background-color: rgb(253, 226, 185);
     border-radius: 5px 5px 5px 5px;
     padding: 10px;
+    width: max-content;
+    max-width: 75%!important;
+    min-width: 35%!important;
 }
 
 .userMessage>* {
@@ -263,12 +295,16 @@ input[type="search"]::-webkit-search-results-decoration {
     background-color: rgb(255, 168, 255);
     border-radius: 5px 5px 5px 5px;
     padding: 10px;
+    max-width: 75%!important;
+    min-width: 35%!important;
 }
 
 .messages {
     height: 90%;
     overflow-y: scroll;
     overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
 .messsages {

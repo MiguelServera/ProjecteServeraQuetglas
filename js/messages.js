@@ -41,23 +41,26 @@ function retrieveMessagesFromUser() {
     url: url + "/messages/chat/" + user + "/" + otherUser,
     dataType: "json",
     success: function (response) {
+      console.log(response);
       $(".messages").empty();
       response.forEach(element => {
-        if (element['userFrom'] != user) {
-          $(".messages").append("<div id='" + element['id_message'] + "' class='followerMessage w-75'>" +
+        if (element['userFrom']['id_user'] != user) {
+          console.log(element['userTo']['picture']);
+          $(".messages").append("<div id='" + element['id_message'] + "' class='followerMessage'>" +
             "<div class='userInfo mw-100 w-100'>" +
             "<div id='' class='textMessageFollower w-100 d-flex'>" +
-            "<img class='userIcon mr-2' src='"+element['picture']+"' alt='' />" +
+            "<img class='userIcon mr-2' src='"+element['userFrom']['picture']+"' alt='' />" +
             "<p>" + element['text'] + "</p>" +
             "</div>" +
             "</div>" +
             "</div>");
         } else {
-          $(".messages").append("<div id='" + element['id_message'] + "' class='userMessage w-75'>" +
+          console.log(element['userFrom']['picture']);
+          $(".messages").append("<div id='" + element['id_message'] + "' class='userMessage'>" +
             "<div class='userInfo mw-100 w-100'>" +
             "<div id='' class='textMessage w-100 d-flex'>" +
             "<p class='textUserMessage'>" + element['text'] + "</p>" +
-            "<img class='userIcon mr-2' src='"+element['picture']+"' alt='' />" +
+            "<img class='userIcon mr-2' src='"+element['userFrom']['picture']+"' alt='' />" +
             "</div>" +
             "</div>" +
             "</div>");
