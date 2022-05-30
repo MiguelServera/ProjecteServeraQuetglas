@@ -1,0 +1,100 @@
+@font-face{
+    font-family: neon;
+    src: url(Andhibath.otf);
+}
+.mainmain{
+    background: url("../img/headphones.jpg") no-repeat center fixed;     
+    background-size: cover;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    font-family: neon;
+    height: 90vh;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+#songCover{
+    width: 300px;
+    height: 300px;
+}
+
+#songCover > img{
+    width: 100%;
+}
+#mainContainer{
+    width: 500px;
+    height: 80vh;
+    background-color: rgba(14, 14, 14, 0.753);
+    display: flex;
+    justify-content: center;
+}
+
+#musicContainer{
+    width: 300px;
+}
+
+.player {
+    padding-top: 30px;
+}
+
+#trackContainer{
+    width: 400px;
+    height: 80vh;
+    background-color: rgba(14, 14, 14, 0.753);
+    overflow-y: scroll;
+}
+
+.trackList{
+    padding-top: 5px;
+    color: rgb(137, 253, 195);
+    font-size: 30pt;
+}
+
+#songTitle{
+    text-align: center;
+    color: #4C868B;
+    font-size: 2em;
+}
+
+h1{
+    font-size: 4em;
+    color: cadetblue;
+}
+
+.controls{
+    width: 300px;
+}
+
+.controls > *{
+    width: 23%;
+}
+
+#volume, #panner{
+    width: 48%;
+}
+
+#labels{
+    width: 300px;
+}
+
+span{
+    display: block;
+    width: 150px;
+    float: left;
+    text-align: center;
+    color: cadetblue;
+    font-size: 2em;
+}
+
+button{
+    width: 100%;
+    height: 20px;
+    background-color: #4C868B;
+    border-radius: 1em;
+    font-family: neon;
+}

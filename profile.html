@@ -23,7 +23,7 @@
         <div class='nav navbar-nav'>
             <a class='nav-item nav-link text-light active' href='index.html'>Spot Social</a>
             <a class='nav-item nav-link text-light' href='people.html'>Spot Gente</a>
-            <a class='nav-item nav-link text-light' href='#'>Spot Música</a>
+            <a class='nav-item nav-link text-light' href='music.html'>Spot Música</a>
         </div>
         <div class='nav navbar-nav'>
             <div class='search-box d-flex'>
@@ -58,11 +58,27 @@
                 <h5 id="nameProfile"></h5>
                 <h6 id="usernameProfile"></h6>
                 <p id="descriptionProfile"></p>
-                <span> Music categories: Pop, Rock, Metal, Chill</span>
+                <span role="button" id="editProfile"><i class="fas fa-pencil-alt"></i> Editar perfil</span>
+                <span id="musicCategories"></span>
+                <span role="button" id="editCategories"><i class="fas fa-pencil-alt"></i> Editar categories</span>
+                <div id="selectCategory" class="">
+                    <select name="filterCategories" id="filterCategories" class="m-2">
+                        <option value="">--Select one--</option>
+                        <option value="Pop">Pop</option>
+                        <option value="Rock">Rock</option>
+                        <option value="Metal">Metal</option>
+                        <option value="Dubstep">Dubstep</option>
+                        <option value="Clasica">Clasica</option>
+                        <option value="Chillout">Chillout</option>
+                        <option value="Lofi">Lofi</option>
+                        <option value="Hip Hop">Hip Hop</option>
+                        <option value="Jazz">Jazz</option>
+                    </select>
+                    <button type="button" name="" id="" class="btn btn-secondary" btn-lg btn-block">Add</button>
+                </div>
                 <span><b>1234434 Followers</b></span>
                 <button type="button" name="" id="followButton" class="btn btn-primary" btn-lg
                     btn-block">Follow</button>
-                <span id="editProfile"><i class="fas fa-pencil-alt"></i> Editar perfil</span>
 
             </div>
             <div id="profilePosts" class="col-8 mh-100 h-100 overflow-auto">

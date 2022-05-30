@@ -35,7 +35,7 @@ function getPosts() {
             if (response.status != 0) {
                 $(".usersPost").remove();
                 response.forEach(element => {
-                    $(".posts").append("<div class='usersPost'>" +
+                    $(".posts").append("<div id='"+element['id_post']+"' class='usersPost'>" +
                         "<div class='d-flex'>" +
                         "<img class='userIcon mr-2' src='"+element['user']['picture']+"' alt='' />" +
                         "<div class='userInfo mw-100 w-100'>" +
@@ -46,15 +46,28 @@ function getPosts() {
                         "<span>" + element['text'] + "</span>" +
                         "</div>" +
                         "<div class='text w-100'>" +
-                        "<span class='text-center ml-3 mr-3 col-3'>icon1</span>" +
-                        "<span class='text-center ml-3 mr-3 col-3'>icon1</span>" +
-                        "<span class='text-center ml-3 mr-3 col-3'><i class='far fa-heart'></i></span>" +
+                        "<span class='text-center ml-3 mr-3 col-3'><i role='button' class='musicFav fas fa-music'></i> 0 </span>" +
+                        "<span class='text-center ml-3 mr-3 col-3'><i role='button' class='retweet fa fa-retweet'></i> 0 </span>" +
+                        "<span class='text-center ml-3 mr-3 col-3'><i role='button' class='like far fa-heart'></i> "+element['likes']+" </span>" +
                         "</div>" +
                         "</div>" +
                         "</div>" +
                         "</div>");
                 });
             }
+            $(".like").click(function (e) { 
+                e.preventDefault();
+                let id_post = $(this).closest('.usersPost').attr('id');
+                console.log(id_post);
+                $.ajax({
+                    type: "GET",
+                    url: url+"/posts/like/"+id_post+"/"+user,
+                    dataType: "json",
+                    success: function (response) {
+                        getPosts();
+                    }
+                });
+            });
         },
         error: function (response) {
             console.log(response);

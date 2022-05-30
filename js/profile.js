@@ -21,6 +21,10 @@ $(function () {
         e.preventDefault();
         $("#profileModal").modal('show');
     });
+    $("#editCategories").click(function (e) {
+        e.preventDefault();
+        $("#selectCategory").show();
+    });
 
     $("#updateUbication").click(function (e) {
         console.log("hola");
