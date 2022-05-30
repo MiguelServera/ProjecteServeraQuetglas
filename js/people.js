@@ -1,6 +1,7 @@
 let user = "";
 let username = "";
 var imagen = "";
+let distance = 0;
 if (Cookies.get("user") != undefined) {
   user = Cookies.get("user");
   username = Cookies.get("username");
@@ -9,8 +10,8 @@ if (Cookies.get("user") != undefined) {
 }
 
 $(document).ready(function () {
-
-  $(".peopleDiv2").hide();
+  $("#navUserImg").attr('src', userLogged.picture);
+  $(".filters").hide();
   $("#logOut").click(function (e) {
     e.preventDefault();
     Cookies.remove("user");
@@ -18,22 +19,36 @@ $(document).ready(function () {
     window.location = "http://localhost/ProjecteServeraQuetglas/login.html";
   });
 
-  $(".filtersButton").click(function (e) { 
+  $(".filtersButton").click(function (e) {
     e.preventDefault();
-    $(".peopleDiv").fadeOut(500, ()=>{
-      $(".peopleDiv2").fadeIn(500);
-    });
+    if ($(".peopleDiv").is(':visible')) {
+      $(".peopleDiv").animate({ width: 'hide' }, () => {
+        $(".filters").animate({ width: 'show' });
+      });
+    } else {
+      $(".filters").animate({ width: 'hide' }, () => {
+        $(".peopleDiv").animate({ width: 'show' });
+      });
+    }
   });
-
+  $('input[type=radio][name=radioDistance]').change(function () {
+    getPeopleNearby();
+  });
   getPeopleNearby()
 });
 
 function getPeopleNearby() {
+  $('.radioDistance').each(function (indexInArray, valueOfElement) {
+    if ($(this).is(':checked')) {
+      distance = $(this).val();
+    }
+  });
   $.ajax({
     type: "GET",
-    url: url + "/users/"+userLogged.id_user+"/nearby/0",
+    url: url + "/users/" + userLogged.id_user + "/nearby/" + distance,
     dataType: "json",
     success: function (response) {
+      $(".peopleNearby").remove();
       let location = "";
       let array = []
       response.result.forEach(element => {

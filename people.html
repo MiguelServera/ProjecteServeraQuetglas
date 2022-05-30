@@ -35,7 +35,7 @@
                     <a href=""><i class="fa fa-search" aria-hidden="true"></i></a>
                 </div>
                 <div class="relleno"></div>
-                <a class='nav-item nav-link text-light active' data-toggle="dropdown" href='#'><img class='userIconS'
+                <a class='nav-item nav-link text-light active' data-toggle="dropdown" href='#'><img id="navUserImg" class='userIconS'
                         src="img/userIcon.png" alt=""></a>
                 <div class="dropdown-menu pull-left w-25 mw-25" style="right: 0; left: auto;"
                     aria-labelledby="dropdownMenuButton m-auto">
@@ -51,15 +51,86 @@
     </nav>
 
     <div class='main-container pt-4 container-events container'>
-        <div class="d-flex">
-            <button class="filtersButton w-100 btn-light"><i class="fa fa-arrow-circle-right" aria-hidden="true"></i> Filters</button>
+        <div class="d-flex h-50">
+            <button class="filtersButton w-100 btn-light"><i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
+                Filters</button>
 
-            <div class="col-3 peopleDiv">
-                <div class="people">
+            <div class="col-3 peopleDiv overflow-auto">
+                <div class="people overflow-auto">
                 </div>
             </div>
-            <div class="col-3 peopleDiv2">
-                <div class="people">
+            <div class="col-3 filters">
+                <div class="bg-light d-flex flex-column h-100">
+                    <h5>Music Categories</h5>
+                    <div class="d-flex flex-column">
+                        <label for="distance">Distance</label>
+                        <div class="form-check m-2">
+                            <input type="radio" class="form-check-input radioDistance" name="radioDistance" id=""
+                                value="0" checked>
+                            &#60;20km
+                            </label>
+                        </div>
+                        <div class="form-check m-2">
+                            <input type="radio" class="form-check-input radioDistance" name="radioDistance" id=""
+                                value="1">
+                            &#60;50km
+                            </label>
+                        </div>
+                        <div class="form-check m-2">
+                            <input type="radio" class="form-check-input radioDistance" name="radioDistance" id=""
+                                value="2">
+                            &#60;100km
+                            </label>
+                        </div>
+                    </div>
+                    <select name="filterCategories" id="filterCategories" class="m-2">
+                        <option value="">--Select one--</option>
+                        <option value="Pop">Pop</option>
+                        <option value="Rock">Rock</option>
+                        <option value="Metal">Metal</option>
+                        <option value="Dubstep">Dubstep</option>
+                        <option value="Clasica">Clasica</option>
+                        <option value="Chillout">Chillout</option>
+                        <option value="Lofi">Lofi</option>
+                        <option value="Hip Hop">Hip Hop</option>
+                        <option value="Jazz">Jazz</option>
+                    </select>
+                    <select name="filterCategories" id="filterCategories" class="m-2">
+                        <option value="">--Select one--</option>
+                        <option value="Pop">Pop</option>
+                        <option value="Rock">Rock</option>
+                        <option value="Metal">Metal</option>
+                        <option value="Dubstep">Dubstep</option>
+                        <option value="Clasica">Clasica</option>
+                        <option value="Chillout">Chillout</option>
+                        <option value="Lofi">Lofi</option>
+                        <option value="Hip Hop">Hip Hop</option>
+                        <option value="Jazz">Jazz</option>
+                    </select>
+                    <select name="filterCategories" id="filterCategories" class="m-2">
+                        <option value="">--Select one--</option>
+                        <option value="Pop">Pop</option>
+                        <option value="Rock">Rock</option>
+                        <option value="Metal">Metal</option>
+                        <option value="Dubstep">Dubstep</option>
+                        <option value="Clasica">Clasica</option>
+                        <option value="Chillout">Chillout</option>
+                        <option value="Lofi">Lofi</option>
+                        <option value="Hip Hop">Hip Hop</option>
+                        <option value="Jazz">Jazz</option>
+                    </select>
+                    <select name="filterCategories" id="filterCategories" class="m-2">
+                        <option value="">--Select one--</option>
+                        <option value="Pop">Pop</option>
+                        <option value="Rock">Rock</option>
+                        <option value="Metal">Metal</option>
+                        <option value="Dubstep">Dubstep</option>
+                        <option value="Clasica">Clasica</option>
+                        <option value="Chillout">Chillout</option>
+                        <option value="Lofi">Lofi</option>
+                        <option value="Hip Hop">Hip Hop</option>
+                        <option value="Jazz">Jazz</option>
+                    </select>
                 </div>
             </div>
             <div class="col-9 pr-5">
@@ -68,134 +139,268 @@
         </div>
         <div class="w-100 text-center mt-4 mb-4">
             <h2>EVENTOS ACTUALES</h2>
-        </div>
-        <div id="events-container">
-            <div id="carouselExampleIndicators" class="carousel slide" data-interval="false">
-                <ol class="carousel-indicators">
-                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                </ol>
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <div class="d-flex h-100 justify-content-center">
-                            <div class="eventProfile col-3">
-                                <h4>Titulo Evento</h4>
-                                <img src="img/parque.jpg" alt="">
-                                <p class="descripcionEvento">Curabitur ut tempor mi, a commodo purus. Maecenas
-                                    condimentum dignissim ligula non euismod. Integer porttitor sodales lorem
-                                    quis tristique. Mauris quis ligula eget quam porttitor vulputate. Etiam nec
-                                    massa sodales, faucibus augue nec, mollis risus. Nulla finibus lorem
-                                    tincidunt, euismod tortor in, posuere orci. Curabitur porttitor nisi
-                                    efficitur convallis semper. Pellentesque consequat consequat orci, vitae
-                                    interdum lectus tincidunt eu.Curabitur ut tempor mi, a commodo purus.
-                                    Maecenas
-                                    condimentum dignissim ligula non euismod. Integer porttitor sodales lorem
-                                    quis tristique. Mauris quis ligula eget quam porttitor vulputate. Etiam nec
-                                    massa sodales, faucibus augue nec, mollis risus. Nulla finibus lorem
-                                    tincidunt, euismod tortor in, posuere orci. Curabitur porttitor nisi
-                                    efficitur convallis semper. Pellentesque consequat consequat orci, vitae
-                                    interdum lectus tincidunt eu.Curabitur ut tempor mi, a commodo purus.
-                                    Maecenas
-                                    condimentum dignissim ligula non euismod. Integer porttitor sodales lorem
-                                    quis tristique. Mauris quis ligula eget quam porttitor vulputate. Etiam nec
-                                    massa sodales, faucibus augue nec, mollis risus. Nulla finibus lorem
-                                    tincidunt, euismod tortor in, posuere orci. Curabitur porttitor nisi
-                                    efficitur convallis semper. Pellentesque consequat consequat orci, vitae
-                                    interdum lectus tincidunt eu.Curabitur ut tempor mi, a commodo purus.
-                                    Maecenas
-                                    condimentum dignissim ligula non euismod. Integer porttitor sodales lorem
-                                    quis tristique. Mauris quis ligula eget quam porttitor vulputate. Etiam nec
-                                    massa sodales, faucibus augue nec, mollis risus. Nulla finibus lorem
-                                    tincidunt, euismod tortor in, posuere orci. Curabitur porttitor nisi
-                                    efficitur convallis semper. Pellentesque consequat consequat orci, vitae
-                                    interdum lectus tincidunt eu.Curabitur ut tempor mi, a commodo purus.
-                                    Maecenas
-                                    condimentum dignissim ligula non euismod. Integer porttitor sodales lorem
-                                    quis tristique. Mauris quis ligula eget quam porttitor vulputate. Etiam nec
-                                    massa sodales, faucibus augue nec, mollis risus. Nulla finibus lorem
-                                    tincidunt, euismod tortor in, posuere orci. Curabitur porttitor nisi
-                                    efficitur convallis semper. Pellentesque consequat consequat orci, vitae
-                                    interdum lectus tincidunt eu.</p>
+            <div id="events-container">
+                <div id="carouselExampleIndicators" class="carousel slide" data-interval="false">
+                    <ol class="carousel-indicators">
+                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="d-flex h-100 justify-content-center bg-light">
+                                <div class="eventProfile col-3">
+                                    <h4>Titulo Evento</h4>
+                                    <img src="img/parque.jpg" alt="">
+                                    <p class="descripcionEvento">Curabitur ut tempor mi, a commodo purus. Maecenas
+                                        condimentum dignissim ligula non euismod. Integer porttitor sodales lorem
+                                        quis tristique. Mauris quis ligula eget quam porttitor vulputate. Etiam nec
+                                        massa sodales, faucibus augue nec, mollis risus. Nulla finibus lorem
+                                        tincidunt, euismod tortor in, posuere orci. Curabitur porttitor nisi
+                                        efficitur convallis semper. Pellentesque consequat consequat orci, vitae
+                                        interdum lectus tincidunt eu.Curabitur ut tempor mi, a commodo purus.
+                                        Maecenas
+                                        condimentum dignissim ligula non euismod. Integer porttitor sodales lorem
+                                        quis tristique. Mauris quis ligula eget quam porttitor vulputate. Etiam nec
+                                        massa sodales, faucibus augue nec, mollis risus. Nulla finibus lorem
+                                        tincidunt, euismod tortor in, posuere orci. Curabitur porttitor nisi
+                                        efficitur convallis semper. Pellentesque consequat consequat orci, vitae
+                                        interdum lectus tincidunt eu.Curabitur ut tempor mi, a commodo purus.
+                                        Maecenas
+                                        condimentum dignissim ligula non euismod. Integer porttitor sodales lorem
+                                        quis tristique. Mauris quis ligula eget quam porttitor vulputate. Etiam nec
+                                        massa sodales, faucibus augue nec, mollis risus. Nulla finibus lorem
+                                        tincidunt, euismod tortor in, posuere orci. Curabitur porttitor nisi
+                                        efficitur convallis semper. Pellentesque consequat consequat orci, vitae
+                                        interdum lectus tincidunt eu.Curabitur ut tempor mi, a commodo purus.
+                                        Maecenas
+                                        condimentum dignissim ligula non euismod. Integer porttitor sodales lorem
+                                        quis tristique. Mauris quis ligula eget quam porttitor vulputate. Etiam nec
+                                        massa sodales, faucibus augue nec, mollis risus. Nulla finibus lorem
+                                        tincidunt, euismod tortor in, posuere orci. Curabitur porttitor nisi
+                                        efficitur convallis semper. Pellentesque consequat consequat orci, vitae
+                                        interdum lectus tincidunt eu.Curabitur ut tempor mi, a commodo purus.
+                                        Maecenas
+                                        condimentum dignissim ligula non euismod. Integer porttitor sodales lorem
+                                        quis tristique. Mauris quis ligula eget quam porttitor vulputate. Etiam nec
+                                        massa sodales, faucibus augue nec, mollis risus. Nulla finibus lorem
+                                        tincidunt, euismod tortor in, posuere orci. Curabitur porttitor nisi
+                                        efficitur convallis semper. Pellentesque consequat consequat orci, vitae
+                                        interdum lectus tincidunt eu.</p>
+                                </div>
+                                <div class="eventProfile col-3">
+                                    <h4>Titulo Evento</h4>
+                                    <img src="img/parque.jpg" alt="">
+                                    <p class="descripcionEvento">Curabitur ut tempor mi, a commodo purus. Maecenas
+                                        condimentum dignissim ligula non euismod. Integer porttitor sodales lorem
+                                        quis tristique. Mauris quis ligula eget quam porttitor vulputate. Etiam nec
+                                        massa sodales, faucibus augue nec, mollis risus. Nulla finibus lorem
+                                        tincidunt, euismod tortor in, posuere orci. Curabitur porttitor nisi
+                                        efficitur convallis semper. Pellentesque consequat consequat orci, vitae
+                                        interdum lectus tincidunt eu.Curabitur ut tempor mi, a commodo purus.
+                                        Maecenas
+                                        condimentum dignissim ligula non euismod. Integer porttitor sodales lorem
+                                        quis tristique. Mauris quis ligula eget quam porttitor vulputate. Etiam nec
+                                        massa sodales, faucibus augue nec, mollis risus. Nulla finibus lorem
+                                        tincidunt, euismod tortor in, posuere orci. Curabitur porttitor nisi
+                                        efficitur convallis semper. Pellentesque consequat consequat orci, vitae
+                                        interdum lectus tincidunt eu.Curabitur ut tempor mi, a commodo purus.
+                                        Maecenas
+                                        condimentum dignissim ligula non euismod. Integer porttitor sodales lorem
+                                        quis tristique. Mauris quis ligula eget quam porttitor vulputate. Etiam nec
+                                        massa sodales, faucibus augue nec, mollis risus. Nulla finibus lorem
+                                        tincidunt, euismod tortor in, posuere orci. Curabitur porttitor nisi
+                                        efficitur convallis semper. Pellentesque consequat consequat orci, vitae
+                                        interdum lectus tincidunt eu.Curabitur ut tempor mi, a commodo purus.
+                                        Maecenas
+                                        condimentum dignissim ligula non euismod. Integer porttitor sodales lorem
+                                        quis tristique. Mauris quis ligula eget quam porttitor vulputate. Etiam nec
+                                        massa sodales, faucibus augue nec, mollis risus. Nulla finibus lorem
+                                        tincidunt, euismod tortor in, posuere orci. Curabitur porttitor nisi
+                                        efficitur convallis semper. Pellentesque consequat consequat orci, vitae
+                                        interdum lectus tincidunt eu.Curabitur ut tempor mi, a commodo purus.
+                                        Maecenas
+                                        condimentum dignissim ligula non euismod. Integer porttitor sodales lorem
+                                        quis tristique. Mauris quis ligula eget quam porttitor vulputate. Etiam nec
+                                        massa sodales, faucibus augue nec, mollis risus. Nulla finibus lorem
+                                        tincidunt, euismod tortor in, posuere orci. Curabitur porttitor nisi
+                                        efficitur convallis semper. Pellentesque consequat consequat orci, vitae
+                                        interdum lectus tincidunt eu.</p>
+                                </div>
                             </div>
-                            <div class="eventProfile col-3">
-                                <h4>Titulo Evento</h4>
-                                <img src="img/parque.jpg" alt="">
-                                <p class="descripcionEvento">Curabitur ut tempor mi, a commodo purus. Maecenas
-                                    condimentum dignissim ligula non euismod. Integer porttitor sodales lorem
-                                    quis tristique. Mauris quis ligula eget quam porttitor vulputate. Etiam nec
-                                    massa sodales, faucibus augue nec, mollis risus. Nulla finibus lorem
-                                    tincidunt, euismod tortor in, posuere orci. Curabitur porttitor nisi
-                                    efficitur convallis semper. Pellentesque consequat consequat orci, vitae
-                                    interdum lectus tincidunt eu.Curabitur ut tempor mi, a commodo purus.
-                                    Maecenas
-                                    condimentum dignissim ligula non euismod. Integer porttitor sodales lorem
-                                    quis tristique. Mauris quis ligula eget quam porttitor vulputate. Etiam nec
-                                    massa sodales, faucibus augue nec, mollis risus. Nulla finibus lorem
-                                    tincidunt, euismod tortor in, posuere orci. Curabitur porttitor nisi
-                                    efficitur convallis semper. Pellentesque consequat consequat orci, vitae
-                                    interdum lectus tincidunt eu.Curabitur ut tempor mi, a commodo purus.
-                                    Maecenas
-                                    condimentum dignissim ligula non euismod. Integer porttitor sodales lorem
-                                    quis tristique. Mauris quis ligula eget quam porttitor vulputate. Etiam nec
-                                    massa sodales, faucibus augue nec, mollis risus. Nulla finibus lorem
-                                    tincidunt, euismod tortor in, posuere orci. Curabitur porttitor nisi
-                                    efficitur convallis semper. Pellentesque consequat consequat orci, vitae
-                                    interdum lectus tincidunt eu.Curabitur ut tempor mi, a commodo purus.
-                                    Maecenas
-                                    condimentum dignissim ligula non euismod. Integer porttitor sodales lorem
-                                    quis tristique. Mauris quis ligula eget quam porttitor vulputate. Etiam nec
-                                    massa sodales, faucibus augue nec, mollis risus. Nulla finibus lorem
-                                    tincidunt, euismod tortor in, posuere orci. Curabitur porttitor nisi
-                                    efficitur convallis semper. Pellentesque consequat consequat orci, vitae
-                                    interdum lectus tincidunt eu.Curabitur ut tempor mi, a commodo purus.
-                                    Maecenas
-                                    condimentum dignissim ligula non euismod. Integer porttitor sodales lorem
-                                    quis tristique. Mauris quis ligula eget quam porttitor vulputate. Etiam nec
-                                    massa sodales, faucibus augue nec, mollis risus. Nulla finibus lorem
-                                    tincidunt, euismod tortor in, posuere orci. Curabitur porttitor nisi
-                                    efficitur convallis semper. Pellentesque consequat consequat orci, vitae
-                                    interdum lectus tincidunt eu.</p>
-                            </div>
-                        </div>
 
-                    </div>
-                    <div class="carousel-item">
-                        <div class="d-flex">
-                            <div class="eventProfile">
-                                <h4>Titulo Evento</h4>
-                                <img src="img/parque.jpg" alt="">
-                                <p class="descripcionEvento">Curabitur ut tempor mi, a commodo purus. Maecenas
-                                    condimentum dignissim ligula non euismod. Integer porttitor sodales lorem
-                                    quis tristique. Mauris quis ligula eget quam porttitor vulputate. Etiam nec
-                                    massa sodales, faucibus augue nec, mollis risus. Nulla finibus lorem
-                                    tincidunt, euismod tortor in, posuere orci. Curabitur porttitor nisi
-                                    efficitur convallis semper. Pellentesque consequat consequat orci, vitae
-                                    interdum lectus tincidunt eu.</p>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="d-flex h-100 justify-content-center">
+                                <div class="eventProfile col-3">
+                                    <h4>Titulo Evento</h4>
+                                    <img src="img/parque.jpg" alt="">
+                                    <p class="descripcionEvento">Curabitur ut tempor mi, a commodo purus. Maecenas
+                                        condimentum dignissim ligula non euismod. Integer porttitor sodales lorem
+                                        quis tristique. Mauris quis ligula eget quam porttitor vulputate. Etiam nec
+                                        massa sodales, faucibus augue nec, mollis risus. Nulla finibus lorem
+                                        tincidunt, euismod tortor in, posuere orci. Curabitur porttitor nisi
+                                        efficitur convallis semper. Pellentesque consequat consequat orci, vitae
+                                        interdum lectus tincidunt eu.Curabitur ut tempor mi, a commodo purus.
+                                        Maecenas
+                                        condimentum dignissim ligula non euismod. Integer porttitor sodales lorem
+                                        quis tristique. Mauris quis ligula eget quam porttitor vulputate. Etiam nec
+                                        massa sodales, faucibus augue nec, mollis risus. Nulla finibus lorem
+                                        tincidunt, euismod tortor in, posuere orci. Curabitur porttitor nisi
+                                        efficitur convallis semper. Pellentesque consequat consequat orci, vitae
+                                        interdum lectus tincidunt eu.Curabitur ut tempor mi, a commodo purus.
+                                        Maecenas
+                                        condimentum dignissim ligula non euismod. Integer porttitor sodales lorem
+                                        quis tristique. Mauris quis ligula eget quam porttitor vulputate. Etiam nec
+                                        massa sodales, faucibus augue nec, mollis risus. Nulla finibus lorem
+                                        tincidunt, euismod tortor in, posuere orci. Curabitur porttitor nisi
+                                        efficitur convallis semper. Pellentesque consequat consequat orci, vitae
+                                        interdum lectus tincidunt eu.Curabitur ut tempor mi, a commodo purus.
+                                        Maecenas
+                                        condimentum dignissim ligula non euismod. Integer porttitor sodales lorem
+                                        quis tristique. Mauris quis ligula eget quam porttitor vulputate. Etiam nec
+                                        massa sodales, faucibus augue nec, mollis risus. Nulla finibus lorem
+                                        tincidunt, euismod tortor in, posuere orci. Curabitur porttitor nisi
+                                        efficitur convallis semper. Pellentesque consequat consequat orci, vitae
+                                        interdum lectus tincidunt eu.Curabitur ut tempor mi, a commodo purus.
+                                        Maecenas
+                                        condimentum dignissim ligula non euismod. Integer porttitor sodales lorem
+                                        quis tristique. Mauris quis ligula eget quam porttitor vulputate. Etiam nec
+                                        massa sodales, faucibus augue nec, mollis risus. Nulla finibus lorem
+                                        tincidunt, euismod tortor in, posuere orci. Curabitur porttitor nisi
+                                        efficitur convallis semper. Pellentesque consequat consequat orci, vitae
+                                        interdum lectus tincidunt eu.</p>
+                                </div>
+                                <div class="eventProfile col-3">
+                                    <h4>Titulo Evento</h4>
+                                    <img src="img/parque.jpg" alt="">
+                                    <p class="descripcionEvento">Curabitur ut tempor mi, a commodo purus. Maecenas
+                                        condimentum dignissim ligula non euismod. Integer porttitor sodales lorem
+                                        quis tristique. Mauris quis ligula eget quam porttitor vulputate. Etiam nec
+                                        massa sodales, faucibus augue nec, mollis risus. Nulla finibus lorem
+                                        tincidunt, euismod tortor in, posuere orci. Curabitur porttitor nisi
+                                        efficitur convallis semper. Pellentesque consequat consequat orci, vitae
+                                        interdum lectus tincidunt eu.Curabitur ut tempor mi, a commodo purus.
+                                        Maecenas
+                                        condimentum dignissim ligula non euismod. Integer porttitor sodales lorem
+                                        quis tristique. Mauris quis ligula eget quam porttitor vulputate. Etiam nec
+                                        massa sodales, faucibus augue nec, mollis risus. Nulla finibus lorem
+                                        tincidunt, euismod tortor in, posuere orci. Curabitur porttitor nisi
+                                        efficitur convallis semper. Pellentesque consequat consequat orci, vitae
+                                        interdum lectus tincidunt eu.Curabitur ut tempor mi, a commodo purus.
+                                        Maecenas
+                                        condimentum dignissim ligula non euismod. Integer porttitor sodales lorem
+                                        quis tristique. Mauris quis ligula eget quam porttitor vulputate. Etiam nec
+                                        massa sodales, faucibus augue nec, mollis risus. Nulla finibus lorem
+                                        tincidunt, euismod tortor in, posuere orci. Curabitur porttitor nisi
+                                        efficitur convallis semper. Pellentesque consequat consequat orci, vitae
+                                        interdum lectus tincidunt eu.Curabitur ut tempor mi, a commodo purus.
+                                        Maecenas
+                                        condimentum dignissim ligula non euismod. Integer porttitor sodales lorem
+                                        quis tristique. Mauris quis ligula eget quam porttitor vulputate. Etiam nec
+                                        massa sodales, faucibus augue nec, mollis risus. Nulla finibus lorem
+                                        tincidunt, euismod tortor in, posuere orci. Curabitur porttitor nisi
+                                        efficitur convallis semper. Pellentesque consequat consequat orci, vitae
+                                        interdum lectus tincidunt eu.Curabitur ut tempor mi, a commodo purus.
+                                        Maecenas
+                                        condimentum dignissim ligula non euismod. Integer porttitor sodales lorem
+                                        quis tristique. Mauris quis ligula eget quam porttitor vulputate. Etiam nec
+                                        massa sodales, faucibus augue nec, mollis risus. Nulla finibus lorem
+                                        tincidunt, euismod tortor in, posuere orci. Curabitur porttitor nisi
+                                        efficitur convallis semper. Pellentesque consequat consequat orci, vitae
+                                        interdum lectus tincidunt eu.</p>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="carousel-item">
+                            <div class="d-flex h-100 justify-content-center">
+                                <div class="eventProfile col-3">
+                                    <h4>Titulo Evento</h4>
+                                    <img src="img/parque.jpg" alt="">
+                                    <p class="descripcionEvento">Curabitur ut tempor mi, a commodo purus. Maecenas
+                                        condimentum dignissim ligula non euismod. Integer porttitor sodales lorem
+                                        quis tristique. Mauris quis ligula eget quam porttitor vulputate. Etiam nec
+                                        massa sodales, faucibus augue nec, mollis risus. Nulla finibus lorem
+                                        tincidunt, euismod tortor in, posuere orci. Curabitur porttitor nisi
+                                        efficitur convallis semper. Pellentesque consequat consequat orci, vitae
+                                        interdum lectus tincidunt eu.Curabitur ut tempor mi, a commodo purus.
+                                        Maecenas
+                                        condimentum dignissim ligula non euismod. Integer porttitor sodales lorem
+                                        quis tristique. Mauris quis ligula eget quam porttitor vulputate. Etiam nec
+                                        massa sodales, faucibus augue nec, mollis risus. Nulla finibus lorem
+                                        tincidunt, euismod tortor in, posuere orci. Curabitur porttitor nisi
+                                        efficitur convallis semper. Pellentesque consequat consequat orci, vitae
+                                        interdum lectus tincidunt eu.Curabitur ut tempor mi, a commodo purus.
+                                        Maecenas
+                                        condimentum dignissim ligula non euismod. Integer porttitor sodales lorem
+                                        quis tristique. Mauris quis ligula eget quam porttitor vulputate. Etiam nec
+                                        massa sodales, faucibus augue nec, mollis risus. Nulla finibus lorem
+                                        tincidunt, euismod tortor in, posuere orci. Curabitur porttitor nisi
+                                        efficitur convallis semper. Pellentesque consequat consequat orci, vitae
+                                        interdum lectus tincidunt eu.Curabitur ut tempor mi, a commodo purus.
+                                        Maecenas
+                                        condimentum dignissim ligula non euismod. Integer porttitor sodales lorem
+                                        quis tristique. Mauris quis ligula eget quam porttitor vulputate. Etiam nec
+                                        massa sodales, faucibus augue nec, mollis risus. Nulla finibus lorem
+                                        tincidunt, euismod tortor in, posuere orci. Curabitur porttitor nisi
+                                        efficitur convallis semper. Pellentesque consequat consequat orci, vitae
+                                        interdum lectus tincidunt eu.Curabitur ut tempor mi, a commodo purus.
+                                        Maecenas
+                                        condimentum dignissim ligula non euismod. Integer porttitor sodales lorem
+                                        quis tristique. Mauris quis ligula eget quam porttitor vulputate. Etiam nec
+                                        massa sodales, faucibus augue nec, mollis risus. Nulla finibus lorem
+                                        tincidunt, euismod tortor in, posuere orci. Curabitur porttitor nisi
+                                        efficitur convallis semper. Pellentesque consequat consequat orci, vitae
+                                        interdum lectus tincidunt eu.</p>
+                                </div>
+                                <div class="eventProfile col-3">
+                                    <h4>Titulo Evento</h4>
+                                    <img src="img/parque.jpg" alt="">
+                                    <p class="descripcionEvento">Curabitur ut tempor mi, a commodo purus. Maecenas
+                                        condimentum dignissim ligula non euismod. Integer porttitor sodales lorem
+                                        quis tristique. Mauris quis ligula eget quam porttitor vulputate. Etiam nec
+                                        massa sodales, faucibus augue nec, mollis risus. Nulla finibus lorem
+                                        tincidunt, euismod tortor in, posuere orci. Curabitur porttitor nisi
+                                        efficitur convallis semper. Pellentesque consequat consequat orci, vitae
+                                        interdum lectus tincidunt eu.Curabitur ut tempor mi, a commodo purus.
+                                        Maecenas
+                                        condimentum dignissim ligula non euismod. Integer porttitor sodales lorem
+                                        quis tristique. Mauris quis ligula eget quam porttitor vulputate. Etiam nec
+                                        massa sodales, faucibus augue nec, mollis risus. Nulla finibus lorem
+                                        tincidunt, euismod tortor in, posuere orci. Curabitur porttitor nisi
+                                        efficitur convallis semper. Pellentesque consequat consequat orci, vitae
+                                        interdum lectus tincidunt eu.Curabitur ut tempor mi, a commodo purus.
+                                        Maecenas
+                                        condimentum dignissim ligula non euismod. Integer porttitor sodales lorem
+                                        quis tristique. Mauris quis ligula eget quam porttitor vulputate. Etiam nec
+                                        massa sodales, faucibus augue nec, mollis risus. Nulla finibus lorem
+                                        tincidunt, euismod tortor in, posuere orci. Curabitur porttitor nisi
+                                        efficitur convallis semper. Pellentesque consequat consequat orci, vitae
+                                        interdum lectus tincidunt eu.Curabitur ut tempor mi, a commodo purus.
+                                        Maecenas
+                                        condimentum dignissim ligula non euismod. Integer porttitor sodales lorem
+                                        quis tristique. Mauris quis ligula eget quam porttitor vulputate. Etiam nec
+                                        massa sodales, faucibus augue nec, mollis risus. Nulla finibus lorem
+                                        tincidunt, euismod tortor in, posuere orci. Curabitur porttitor nisi
+                                        efficitur convallis semper. Pellentesque consequat consequat orci, vitae
+                                        interdum lectus tincidunt eu.Curabitur ut tempor mi, a commodo purus.
+                                        Maecenas
+                                        condimentum dignissim ligula non euismod. Integer porttitor sodales lorem
+                                        quis tristique. Mauris quis ligula eget quam porttitor vulputate. Etiam nec
+                                        massa sodales, faucibus augue nec, mollis risus. Nulla finibus lorem
+                                        tincidunt, euismod tortor in, posuere orci. Curabitur porttitor nisi
+                                        efficitur convallis semper. Pellentesque consequat consequat orci, vitae
+                                        interdum lectus tincidunt eu.</p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="carousel-item">
-                        <div class="d-flex">
-                            <div class="eventProfile">
-                                <h4>Titulo Evento</h4>
-                                <img src="img/parque.jpg" alt="">
-                                <p class="descripcionEvento">Curabitur ut tempor mi, a commodo purus. Maecenas
-                                    condimentum dignissim ligula non euismod. Integer porttitor sodales lorem
-                                    quis tristique. Mauris quis ligula eget quam porttitor vulputate. Etiam nec
-                                    massa sodales, faucibus augue nec, mollis risus. Nulla finibus lorem
-                                    tincidunt, euismod tortor in, posuere orci. Curabitur porttitor nisi
-                                    efficitur convallis semper. Pellentesque consequat consequat orci, vitae
-                                    interdum lectus tincidunt eu.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <a class="carousel-control-prev text-black-50" href="#carouselExampleIndicators" role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="sr-only">Previous</span>
                 </a>
-                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <a class="carousel-control-next text-black-50" href="#carouselExampleIndicators" role="button" data-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="sr-only">Next</span>
                 </a>
@@ -203,22 +408,21 @@
         </div>
     </div>
 </body>
-<script
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDPi0Q-QHx_iiXqU-8w6eYxPyimr4-_kog&callback=&v=weekly"
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDPi0Q-QHx_iiXqU-8w6eYxPyimr4-_kog&callback=&v=weekly"
     defer></script>
 <script src='https://code.jquery.com/jquery-3.6.0.js' integrity='sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk='
     crossorigin='anonymous'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js'
     integrity='sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1' crossorigin='anonymous'>
-</script>
+    </script>
 <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js'
     integrity='sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM' crossorigin='anonymous'>
-</script>
+    </script>
 <script src='https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js'
     integrity='sha256-0H3Nuz3aug3afVbUlsu12Puxva3CP4EhJtPExqs54Vg=' crossorigin='anonymous'></script>
 <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"
     integrity="sha256-xH4q8N0pEzrZMaRmd7gQVcTZiFei+HfRTBPJ1OGXC0k=" crossorigin="anonymous"></script>
-    <script src='js/user.js'></script>
+<script src='js/user.js'></script>
 
 <script src="js/jquery.ui.autocomplete.scroll.js"></script>
 <script src="js/jquery.ui.autocomplete.scroll.min.js"></script>

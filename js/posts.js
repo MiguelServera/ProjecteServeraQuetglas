@@ -9,6 +9,7 @@ if (Cookies.get("user") != undefined) {
 }
 
 $(function () {
+    $("#navUserImg").attr('src', userLogged.picture);
 
     $(".user").text(username);
     getPosts();
@@ -43,6 +44,11 @@ function getPosts() {
                         "</div>" +
                         "<div class='text w-100'>" +
                         "<span>" + element['text'] + "</span>" +
+                        "</div>" +
+                        "<div class='text w-100'>" +
+                        "<span class='text-center ml-3 mr-3 col-3'>icon1</span>" +
+                        "<span class='text-center ml-3 mr-3 col-3'>icon1</span>" +
+                        "<span class='text-center ml-3 mr-3 col-3'><i class='far fa-heart'></i></span>" +
                         "</div>" +
                         "</div>" +
                         "</div>" +

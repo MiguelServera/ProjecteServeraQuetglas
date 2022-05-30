@@ -9,6 +9,8 @@ if (Cookies.get("user") != undefined) {
 }
 
 $(function () {
+    $("#navUserImg").attr('src', userLogged.picture);
+
     var x = document.getElementById("textUbication");
 
     $('#collapseExample').on('shown.bs.collapse', function () {
@@ -117,7 +119,7 @@ function getPosts(userP) {
                 response.forEach(element => {
                     $("#profilePosts").append("<div class='usersPost'>" +
                         "<div class='d-flex'>" +
-                        "<img class='userIcon mr-2' src='"+userLogged.picture+"' alt='' />" +
+                        "<img class='userIcon mr-2' src='"+element['user']['picture']+"' alt='' />" +
                         "<div class='userInfo mw-100 w-100'>" +
                         "<div class='name'>" +
                         "<span id='user'>" + element['user']['username'] + "</span>" +

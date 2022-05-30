@@ -409,10 +409,15 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 
 #map {
-    height: 350px;
+    height: 100%;
     /* The height is 400 pixels */
     width: 100%;
     /* The width is the width of the web page */
+}
+
+.carousel-control-next,
+.carousel-control-prev /*, .carousel-indicators */ {
+    filter: invert(100%);
 }
 
 .container-people {

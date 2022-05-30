@@ -34,18 +34,17 @@ function insertMessage() {
   });
 }
 
-function retrieveMessagesFromUser() {
+function retrieveMessagesFromUser(otherUserUsername) {
   console.log("Entré!");
   $.ajax({
     type: "GET",
     url: url + "/messages/chat/" + user + "/" + otherUser,
     dataType: "json",
     success: function (response) {
-      console.log(response);
       $(".messages").empty();
+      $("#followerUsername").text(otherUserUsername);
       response.forEach(element => {
         if (element['userFrom']['id_user'] != user) {
-          console.log(element['userTo']['picture']);
           $(".messages").append("<div id='" + element['id_message'] + "' class='followerMessage'>" +
             "<div class='userInfo mw-100 w-100'>" +
             "<div id='' class='textMessageFollower w-100 d-flex'>" +
@@ -55,7 +54,6 @@ function retrieveMessagesFromUser() {
             "</div>" +
             "</div>");
         } else {
-          console.log(element['userFrom']['picture']);
           $(".messages").append("<div id='" + element['id_message'] + "' class='userMessage'>" +
             "<div class='userInfo mw-100 w-100'>" +
             "<div id='' class='textMessage w-100 d-flex'>" +
@@ -85,7 +83,7 @@ function getFollowersMessages() {
           "<img class='userIcon mr-2' src='"+element['picture']+"' alt='' />" +
           "<div class='userInfo mw-100'>" +
           "<div class='name'>" +
-          "<span>" + element['userFollows'] + "</span>" +
+          "<span id='"+element['username']+"'>" + element['username'] + "</span>" +
           "</div>" +
           "<div class='message'>" +
           "<span>Oye habla conmigo vamos!</span>" +
@@ -96,8 +94,8 @@ function getFollowersMessages() {
       });
       $(".followerChat").click(function (e) {
         otherUser = $(this).attr("id");
-        console.log("Yo: " + user + " - " + otherUser);
-        retrieveMessagesFromUser();
+        let otherUserUsername = $(this).find('.name').find('span').attr("id");
+        retrieveMessagesFromUser(otherUserUsername);
         $("#chatFollower").modal('show');
         $("#newMessages").modal('hide');
       });
@@ -120,7 +118,7 @@ function getRecentChats() {
           "<img class='userIcon mr-2' src='"+element[0]['picture']+"' alt='' />" +
           "<div class='userInfo mw-100'>" +
           "<div class='name'>" +
-          "<span>" + element[0]['username'] + "</span>" +
+          "<span id='"+element[0]['username']+"'>" + element[0]['username'] + "</span>" +
           "</div>" +
           "<div class='message'>" +
           "<span>"+element[1]['text']+"</span>" +
@@ -131,7 +129,8 @@ function getRecentChats() {
       });
       $(".followerChat").click(function (e) {
         otherUser = $(this).attr("id");
-        retrieveMessagesFromUser();
+        let otherUserUsername = $(this).find('.name').find('span').attr("id");
+        retrieveMessagesFromUser(otherUserUsername);
         $("#chatFollower").modal('show');
         $("#newMessages").modal('hide');
       });
