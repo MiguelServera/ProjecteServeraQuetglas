@@ -68,24 +68,30 @@
 
         </div>
     </nav>
-    <div class="mainmain">
-        <div id="mainContainer">
-            <div id="musicContainer">
-                <div id="songCover"><img id="cover" alt=""></div>
-                <div id="songTitle"></div>
-                
-                <div id="labels">
-                    <span>Volume</span>
-                    <span>Panner</span>
+    <div class="d-flex">
+        <div class="col-2">
+
+        </div>
+        <div class="col-8 mainmain">
+            <div id="mainContainer">
+                <div id="musicContainer">
+                    <div class="form-group w-100">
+                      <label for=""></label>
+                      <input type="text"
+                        class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
+                    </div>
+                    <div id="songCover"><img id="cover" alt=""></div>
+                    <div id="songTitle"></div>
+                    
+                    <div id="labels">
+                        <span>Volume</span>
+                        <span>Panner</span>
+                    </div>
+                    <button id="effectButton" type="button">Effect</button>
                 </div>
-                <button id="effectButton" type="button">Effect</button>
             </div>
         </div>
-        <div id="trackContainer">
-            <h1>
-                Songs
-            </h1>
-        </div>
+        <div class="col-2"></div>
     </div>
     <audio data-song="EDEN - Start//End" src="songs/EDEN - StartEnd 2.mp3"></audio>
     <audio data-song="EDEN - Forever//Over" src="songs/EDEN - ForeverOver.mp3"></audio>
