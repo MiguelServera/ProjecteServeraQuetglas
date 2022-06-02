@@ -66,12 +66,16 @@ h1{
     color: cadetblue;
 }
 
-.controls{
-    width: 300px;
+.controls > img{
+    width: 50px;
+    height: 50px!important;
+    border-radius: 10px;
 }
 
 .controls > *{
-    width: 23%;
+    font-size: 20pt;
+    margin: 10px;
+    height: 100%!important;
 }
 
 #volume, #panner{

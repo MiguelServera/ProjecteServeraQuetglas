@@ -16,7 +16,6 @@ span {
 }
 
 div>img {
-    width: 100%;
 }
 
 .divImage {
@@ -423,6 +422,16 @@ input[type="search"]::-webkit-search-results-decoration {
 .container-people {
     overflow: auto;
     height: 100vh;
+}
+
+.mainNav{
+    height: 75px;
+}
+
+iframe{
+    width: 100vw;
+    height: 100vh;
+    border: none;
 }
 
 #inputUser {
