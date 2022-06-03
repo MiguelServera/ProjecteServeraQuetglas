@@ -1,5 +1,6 @@
 let user = "";
 let username = "";
+let allowLocation = 0;
 
 if (Cookies.get("user") != undefined) {
     user = Cookies.get("user");
@@ -38,7 +39,8 @@ $(function () {
         }
 
         function showPosition(position) {
-            x.innerHTML += "- Latitude: " + position.coords.latitude +
+            x.innerHTML = "";
+            x.innerHTML += "Location: </br> - Latitude: " + position.coords.latitude +
                 "<br>- Longitude: " + position.coords.longitude;
             $("#inputUbication").text(position.coords.latitude + "," + position.coords.longitude);
         }
@@ -98,6 +100,18 @@ $(function () {
             }, error: function (response) {
             }
         });
+
+        $('.radioAllow').each(function (indexInArray, valueOfElement) {
+            if ($(this).is(':checked')) {
+                console.log($(this).val());
+                allowLocation = $(this).val();
+                return false;
+            } else {
+                allowLocation = 0;
+            }
+        });
+        console.log("Esto es alllllow" + allowLocation)
+        console.log("Esto es alllllow" + $("#inputUbication").text())
         $.ajax({
             type: "PUT",
             url: url + "/users/" + user,
@@ -106,7 +120,7 @@ $(function () {
                 username: $("#inputUsername").val(),
                 location: $("#inputUbication").text(),
                 description: $("#inputDescription").text(),
-                image: $("#inputImg").val()
+                allowLocation: allowLocation
             },
             dataType: "dataType",
             success: function (response) {
@@ -167,7 +181,7 @@ function getProfile(userP) {
             $("#inputEmail").val(response['email']);
             if (response['location'] != null) {
                 let location = response['location'];
-                let textUbication = "Location: </br>- " + location.substr(0, location.indexOf(',')) + "</br>- " + location.substr(location.indexOf(',') + 1);
+                let textUbication = "Location: </br>- Latitude: " + location.substr(0, location.indexOf(',')) + "</br>- Longitude: " + location.substr(location.indexOf(',') + 1);
                 $("#textUbication").html(textUbication);
             }
             $("#inputEmail").val(response['email']);
