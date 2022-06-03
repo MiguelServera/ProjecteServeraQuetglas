@@ -6,7 +6,7 @@ if (Cookies.get("user") != undefined) {
   user = Cookies.get("user");
   username = Cookies.get("username");
 } else {
-  window.location.href = "http://localhost/ProjecteServeraQuetglas/login.html";
+  window.location.href = "login.html";
 }
 
 $(document).ready(function () {
@@ -16,7 +16,7 @@ $(document).ready(function () {
     e.preventDefault();
     Cookies.remove("user");
     Cookies.remove("username");
-    window.location = "http://localhost/ProjecteServeraQuetglas/login.html";
+    window.location = "login.html";
   });
 
   $(".filtersButton").click(function (e) {
@@ -112,9 +112,7 @@ function initMap(array) {
   });
 
   array.forEach(element => {
-    console.log("He añadido algo");
     icon.url = element['img'] + '#custom_marker';
-    console.log(element);
     marker = new google.maps.Marker({
       position: new google.maps.LatLng(parseFloat(element['longitudVar']), parseFloat(element['latitudVar'])),
       map: map,

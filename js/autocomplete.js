@@ -34,7 +34,7 @@ $(function () {
                   },
                   select: function(event, ui) {   
                     console.log(ui.item.value);
-                    location.href="http://localhost/ProjecteServeraQuetglas/profile.html?user="+ui.item.desc;
+                    $("#contenedor").attr('src', 'profile.html?user='+ui.item.desc);
                 }
               });
               $(".searchedUser").click(function (e) { 

@@ -4,7 +4,7 @@ if (Cookies.get("user") != undefined) {
     user = Cookies.get("user");
     username = Cookies.get("username");
 } else {
-    window.location.href = "http://localhost/ProjecteServeraQuetglas/login.html";
+    window.location.href = "login.html";
 }
 
 var userLogged = {
@@ -24,10 +24,8 @@ $(document).ready(function () {
             userLogged.picture = response['picture'];
             userLogged.name = response['name'];
             userLogged.location = response['location'];
-            console.log(userLogged);
         },
         error: function (response) {
-            console.log(response);
         }
     });
 });

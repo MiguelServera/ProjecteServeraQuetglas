@@ -19,42 +19,11 @@
 </head>
 
 <body>
-    <nav class='navbar navbar-expand sticky-top justify-content-between bg-dark'>
-        <div class='nav navbar-nav'>
-            <a class='nav-item nav-link text-light active' href='index.html'>Spot Social</a>
-            <a class='nav-item nav-link text-light' href='people.html'>Spot Gente</a>
-            <a class='nav-item nav-link text-light' href='music.html'>Spot Música</a>
-        </div>
-        <div class='nav navbar-nav'>
-            <div class='search-box d-flex'>
-                <div id="searchSmth" class="form-outline d-flex">
-                    <input id="searcher" type="search" class="form-control" placeholder="Search..."
-                        aria-label="Search" />
-                </div>
-            </div>
-            <div class="dropdown d-flex">
-                <div class="searchIcon">
-                    <a href=""><i class="fa fa-search" aria-hidden="true"></i></a>
-                </div>
-                <div class="relleno"></div>
-                <a class='nav-item nav-link text-light active' data-toggle="dropdown" href='#'><img id="navUserImg" class='userIconS'
-                        src="img/userIcon.png" alt=""></a>
-                <div class="dropdown-menu pull-left w-25 mw-25" style="right: 0; left: auto;"
-                    aria-labelledby="dropdownMenuButton m-auto">
-                    <a class="dropdown-item" href="profile.html"><i class="fa fa-user-circle" aria-hidden="true"></i>
-                        Profile</a>
-                    <button class="dropdown-item" type="button"><i class="fas fa-cog"></i> Config</button>
-                    <a id="logOut" class="dropdown-item" href="profile.html"><i class="fas fa-sign-out-alt    "></i>
-                        Log out</a>
-                </div>
-            </div>
 
-        </div>
-    </nav>
     <div class="main-container">
         <div class="container mt-4 mb-4 d-flex profileContainer justify-content-center">
             <div class="col-4 image d-flex flex-column justify-content-center align-items-center card p-4">
-                <img id="profileImg" src="img/userIcon.png" class="userImgProfile" alt="">
+                <img id="profileImg" src="img/userIcon.png" class="profileImg userImgProfile" alt="">
                 <h5 id="nameProfile"></h5>
                 <h6 id="usernameProfile"></h6>
                 <p id="descriptionProfile"></p>
@@ -199,21 +168,36 @@
                     </div>
                     <div class="modal-body">
                         <div class="d-flex align-items-center col-12 flex-column justify-content-center text-center">
-                            <img class="w-50 h-50 text-center justify-content-center" src="img/userIcon.png" alt="">
-                            <input id="inputImg" class="w-100 m-3 form-control" type="file">
-                            <div id="inputDescription" class="w-100 border" contenteditable="true"
+                            <img id="imgModal" class="profileImg text-center justify-content-center" src="img/userIcon.png" alt="">
+                            <strong>
+                            <label for="">Imagen de perfil</label>
+                            <input id="inputImg" class="w-100 m-3 form-control border-secondary" type="file">
+                            <label for="">Sube tu primera canción!</label>
+                            <input id="inputSong" class="w-100 m-3 form-control border-secondary" type="file">
+                            <label for="">Descripcion</label>
+                            <div id="inputDescription" class="m-3 font-weight-normal w-100 border border-secondary" contenteditable="true"
                                 data-text="Enter your description"></div>
-                            <input id="inputName" class="w-100 m-3 form-control" type="text" placeholder="Name">
-                            <input id="inputUsername" class="w-100 m-3 form-control" type="text" placeholder="Username">
+                            <label for="">Nombre</label>
+                            <input id="inputName" class="w-100 m-3 form-control border-secondary" type="text"
+                                placeholder="Name">
+                            <label for="">Nombre de usuario</label>
+                            <input id="inputUsername" class="w-100 m-3 form-control border-secondary" type="text"
+                                placeholder="Username">
+                            <label for="">E-mail</label>
                             <input id="inputEmail" disabled=true class="w-100 m-3 form-control disabled" type="text"
                                 placeholder="E-mail">
-                            <input id="inputPassword" class="w-100 m-3 form-control" type="text" placeholder="Password">
-                            <input id="inputConfirmPassword" class="w-100 m-3 form-control" type="text"
+                            <label for="">Contraseña</label>
+                            <input id="inputPassword" class="w-100 m-3 form-control border-secondary" type="text"
+                                placeholder="Password">
+                            <label for="">Confirmar contraseña</label>
+                            <input id="inputConfirmPassword" class="w-100 m-3 form-control border-secondary" type="text"
                                 placeholder="Confirm Password">
+                            </strong>
                             <div>
                                 Deseas compartir tu ubicación a los demás usuarios?<br>
-                                <p></p><input type="checkbox" name="" class="m-2" id="ubicationAgreementYes">Si<input
-                                    class="m-2" type="checkbox" name="" id="ubicationAgreementNo">No
+                                <p></p><input type="checkbox" name="" class="m-2 border-secondary"
+                                    id="ubicationAgreementYes">Si<input class="m-2 border-secondary" type="checkbox"
+                                    name="" id="ubicationAgreementNo">No
                             </div>
                             <button id="updateUbication" type="button" class="btn btn-outline-primary">Actualizar
                                 ubicación</button>
@@ -237,15 +221,15 @@
         integrity='sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=' crossorigin='anonymous'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js'
         integrity='sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1' crossorigin='anonymous'>
-    </script>
+        </script>
     <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js'
         integrity='sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM' crossorigin='anonymous'>
-    </script>
+        </script>
     <script src='https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js'
         integrity='sha256-0H3Nuz3aug3afVbUlsu12Puxva3CP4EhJtPExqs54Vg=' crossorigin='anonymous'></script>
     <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"
         integrity="sha256-xH4q8N0pEzrZMaRmd7gQVcTZiFei+HfRTBPJ1OGXC0k=" crossorigin="anonymous"></script>
-        <script src='js/user.js'></script>
+    <script src='js/user.js'></script>
 
     <script src="js/jquery.ui.autocomplete.scroll.js"></script>
     <script src="js/jquery.ui.autocomplete.scroll.min.js"></script>

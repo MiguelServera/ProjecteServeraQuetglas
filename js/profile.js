@@ -5,7 +5,7 @@ if (Cookies.get("user") != undefined) {
     user = Cookies.get("user");
     username = Cookies.get("username");
 } else {
-    window.location.href = "http://localhost/ProjecteServeraQuetglas/login.html";
+    window.location.href = "login.html";
 }
 
 $(function () {
@@ -27,7 +27,6 @@ $(function () {
     });
 
     $("#updateUbication").click(function (e) {
-        console.log("hola");
         e.preventDefault();
         getLocation();
         function getLocation() {
@@ -41,31 +40,32 @@ $(function () {
         function showPosition(position) {
             x.innerHTML += "- Latitude: " + position.coords.latitude +
                 "<br>- Longitude: " + position.coords.longitude;
-            $("#inputUbication").text(position.coords.latitude +","+ position.coords.longitude);
-            console.log($("#inputUbication").val());
+            $("#inputUbication").text(position.coords.latitude + "," + position.coords.longitude);
         }
     });
 
-    if (getUrlParameter("user") != false) {
-        let otherUser = getUrlParameter("user");
+    if (getParamValue("user") != false) {
+        let otherUser = getParamValue("user");
+        console.log("El otro usuario es" + otherUser);
         $("#editProfile").hide();
         getProfile(otherUser);
         getPosts(otherUser);
         $("#followButton").show();
     } else {
+        console.log("El otro usuario es mio" + user);
         getProfile(user);
         getPosts(user);
         $("#followButton").hide();
     }
 
-    $("#logOut").click(function (e) { 
+    $("#logOut").click(function (e) {
         e.preventDefault();
         Cookies.remove("user");
         Cookies.remove("username");
-        window.location = "http://localhost/ProjecteServeraQuetglas/login.html";
+        window.location = "login.html";
     });
 
-    $("#saveProfileButton").click(function (e) { 
+    $("#saveProfileButton").click(function (e) {
         e.preventDefault();
 
         var myFormData = new FormData();
@@ -73,20 +73,34 @@ $(function () {
         myFormData.append('picture', files[0]);
         $.ajax({
             type: "POST",
-            url: "http://stm.projectebaleart.com/public/api/users/"+user+"/image",
+            url: "http://stm.projectebaleart.com/public/api/users/" + user + "/image",
             data: myFormData,
             processData: false,
             contentType: false,
             success: function (response) {
-                console.log(response);
-            }, error: function (response){
-                console.log(response);
+            }, error: function (response) {
             }
         });
 
+        var myFormData2 = new FormData();
+        let files2 = $("#inputSong")[0].files;
+        myFormData2.append("name", "micancion");
+        myFormData2.append("category", "1");
+        myFormData2.append("artist", "1");
+        myFormData2.append('link', files2[0]);
+        $.ajax({
+            type: "POST",
+            url: "http://stm.projectebaleart.com/public/api/songs",
+            data: myFormData2,
+            processData: false,
+            contentType: false,
+            success: function (response) {
+            }, error: function (response) {
+            }
+        });
         $.ajax({
             type: "PUT",
-            url: url+"/users/"+user,
+            url: url + "/users/" + user,
             data: {
                 name: $("#inputName").val(),
                 username: $("#inputUsername").val(),
@@ -96,10 +110,7 @@ $(function () {
             },
             dataType: "dataType",
             success: function (response) {
-                console.log(response);
-            }, error: function (response){
-                console.log("error");
-                console.log(response);
+            }, error: function (response) {
             }
         });
     });
@@ -111,8 +122,6 @@ function getPosts(userP) {
         url: url + "/posts/" + userP,
         dataType: "json",
         success: function (response) {
-            console.log("POSTS");
-            console.log(response);
             $(".usersPost").remove();
             if (response.length == 0) {
                 $("#profilePosts").addClass("d-flex");
@@ -123,7 +132,7 @@ function getPosts(userP) {
                 response.forEach(element => {
                     $("#profilePosts").append("<div class='usersPost'>" +
                         "<div class='d-flex'>" +
-                        "<img class='userIcon mr-2' src='"+element['user']['picture']+"' alt='' />" +
+                        "<img class='userIcon mr-2' src='" + element['user']['picture'] + "' alt='' />" +
                         "<div class='userInfo mw-100 w-100'>" +
                         "<div class='name'>" +
                         "<span id='user'>" + element['user']['username'] + "</span>" +
@@ -136,30 +145,29 @@ function getPosts(userP) {
                         "</div>");
                 });
             }
-            
+
         },
         error: function (response) {
-            console.log(response);
         }
     });
 }
 
-function getProfile(userP){
-    console.log("Hello");
+function getProfile(userP) {
+    console.log("Helloooooo");
     $.ajax({
         type: "GET",
         url: url + "/users/" + userP,
         dataType: "json",
         success: function (response) {
-            console.log("Hello");
+            console.log("ha entrao");
             console.log(response);
-            $("#profileImg").attr("src",response['picture']);
+            $(".profileImg").attr("src", response['picture']);
             $("#inputName").val(response['name']);
             $("#inputUsername").val(response['username']);
             $("#inputEmail").val(response['email']);
             if (response['location'] != null) {
                 let location = response['location'];
-                let textUbication = "Location: </br>- "+location.substr(0, location.indexOf(','))+"</br>- "+location.substr(location.indexOf(',')+1);
+                let textUbication = "Location: </br>- " + location.substr(0, location.indexOf(',')) + "</br>- " + location.substr(location.indexOf(',') + 1);
                 $("#textUbication").html(textUbication);
             }
             $("#inputEmail").val(response['email']);
@@ -169,23 +177,21 @@ function getProfile(userP){
             $("#descriptionProfile").text(response['description']);
         },
         error: function (response) {
+            console.log("ha entrao pos no");
             console.log(response);
         }
     });
 }
 
-function getUrlParameter(sParam) {
-    var sPageURL = window.location.search.substring(1),
-        sURLVariables = sPageURL.split('&'),
-        sParameterName,
-        i;
-
-    for (i = 0; i < sURLVariables.length; i++) {
-        sParameterName = sURLVariables[i].split('=');
-
-        if (sParameterName[0] === sParam) {
-            return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+function getParamValue(paramName) {
+    var url = window.location.search.substring(1); //get rid of "?" in querystring
+    var qArray = url.split('&'); //get key-value pairs
+    for (var i = 0; i < qArray.length; i++) {
+        var pArr = qArray[i].split('='); //split key and value
+        if (pArr[0] == paramName) {
+            return pArr[1]; //return value
+        } else {
+            return false;
         }
     }
-    return false;
-};
+}

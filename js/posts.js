@@ -5,7 +5,7 @@ if (Cookies.get("user") != undefined) {
     user = Cookies.get("user");
     username = Cookies.get("username");
 } else {
-    window.location.href = "http://localhost/ProjecteServeraQuetglas/login.html";
+    window.location.href = "login.html";
 }
 
 $(function () {
@@ -31,7 +31,6 @@ function getPosts() {
         url: url + "/posts/" + user + "/follows",
         dataType: "json",
         success: function (response) {
-            console.log(response);
             if (response.status != 0) {
                 $(".usersPost").remove();
                 response.forEach(element => {
@@ -58,7 +57,6 @@ function getPosts() {
             $(".like").click(function (e) { 
                 e.preventDefault();
                 let id_post = $(this).closest('.usersPost').attr('id');
-                console.log(id_post);
                 $.ajax({
                     type: "GET",
                     url: url+"/posts/like/"+id_post+"/"+user,
@@ -70,13 +68,11 @@ function getPosts() {
             });
         },
         error: function (response) {
-            console.log(response);
         }
     });
 }
 
 function insertPost() {
-    console.log($("#textPost").text());
     $.ajax({
         type: "POST",
         url: url + "/posts",
@@ -87,10 +83,8 @@ function insertPost() {
         dataType: "json",
         success: function (response) {
             getPosts();
-            console.log(response);
         },
         error: function (response) {
-            console.log(response);
         }
     });
 }
@@ -120,7 +114,6 @@ function deleteFollowUser(parent) {
         },
         dataType: "json",
         success: function (response) {
-            console.log(response);
         }
     });
 }
@@ -131,11 +124,8 @@ function randomSuggests() {
         url: url + "/followers/" + user + "/new",
         dataType: "json",
         success: function (response) {
-            let availableFollowers = [];
-            console.log(response);
             $(".suggestion").remove();
             if (response.length == 0) {
-                console.log("Hola");
                 $("#suggested").hide();
                 $(".messsages").removeClass("col-3");
                 $(".messsages").addClass("col-4");
@@ -164,7 +154,6 @@ function randomSuggests() {
                 followUser(parent);
             });
         }, error: function (response) {
-            console.log(response);
         }
     });
 }

@@ -15,7 +15,8 @@ span {
     font-size: 11pt;
 }
 
-div>img {
+.eventProfile>img {
+    width: 100%;
 }
 
 .divImage {
@@ -37,11 +38,7 @@ div>img {
     padding-left: 10px;
     padding-right: 10px;
     color: #000000;
-    text-decoration: none!important;
-}
-
-.navMenu{
-    background-color: #424B54;
+    text-decoration: none !important;
 }
 
 .divLogin {
@@ -98,7 +95,7 @@ a:link {
     width: 20px;
 }
 
-.peopleNearby{
+.peopleNearby {
     padding-top: 20px;
 }
 
@@ -127,23 +124,23 @@ a:link {
     height: 95vh;
 }
 
-.textMessageFollower{
+.textMessageFollower {
     height: max-content;
 }
 
-.textUserMessage{
+.textUserMessage {
     height: max-content;
 }
 
-.textMessageFollower > p{
-    width: 80%!important;
+.textMessageFollower>p {
+    width: 80% !important;
     word-wrap: break-word;
     height: 100%;
     padding-top: 10px;
 }
 
-.textMessage > p{
-    width: 80%!important;
+.textMessage>p {
+    width: 80% !important;
     word-wrap: break-word;
     height: 100%;
     padding-top: 10px;
@@ -265,13 +262,13 @@ input[type="search"]::-webkit-search-results-decoration {
 
 
 .userMessage {
-    margin-left: auto!important;
+    margin-left: auto !important;
     background-color: rgb(253, 226, 185);
     border-radius: 5px 5px 5px 5px;
     padding: 10px;
     width: max-content;
-    max-width: 75%!important;
-    min-width: 35%!important;
+    max-width: 75% !important;
+    min-width: 35% !important;
 }
 
 .userMessage>* {
@@ -294,8 +291,8 @@ input[type="search"]::-webkit-search-results-decoration {
     background-color: rgb(255, 168, 255);
     border-radius: 5px 5px 5px 5px;
     padding: 10px;
-    max-width: 75%!important;
-    min-width: 35%!important;
+    max-width: 75% !important;
+    min-width: 35% !important;
 }
 
 .messages {
@@ -328,7 +325,34 @@ input[type="search"]::-webkit-search-results-decoration {
 
     /* 80% of window height */
 
-    height: 95vh !important;
+    height: 80vh !important;
+}
+
+[type="file"] {
+    /* Style the color of the message that says 'No file chosen' */
+    color: #878787;
+    height: 55px;
+}
+a{
+    cursor: pointer!important;
+}
+[type="file"]::-webkit-file-upload-button {
+    background: #ED1C1B;
+    border: 2px solid #ED1C1B;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 12px;
+    outline: none;
+    padding: 10px 25px;
+    text-transform: uppercase;
+    transition: all 1s ease;
+}
+
+[type="file"]::-webkit-file-upload-button:hover {
+    background: #fff;
+    border: 2px solid #535353;
+    color: #000;
 }
 
 .followersMessages {
@@ -342,7 +366,7 @@ input[type="search"]::-webkit-search-results-decoration {
 .posts {
     overflow-y: scroll;
     height: 85vh;
-    background-color: #ffe6e6 ;
+    background-color: #ffe6e6;
     border-radius: 2%;
 }
 
@@ -352,24 +376,21 @@ input[type="search"]::-webkit-search-results-decoration {
     position: relative;
 }
 
-*::-webkit-scrollbar-track
-{
-	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-	border-radius: 10px;
-	background-color: #F5F5F5;
+*::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    background-color: #F5F5F5;
 }
 
-*::-webkit-scrollbar
-{
-	width: 12px;
-	background-color: #F5F5F5;
+*::-webkit-scrollbar {
+    width: 12px;
+    background-color: #F5F5F5;
 }
 
-*::-webkit-scrollbar-thumb
-{
-	border-radius: 10px;
-	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
-	background-color: #555;
+*::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+    background-color: #555;
 }
 
 #events {
@@ -415,7 +436,10 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 
 .carousel-control-next,
-.carousel-control-prev /*, .carousel-indicators */ {
+.carousel-control-prev
+
+/*, .carousel-indicators */
+    {
     filter: invert(100%);
 }
 
@@ -424,11 +448,11 @@ input[type="search"]::-webkit-search-results-decoration {
     height: 100vh;
 }
 
-.mainNav{
+.mainNav {
     height: 75px;
 }
 
-iframe{
+iframe {
     width: 100vw;
     height: 100vh;
     border: none;

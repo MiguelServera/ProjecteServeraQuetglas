@@ -12,7 +12,7 @@ $(function () {
     e.preventDefault();
     Cookies.remove("user");
     Cookies.remove("username");
-    window.location = "http://localhost/ProjecteServeraQuetglas/login.html";
+    window.location = "login.html";
 });
 getRecentChats();
 });
@@ -35,7 +35,6 @@ function insertMessage() {
 }
 
 function retrieveMessagesFromUser(otherUserUsername) {
-  console.log("Entré!");
   $.ajax({
     type: "GET",
     url: url + "/messages/chat/" + user + "/" + otherUser,

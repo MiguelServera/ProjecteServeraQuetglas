@@ -52,13 +52,11 @@ function registerUser(){
         },
         dataType: "json",
         success: function (response) {
-            console.log(response);
         }
     });
 }
 
 function loginUser(){
-    console.log($("#loginEmail").val() + $("#loginPassword").val());
     $.ajax({
         type: "POST",
         "headers": {
@@ -75,7 +73,7 @@ function loginUser(){
             Cookies.set('user', response.id_user);
             Cookies.set('username', response.username);
             $(".spinner").hide();
-            window.location.href="http://localhost/ProjecteServeraQuetglas/";
+            window.location.href="index.html";
         }, error: function(response){
             $(".spinner").hide();
         }

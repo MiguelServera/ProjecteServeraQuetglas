@@ -15,8 +15,13 @@ body{
     cursor: auto;
 }
 
-#profileImg{
+.profileImg{
     border-radius: 50%;
+}
+
+#imgModal{
+    width: 100px!important;
+    height: 100px!important;
 }
 
 img[src$="#custom_marker"]{
