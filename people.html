@@ -20,7 +20,7 @@
     
 
     <div class='main-container pt-4 container-events container'>
-        <div class="d-flex h-75">
+        <div class="d-flex h-50">
             <button class="filtersButton w-100 btn-light"><i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
                 Filters</button>
 
@@ -29,7 +29,7 @@
                 </div>
             </div>
             <div class="col-3 filters">
-                <div class="bg-light d-flex flex-column h-100">
+                <div id="filtersDiv" class="bg-light d-flex flex-column h-100">
                     <h5>Music Categories</h5>
                     <div class="d-flex flex-column">
                         <label for="distance">Distance</label>
@@ -52,54 +52,25 @@
                             </label>
                         </div>
                     </div>
-                    <select name="filterCategories" id="filterCategories" class="m-2">
+                    <select name="filterCategories" class="filterCategories m-2">
                         <option value="">--Select one--</option>
-                        <option value="Pop">Pop</option>
-                        <option value="Rock">Rock</option>
-                        <option value="Metal">Metal</option>
-                        <option value="Dubstep">Dubstep</option>
-                        <option value="Clasica">Clasica</option>
-                        <option value="Chillout">Chillout</option>
-                        <option value="Lofi">Lofi</option>
-                        <option value="Hip Hop">Hip Hop</option>
-                        <option value="Jazz">Jazz</option>
                     </select>
-                    <select name="filterCategories" id="filterCategories" class="m-2">
+                    <select name="filterCategories" class="filterCategories m-2">
                         <option value="">--Select one--</option>
-                        <option value="Pop">Pop</option>
-                        <option value="Rock">Rock</option>
-                        <option value="Metal">Metal</option>
-                        <option value="Dubstep">Dubstep</option>
-                        <option value="Clasica">Clasica</option>
-                        <option value="Chillout">Chillout</option>
-                        <option value="Lofi">Lofi</option>
-                        <option value="Hip Hop">Hip Hop</option>
-                        <option value="Jazz">Jazz</option>
                     </select>
-                    <select name="filterCategories" id="filterCategories" class="m-2">
+                    <select name="filterCategories" class="filterCategories m-2">
                         <option value="">--Select one--</option>
-                        <option value="Pop">Pop</option>
-                        <option value="Rock">Rock</option>
-                        <option value="Metal">Metal</option>
-                        <option value="Dubstep">Dubstep</option>
-                        <option value="Clasica">Clasica</option>
-                        <option value="Chillout">Chillout</option>
-                        <option value="Lofi">Lofi</option>
-                        <option value="Hip Hop">Hip Hop</option>
-                        <option value="Jazz">Jazz</option>
                     </select>
-                    <select name="filterCategories" id="filterCategories" class="m-2">
+                    <select name="filterCategories" class="filterCategories m-2">
                         <option value="">--Select one--</option>
-                        <option value="Pop">Pop</option>
-                        <option value="Rock">Rock</option>
-                        <option value="Metal">Metal</option>
-                        <option value="Dubstep">Dubstep</option>
-                        <option value="Clasica">Clasica</option>
-                        <option value="Chillout">Chillout</option>
-                        <option value="Lofi">Lofi</option>
-                        <option value="Hip Hop">Hip Hop</option>
-                        <option value="Jazz">Jazz</option>
                     </select>
+                    <div class="form-check">
+                      <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input" name="" id="" value="checkedValue" checked>
+                        Mismos gustos que yo
+                      </label>
+                    </div>
+                    <button id="filterButton" class="m-2 p-2 btn btn-secondary">Filter</button>
                 </div>
             </div>
             <div class="col-9 pr-5">

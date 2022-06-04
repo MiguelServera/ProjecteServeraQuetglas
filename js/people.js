@@ -35,8 +35,22 @@ $(document).ready(function () {
     getPeopleNearby();
   });
   getPeopleNearby()
+  getCategories();
 });
 
+function getCategories(){
+  $.ajax({
+      type: "GET",
+      url: url + "/categories",
+      dataType: "json",
+      success: function (response) {
+          response.forEach(element => {
+              $(".filterCategories").append("<option value='"+element['id_category']+"'>"+element['name']+"</option>");
+          });
+      }, error: function (response) { 
+       }
+  });
+}
 function getPeopleNearby() {
   $('.radioDistance').each(function (indexInArray, valueOfElement) {
     if ($(this).is(':checked')) {
@@ -44,9 +58,12 @@ function getPeopleNearby() {
     }
   });
   $.ajax({
-    type: "GET",
-    url: url + "/users/" + userLogged.id_user + "/nearby/" + distance,
+    type: "POST",
+    url: url + "/users/nearby/" + userLogged.id_user,
     dataType: "json",
+    data:{
+      distance: distance
+    },
     success: function (response) {
       $(".peopleNearby").remove();
       let location = "";

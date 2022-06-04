@@ -6,275 +6,88 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AudioPage</title>
     <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css'
-    integrity='sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l' crossorigin='anonymous'>
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
-    integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+        integrity='sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l' crossorigin='anonymous'>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
+        integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/indexStyle.css" />
 </head>
 
 <body>
-    <!-- <nav class='navbar navbar-expand sticky-top justify-content-between bg-dark mainNav'>
-        <div class='nav navbar-nav'>
-            <a id="posts" class='navMenu nav-item nav-link text-light active' href='index.html'>Spot Social</a>
-            <a class='navMenu nav-item nav-link text-light' href='people.html'>Spot Gente</a>
-            <a class='navMenu nav-item nav-link text-light' href='music.html'>Spot Música</a>
+    <div class="mainContainer mt-2 d-flex">
+        <div class="col-3">
+            <h2>Followers</h2>
         </div>
-        <div class="h-100">
-            <div class="d-flex flex-row justify-content-center align-items-center p-4 controls h-100">
-                <i class="fas fa-backward"></i>
-                <i class="fas fa-play"></i>
-                <img src="img/LAV.jpg" alt="">
-                <i class="fas fa-pause"></i>
-                <i class="fas fa-forward"></i>
+        <div class="musicPlayer col-6">
+            <div class="mt-3">
+                <input class="w-100 input-grey-rounded" type="text" placeholder="Search">
             </div>
-            <!--<div class="controls">
-                <input type="range" id="volume" class="control-volume" min="0" max="2" value="1" list="gain-vals"
-                    step="0.01" data-action="volume" />
-                <datalist id="gain-vals">
-                    <option value="0" label="min">
-                    <option value="2" label="max">
-                </datalist>
-                <input type="range" id="panner" class="control-panner" list="pan-vals" min="-1" max="1" value="0"
-                    step="0.01" data-action="panner" />
-                <datalist id="pan-vals">
-                    <option value="-1" label="left">
-                    <option value="1" label="right">
-                </datalist>
+            <div
+                class="h-50 artwork w-100 d-flex align-items-center col-12 flex-column justify-content-center text-center">
+                <img class="songImage" src="img/LAV.jpg" alt="">
             </div>
-        </div>
-        <div class='nav navbar-nav'>
-            <div class='search-box d-flex'>
-                <div id="searchSmth" class="form-outline d-flex">
-                    <input id="searcher" type="search" class="form-control" placeholder="Search..."
-                        aria-label="Search" />
+            <h1 class="d-flex align-items-center col-12 flex-column justify-content-center text-center">Song title</h1>
+            <div class="w-100 d-flex align-items-center col-12 flex-column justify-content-center text-center">
+                <div class="controls d-flex">
+                    <button id="prevFake" class="prev action-btn">
+                        <h1><i class="buttonPrev fas fa-backward"></i></h1>
+                      </button>
+                      <button id="playFake" class="play action-btn action-btn-big">
+                        <h1><i class="buttonPlay fas fa-play"></i></h1>
+                      </button>
+                      <button id="stopFake" class="stop action-btn action-btn-big">
+                        <h1><i class="buttonStop fas fa-stop"></i></h1>
+                      </button>
+                      <button id="nextFake" class="next action-btn">
+                        <h1><i class="buttonNext fas fa-forward"></i></h1>
+                      </button>
                 </div>
-            </div>
-            <div class="dropdown d-flex">
-                <div class="searchIcon">
-                    <a href=""><i class="fa fa-search" aria-hidden="true"></i></a>
-                </div>
-                <div class="relleno"></div>
-                <a class='nav-item nav-link text-light active' data-toggle="dropdown" href='#'><img id="navUserImg" class='userIconS'
-                        src="img/userIcon.png" alt=""></a>
-                <div class="dropdown-menu pull-left w-25 mw-25" style="right: 0; left: auto;"
-                    aria-labelledby="dropdownMenuButton m-auto">
-                    <a class="dropdown-item" href="profile.html"><i class="fa fa-user-circle" aria-hidden="true"></i>
-                        Profile</a>
-                    <button class="dropdown-item" type="button"><i class="fas fa-cog"></i> Config</button>
-                    <a id="logOut" class="dropdown-item" href="profile.html"><i class="fas fa-sign-out-alt    "></i>
-                        Log out</a>
-                </div>
-            </div>
-
-        </div>
-    </nav> -->
-    <div class="d-flex">
-        <div class="col-2">
-
-        </div>
-        <div class="col-8 mainmain">
-            <div id="mainContainer">
-                <div id="musicContainer">
-                    <div class="form-group w-100">
-                      <label for=""></label>
-                      <input type="text"
-                        class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
-                    </div>
-                    <div id="songCover"><img id="cover" alt=""></div>
-                    <div id="songTitle"></div>
-                    
-                    <div id="labels">
+                <div class="controls">
+                    <div class="d-flex flex-column w-100">
+                        <input type="range" id="volume" class="control-volume" min="0" max="2" value="1"
+                            list="gain-vals" step="0.01" data-action="volume" />
+                        <datalist id="gain-vals">
+                            <option value="0" label="min">
+                            <option value="2" label="max">
+                        </datalist>
                         <span>Volume</span>
+                    </div>
+
+                    <div class="d-flex flex-column w-100">
+                        <input type="range" id="panner" class="control-panner" list="pan-vals" min="-1" max="1"
+                            value="0" step="0.01" data-action="panner" />
+                        <datalist id="pan-vals">
+                            <option value="-1" label="left">
+                            <option value="1" label="right">
+                        </datalist>
                         <span>Panner</span>
                     </div>
-                    <button id="effectButton" type="button">Effect</button>
+
                 </div>
+                <div id="labels">
+                </div>
+                <button id="effectButton" type="button">Effect</button>
             </div>
         </div>
-        <div class="col-2"></div>
+        <div class="col-3">
+
+        </div>
     </div>
-    <audio data-song="EDEN - Start//End" src="songs/EDEN - StartEnd 2.mp3"></audio>
-    <audio data-song="EDEN - Forever//Over" src="songs/EDEN - ForeverOver.mp3"></audio>
-    <audio data-song="Blackbear - IDFC" src="songs/Blackbear - IDFC.mp3"></audio>
-    <audio data-song="Lav - Wavvy" src="songs/Lav - Wavvy.mp3"></audio>
-    <audio data-song="EDEN - Rock And Roll" src="songs/EDEN - Rock And Roll.ogg"></audio>
 </body>
 <script src='https://code.jquery.com/jquery-3.6.0.js' integrity='sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk='
-crossorigin='anonymous'></script>
+    crossorigin='anonymous'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js'
-integrity='sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1' crossorigin='anonymous'>
-</script>
+    integrity='sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1' crossorigin='anonymous'>
+    </script>
 <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js'
-integrity='sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM' crossorigin='anonymous'>
-</script>
+    integrity='sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM' crossorigin='anonymous'>
+    </script>
 <script src='https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js'
-integrity='sha256-0H3Nuz3aug3afVbUlsu12Puxva3CP4EhJtPExqs54Vg=' crossorigin='anonymous'></script>
+    integrity='sha256-0H3Nuz3aug3afVbUlsu12Puxva3CP4EhJtPExqs54Vg=' crossorigin='anonymous'></script>
 <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"
-integrity="sha256-xH4q8N0pEzrZMaRmd7gQVcTZiFei+HfRTBPJ1OGXC0k=" crossorigin="anonymous"></script>
+    integrity="sha256-xH4q8N0pEzrZMaRmd7gQVcTZiFei+HfRTBPJ1OGXC0k=" crossorigin="anonymous"></script>
 <script src='js/user.js'></script>
 <script src="js/jquery.ui.autocomplete.scroll.js"></script>
 <script src="js/jquery.ui.autocomplete.scroll.min.js"></script>
-<script>
-    $(document).ready(function () {
-        //Creates new AudioContext
-        var AudioContext = window.AudioContext || window.webkitAudioContext;
-        var audioCtx = new AudioContext();
-        //Selects all audio elements, which are in essence, the songs.
-        var audioArray = document.querySelectorAll('audio');
-        //Sets a count for the songs
-        var count = 0;
-        //Sets the first song to reproduce
-        var nowPlaying = audioArray[0];
-        //Creates the mediaElemetnSource on the first song
-        var track = audioCtx.createMediaElementSource(nowPlaying);
-        //I check for what song (number) is playing right now and I pick an image (cover) for that song.
-        var img = document.getElementById("cover");
-        var imgArray = ["img/FO.jpg", "img/StartEnd.jpg", "img/IDFC.jpg", "img/LAV.jpg",
-            "img/RandR.jpg"
-        ];
-        img.src = imgArray[count];
-
-        //Loads playlist
-        loadTracks(audioArray);
-        //Sets the song title
-        $("#songTitle").text(nowPlaying.dataset.song);
-
-        //Play Button functionality
-        $("#playButton").click(function (e) {
-            //If the AudioContext has stopped, resume it. This is for when the user did not make any gestures.
-            audioCtx.resume().then(() => {});
-            //If the dataset on the PlayButton is false, set it to true and play the song, also change the play image to a pause image.
-            if (this.dataset.playing === 'false') {
-                this.dataset.playing = 'true';
-                this.src = "img/pauseButton.png";
-                nowPlaying.play();
-            //If dataset is set to true, pause it
-            } else if (this.dataset.playing === 'true') {
-                this.dataset.playing = 'false';
-                this.src = "img/playButton.svg";
-                nowPlaying.pause();
-            }
-        });
-
-        //Forward Button functionality.
-        $("#forwardButton").click(function (e) {
-            //Pause every audio that's reproducing right so we can skip to the next song
-            $.each($('audio'), function () {
-                this.pause();
-            })
-            e.preventDefault();
-
-            //if the count for the songs arrives to the lenght of the songs, go back to the start (0).
-            if (count == audioArray.length - 1) {
-                count = 0;
-            } else {
-                count++;
-            }
-            //Set all for the next song and load it on the mediaElementSource
-            img.src = imgArray[count];
-            nowPlaying = audioArray[count];
-            nowPlaying.load();
-            nowPlaying.play();
-            $("#songTitle").text(nowPlaying.dataset.song);
-            track = audioCtx.createMediaElementSource(nowPlaying);
-            track.connect(gainNode).connect(panner).connect(audioCtx.destination);
-        });
-
-        //Same functionality as the forward button but backwards.
-        $("#backButton").click(function (e) {
-            $.each($('audio'), function () {
-                this.pause();
-            })
-            e.preventDefault();
-            if (count == 0) {
-                count = audioArray.length - 1;
-            } else {
-                count--;
-            }
-            img.src = imgArray[count];
-            nowPlaying = audioArray[count];
-            nowPlaying.load();
-            nowPlaying.play();
-            $("#songTitle").text(nowPlaying.dataset.song);
-            track = audioCtx.createMediaElementSource(nowPlaying);
-            track.connect(gainNode).connect(panner).connect(audioCtx.destination);
-
-        });
-
-        //Iterate on the audio array made previosuly and create a div with every single song, getting its data from the datasets
-        function loadTracks(audioTracks) {
-            for (let i = 0; i < audioTracks.length; i++) {
-                var audio = audioTracks[i];
-                $("#trackContainer").append("<div id=\"" + i + "\" class=\"trackList\">" + audioTracks[i]
-                    .dataset.song + "</div>");
-            }
-
-            //When click on an element of the tracklist, reproduce the song
-            $(".trackList").click(function (e) {
-                //Same functionality as the skip or backward functions.
-                e.preventDefault();
-                $.each($('audio'), function () {
-                    this.pause();
-                })
-                e.preventDefault();
-                count = this.id;
-                img.src = imgArray[count];
-                nowPlaying = audioArray[count];
-                nowPlaying.load();
-                nowPlaying.play();
-                $("#songTitle").text(nowPlaying.dataset.song);
-                document.getElementById("playButton").dataset.playing = "true";
-                document.getElementById("playButton").src = "img/pauseButton.png";
-                track = audioCtx.createMediaElementSource(nowPlaying);
-                track.connect(gainNode).connect(panner).connect(audioCtx.destination);
-
-            });
-
-            //Stop the actual song and go back to its start
-            $("#stopButton").click(function (e) {
-                e.preventDefault();
-                nowPlaying.pause();
-                nowPlaying.load();
-                document.getElementById("playButton").dataset.playing = "false";
-                document.getElementById("playButton").src = "img/playButton.svg";
-            });
-        }
-
-        //Creating a gain so we can control the volume on the songs
-        var gainNode = audioCtx.createGain();
-
-        var volumeControl = document.querySelector('[data-action="volume"]');
-        volumeControl.addEventListener('input', function () {
-            gainNode.gain.value = this.value;
-        }, false);
-
-        // panning
-        var pannerOptions = {
-            pan: 0
-        };
-        //Creatting a panner so we can choose from what site to hear the song (left, right, or both).
-        var panner = new StereoPannerNode(audioCtx, pannerOptions);
-
-        var pannerControl = document.querySelector('[data-action="panner"]');
-        pannerControl.addEventListener('input', function () {
-            panner.pan.value = this.value;
-        }, false);
-
-        //Connect all audio nodes so we can control what happens with the track
-        track.connect(gainNode).connect(panner).connect(audioCtx.destination);
-
-        //Give effect to the song reproducing right now
-        $("#effectButton").click(function (e) { 
-            e.preventDefault();
-            var biquadFilter = audioCtx.createBiquadFilter();
-            track.connect(biquadFilter).connect(gainNode).connect(panner).connect(audioCtx.destination);
-            //Lowshelf for a lower pitch since the songs I choosed wouldn't combine with a highpitched filter.
-            biquadFilter.type = "lowshelf";
-            biquadFilter.frequency.setValueAtTime(1000, audioCtx.currentTime);
-            biquadFilter.gain.setValueAtTime(25, audioCtx.currentTime);
-        }); 
-    });
-</script>
-
+<script src="js/musicFake.js"></script>
 </html>

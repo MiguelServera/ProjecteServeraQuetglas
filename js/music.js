@@ -1,8 +1,4 @@
-$.getJSON('./songs', data => {
-    console.log(data); //["doc1.jpg", "doc2.jpg", "doc3.jpg"] 
-});
-console.log("Hola");
-const musicContainer = document.getElementById('music-container');
+const musicContainer = document.getElementById('music-container');  
 const playBtn = document.getElementById('play');
 const prevBtn = document.getElementById('prev');
 const nextBtn = document.getElementById('next');
@@ -14,8 +10,19 @@ const audio = document.getElementById('audio');
 //const cover = document.getElementById('cover');
 //const currTime = document.querySelector('#currTime');
 //const durTime = document.querySelector('#durTime');
+var songs = [];
 
-const songs = ['songmicancion_1654196122','songmicancion_1654281769'];
+$.ajax({
+  type: "GET",
+  url: "http://stm.projectebaleart.com/public/api/songs",
+  dataType: "JSON",
+  async: false,
+  success: function (response) {
+    response.forEach(element => {
+      songs.push(element['link']);
+    });
+  }
+});
 
 // Keep track of song
 let songIndex = 0;
@@ -25,14 +32,15 @@ loadSong(songs[songIndex]);
 
 // Update song details
 function loadSong(song) {
-  audio.src = `http://stm.projectebaleart.com/public/artist_songs/${song}.mp3`;
+  console.log("Canço actual" + song);
+  audio.src = song;
 }
 
 // Play song
 function playSong() {
   musicContainer.classList.add('play');
-  playBtn.querySelector('i.fas').classList.remove('fa-play');
-  playBtn.querySelector('i.fas').classList.add('fa-pause');
+  $(".buttonPlay").addClass("fa-pause");
+  $(".buttonPlay").removeClass("fa-play");
 
   audio.play();
 }
@@ -40,9 +48,8 @@ function playSong() {
 // Pause song
 function pauseSong() {
   musicContainer.classList.remove('play');
-  playBtn.querySelector('i.fas').classList.add('fa-play');
-  playBtn.querySelector('i.fas').classList.remove('fa-pause');
-
+  $(".buttonPlay").addClass("fa-play");
+  $(".buttonPlay").removeClass("fa-pause");
   audio.pause();
 }
 
@@ -73,18 +80,18 @@ function nextSong() {
 }
 
 playBtn.addEventListener('click', () => {
-    const isPlaying = musicContainer.classList.contains('play');
-  
-    if (isPlaying) {
-      pauseSong();
-    } else {
-      playSong();
-    }
-  });
-  
-  // Change song
-  prevBtn.addEventListener('click', prevSong);
-  nextBtn.addEventListener('click', nextSong);
-  
-  // Song ends
-  audio.addEventListener('ended', nextSong);
+  const isPlaying = musicContainer.classList.contains('play');
+
+  if (isPlaying) {
+    pauseSong();
+  } else {
+    playSong();
+  }
+});
+
+// Change song
+prevBtn.addEventListener('click', prevSong);
+nextBtn.addEventListener('click', nextSong);
+
+// Song ends
+audio.addEventListener('ended', nextSong);

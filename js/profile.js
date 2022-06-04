@@ -10,6 +10,8 @@ if (Cookies.get("user") != undefined) {
 }
 
 $(function () {
+    $("#selectCategory").hide();
+
     $("#navUserImg").attr('src', userLogged.picture);
 
     var x = document.getElementById("textUbication");
@@ -21,10 +23,6 @@ $(function () {
     $("#editProfile").click(function (e) {
         e.preventDefault();
         $("#profileModal").modal('show');
-    });
-    $("#editCategories").click(function (e) {
-        e.preventDefault();
-        $("#selectCategory").show();
     });
 
     $("#updateUbication").click(function (e) {
@@ -44,6 +42,7 @@ $(function () {
                 "<br>- Longitude: " + position.coords.longitude;
             $("#inputUbication").text(position.coords.latitude + "," + position.coords.longitude);
         }
+
     });
 
     if (getParamValue("user") != false) {
@@ -84,23 +83,6 @@ $(function () {
             }
         });
 
-        var myFormData2 = new FormData();
-        let files2 = $("#inputSong")[0].files;
-        myFormData2.append("name", "micancion");
-        myFormData2.append("category", "1");
-        myFormData2.append("artist", "1");
-        myFormData2.append('link', files2[0]);
-        $.ajax({
-            type: "POST",
-            url: "http://stm.projectebaleart.com/public/api/songs",
-            data: myFormData2,
-            processData: false,
-            contentType: false,
-            success: function (response) {
-            }, error: function (response) {
-            }
-        });
-
         $('.radioAllow').each(function (indexInArray, valueOfElement) {
             if ($(this).is(':checked')) {
                 console.log($(this).val());
@@ -110,8 +92,7 @@ $(function () {
                 allowLocation = 0;
             }
         });
-        console.log("Esto es alllllow" + allowLocation)
-        console.log("Esto es alllllow" + $("#inputUbication").text())
+
         $.ajax({
             type: "PUT",
             url: url + "/users/" + user,
@@ -128,7 +109,118 @@ $(function () {
             }
         });
     });
+
+    $("#editCategories").click(function (e) { 
+        e.preventDefault();
+        $("#selectCategory").toggle(500, function () {
+            console.log("Au!");
+        });
+    });
+
+    getCategories();
+
+    $("#addCategory").click(function (e) { 
+        e.preventDefault();
+        if ($("#filterCategories").val() != "") {
+            addCategory($("#filterCategories").val());
+        }
+    });
+
+    $("#filterCategories").change(function (e) { 
+        e.preventDefault();
+        if ($("#categoriesProfile").text().includes($( "#filterCategories option:selected" ).text())) {
+            $("#addCategory").removeClass("btn-secondary");
+            $("#addCategory").addClass("btn-danger");
+            $("#addCategory").text("Remove");
+        } else {
+            $("#addCategory").addClass("btn-secondary");
+            $("#addCategory").removeClass("btn-danger");
+            $("#addCategory").text("Add");
+        }
+    });
+
+    $("#saveSongButton").click(function (e) { 
+        e.preventDefault();
+        var myFormData2 = new FormData();
+        let files2 = $("#inputSong")[0].files;
+        let files2img = $("#songImg")[0].files;
+        console.log($("#songName").text());
+        myFormData2.append("name", $("#songName").val());
+        myFormData2.append("category", $("#songCategories").val());
+        myFormData2.append("artist", user);
+        myFormData2.append('link', files2[0]);
+        myFormData2.append('song_picture', files2img[0]);
+        $.ajax({
+            type: "POST",
+            url: "http://stm.projectebaleart.com/public/api/songs",
+            data: myFormData2,
+            processData: false,
+            contentType: false,
+            success: function (response) {
+                console.log(response);
+            }, error: function (response) {
+                console.log(response);
+            }
+        });
+    });
+
+    $("#uploadSong").click(function (e) { 
+        $("#songModal").modal('show');
+    });
 });
+
+function addCategory(category){
+    $.ajax({
+        type: "GET",
+        url: url + "/categories/user/"+user+"/"+category,
+        dataType: "json",
+        success: function (response) {
+            getUserCategory();
+        }, error: function (response) { 
+         }
+    });
+}
+
+function getUserCategory(){
+    $.ajax({
+        type: "GET",
+        url: url + "/categories/"+user,
+        dataType: "json",
+        success: function (response) {
+            console.log(response);
+            let string = ""
+            response.result.forEach(element => {
+                string += element["name"] + " - ";
+            });
+            string = string.slice(0,-2);
+            document.getElementById('categoriesProfile').innerHTML = string;
+            if ($("#categoriesProfile").text().includes($( "#filterCategories option:selected" ).text())) {
+                $("#addCategory").removeClass("btn-secondary");
+                $("#addCategory").addClass("btn-danger");
+                $("#addCategory").text("Remove");
+            } else {
+                $("#addCategory").addClass("btn-secondary");
+                $("#addCategory").removeClass("btn-danger");
+                $("#addCategory").text("Add");
+            }
+        }, error: function (response) { 
+         }
+    });
+}
+
+function getCategories(){
+    $.ajax({
+        type: "GET",
+        url: url + "/categories",
+        dataType: "json",
+        success: function (response) {
+            response.forEach(element => {
+                $(".filterCategories").append("<option value='"+element['id_category']+"'>"+element['name']+"</option>");
+            });
+        }, error: function (response) { 
+         }
+    });
+}
 
 function getPosts(userP) {
     $.ajax({
@@ -189,6 +281,7 @@ function getProfile(userP) {
             $("#nameProfile").text(response['name']);
             $("#usernameProfile").text(response['username']);
             $("#descriptionProfile").text(response['description']);
+            getUserCategory();
         },
         error: function (response) {
             console.log("ha entrao pos no");

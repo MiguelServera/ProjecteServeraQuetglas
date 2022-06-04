@@ -25,7 +25,7 @@ body{
 }
 
 img[src$="#custom_marker"]{
-    border: 2px solid #900 !important;
+    border: 2px solid rgb(255, 213, 121) !important;
     border-radius:50%;
 }
 
