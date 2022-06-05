@@ -406,9 +406,13 @@ a {
 }
 
 .musicPlayer{
-    background-color: rgb(118, 89, 119);
     height: 95vh;
     border-radius: 5%;
+}
+
+.mainMusic{
+    background: rgb(218,122,255);
+    background: linear-gradient(180deg, rgba(218,122,255,1) 0%, rgba(186,145,204,1) 50%, rgba(110,231,255,1) 100%);
 }
 
 .input-grey-rounded::placeholder {
@@ -495,6 +499,7 @@ a {
 #filtersDiv{
     overflow-y: auto!important;
 }
+
 
 iframe {
     width: 100vw;

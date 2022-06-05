@@ -47,8 +47,8 @@ $(function () {
 
     if (getParamValue("user") != false) {
         let otherUser = getParamValue("user");
-        console.log("El otro usuario es" + otherUser);
         $("#editProfile").hide();
+        $("#editCategories").hide();
         getProfile(otherUser);
         getPosts(otherUser);
         $("#followButton").show();
