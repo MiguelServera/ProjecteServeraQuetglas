@@ -12,6 +12,7 @@ if (Cookies.get("user") != undefined) {
 }
 
 $(document).ready(function () {
+  
   $("#navUserImg").attr('src', userLogged.picture);
   $(".filters").hide();
   $("#logOut").click(function (e) {

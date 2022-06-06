@@ -10,6 +10,11 @@ if (Cookies.get("user") != undefined) {
 }
 
 $(function () {
+    $(".followButton").click(function (e) { 
+        e.preventDefault();
+        followUser();
+    });
+
     $("#selectCategory").hide();
 
     $("#navUserImg").attr('src', userLogged.picture);
@@ -65,7 +70,20 @@ $(function () {
         Cookies.remove("username");
         window.location = "login.html";
     });
-
+    function followUser() {
+        $.ajax({
+            type: "POST",
+            url: url + "/followers",
+            data: {
+                "userFollows": userLogged.id_user,
+                "userFollowed": otherUser
+            },
+            dataType: "json",
+            success: function (response) {
+                console.log(response);
+            }
+        });
+    }
     $("#saveProfileButton").click(function (e) {
         e.preventDefault();
         if ($('#inputImg').get(0).files.length === 0) {
@@ -150,7 +168,11 @@ $(function () {
         myFormData2.append("category", $("#songCategories").val());
         myFormData2.append("artist", user);
         myFormData2.append('link', files2[0]);
-        myFormData2.append('song_picture', files2img[0]);
+        if (!files2img.length || files2img === 'undefined') {
+            myFormData2.append('song_picture', "");
+        } else {
+            myFormData2.append('song_picture', files2img[0]);
+        }
         $.ajax({
             type: "POST",
             url: "http://stm.projectebaleart.com/public/api/songs",

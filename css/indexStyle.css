@@ -1,3 +1,11 @@
+@font-face {
+    font-family: montserrat;
+    src: url(Montserrat.ttf);
+  }
+
+  *{
+      font-family: montserrat;
+  }
 body {
     overflow: hidden !important;
     background-color: rgb(255, 255, 255);
@@ -361,6 +369,10 @@ a {
     height: 100%;
 }
 
+.followersMusic {
+    overflow-y: auto!important;
+}
+
 .messages>div {
     margin: 10px 0px 10px 0px;
 }
@@ -384,9 +396,21 @@ a {
     background-color: #F5F5F5;
 }
 
+#currTime{
+    top: -20px;
+    left: 0;
+}
+
+#songDuration{
+    top: -20px;
+    right: 0;
+}
+
 .songImage {
     padding: 10px;
     border-radius: 50%;
+    width: 400px;
+    height: 400px;
 }
 
 .followersSpot{

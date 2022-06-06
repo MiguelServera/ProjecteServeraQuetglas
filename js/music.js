@@ -1,4 +1,4 @@
-const musicContainer = document.getElementById('music-container');  
+const musicContainer = document.getElementById('music-container');
 const playBtn = document.getElementById('play');
 const prevBtn = document.getElementById('prev');
 const nextBtn = document.getElementById('next');
@@ -12,30 +12,47 @@ const audio = document.getElementById('audio');
 //const durTime = document.querySelector('#durTime');
 var songs = [];
 var songsName = [];
+var songIndex = 0;
+var songsPictures = [];
+var artistName = [];
+updateSongs();
 
-$.ajax({
-  type: "GET",
-  url: "http://stm.projectebaleart.com/public/api/songs",
-  dataType: "JSON",
-  async: false,
-  success: function (response) {
-    response.forEach(element => {
-      songs.push(element['link']);
-      songsName.push(element['name']);
-    });
-  }
-});
+setInterval(function () {
+  updateSongs();
+}, 5000);
 
+function updateSongs(){
+  $.ajax({
+    type: "GET",
+    url: "http://stm.projectebaleart.com/public/api/songs",
+    dataType: "JSON",
+    async: false,
+    success: function (response) {
+      songs = [];
+      songsName = [];
+      songsPictures = [];
+      response.forEach(element => {
+        artistName.push(element['artist']['username']);
+        songs.push(element['link']);
+        songsName.push(element['name']);
+        songsPictures.push(element['song_picture']);
+      });
+    }
+  });
+}
 // Keep track of song
-let songIndex = 0;
 
 // Initially load song details into DOM
 loadSong(songs[songIndex]);
-$("#songsName").val(songsName[songIndex]);
+$("#songName").val(songsName[songIndex]);
+$("#songPicture").val(songsPictures[songIndex]);
+$("#navSongImage").attr('src', songsPictures[songIndex]);
+console.log($("#songName").val());
 // Update song details
 function loadSong(song) {
   console.log("Canço actual" + song);
   audio.src = song;
+  listeningUser();
 }
 
 // Play song
@@ -43,7 +60,7 @@ function playSong() {
   musicContainer.classList.add('play');
   $(".buttonPlay").addClass("fa-pause");
   $(".buttonPlay").removeClass("fa-play");
-
+  listeningUser();
   audio.play();
 }
 
@@ -61,11 +78,13 @@ function prevSong() {
 
   if (songIndex < 0) {
     songIndex = songs.length - 1;
-    
+
   }
 
   loadSong(songs[songIndex]);
-  $("#songsName").val(songsName[songIndex]);
+  $("#songName").val(songsName[songIndex]);
+  $("#songPicture").val(songsPictures[songIndex]);
+  $("#navSongImage").attr('src', songsPictures[songIndex]);
 
   playSong();
 }
@@ -77,7 +96,10 @@ function nextSong() {
   if (songIndex > songs.length - 1) {
     songIndex = 0;
   }
-  $("#songsName").val(songsName[songIndex]);
+  $("#songName").val(songsName[songIndex]);
+  $("#songPicture").val(songsPictures[songIndex]);
+  $("#navSongImage").attr('src', songsPictures[songIndex]);
+
   loadSong(songs[songIndex]);
 
   playSong();
@@ -99,3 +121,19 @@ nextBtn.addEventListener('click', nextSong);
 
 // Song ends
 audio.addEventListener('ended', nextSong);
+
+function listeningUser(){
+  $.ajax({
+    type: "PUT",
+    url: url + "/users/" + userLogged['id_user'] + "/music",
+    data: {
+      listening_now: "Està escoltant - "+songsName[songIndex]+" - de l'artista "+ artistName[songIndex]
+    },
+    dataType: "dataType",
+    success: function (response) {
+      console.log(response);
+    }, error: function (response) {
+      console.log(response);
+    }
+});
+}

@@ -9,6 +9,7 @@ if (Cookies.get("user") != undefined) {
 }
 
 $(function () {
+    
     $("#navUserImg").attr('src', userLogged.picture);
 
     $(".user").text(username);
@@ -19,16 +20,14 @@ $(function () {
         e.preventDefault();
         insertPost();
     });
-
-    $(".followButton").click(function (e) {
-        e.preventDefault();
-    });
 });
 
 function getPosts() {
+    console.log(userLogged.token);
     $.ajax({
         type: "GET",
         url: url + "/posts/" + user + "/follows",
+        headers: { Authorization: 'Bearer ' + userLogged.token },
         dataType: "json",
         success: function (response) {
             if (response.status != 0) {
@@ -68,6 +67,7 @@ function getPosts() {
             });
         },
         error: function (response) {
+            console.log("POSTTTSS"+response);
         }
     });
 }

@@ -1,21 +1,19 @@
 $(function () {
     $.ajax({
         type: "GET",
-        url: "http://stm.projectebaleart.com/public/api/users",
+        url: "http://stm.projectebaleart.com/public/api/songs",
         dataType: "json",
         success: function (response) {
-            let availableFollowers = [];
-            console.log(response);
-            console.log("lol");
+            let availableSongs = [];
             response.forEach(element => {
-                availableFollowers.push({
-                    value: element['username'],
-                    label: element['username'],
-                    desc: element['id_user'],
-                    icon: element['picture']
+                availableSongs.push({
+                    value: element['name'],
+                    label: element['name'],
+                    desc: element['id_song'],
+                    icon: element['song_picture']
                 });
             });
-            $("#searcher").autocomplete({
+            $("#songSearcher").autocomplete({
                 open: function () {
                     $(".ui-autocomplete:visible").css({
                         top: "+=2",
@@ -24,7 +22,7 @@ $(function () {
                     });
                 },
                 minLength: 0,
-                source: availableFollowers,
+                source: availableSongs,
                 create: function() {
                     $(this).data('ui-autocomplete')._renderItem = function(ul, item) {
                       return $('<li>')
@@ -32,9 +30,9 @@ $(function () {
                         .appendTo(ul);
                     };
                   },
-                  select: function(event, ui) {   
-                    console.log(ui.item.value);
-                    $("#contenedor").attr('src', 'profile.html?user='+ui.item.desc);
+                  select: function(event, ui) {
+                      console.log(ui.item); 
+                    //$("#contenedor").attr('src', 'profile.html?user='+ui.item.desc);
                 }
               });
             jQuery.ui.autocomplete.prototype._resizeMenu = function () {

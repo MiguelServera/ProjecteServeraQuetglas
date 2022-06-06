@@ -70,6 +70,7 @@ function loginUser(){
         },
         dataType: "json",
         success: function (response) {
+            userToken = response.token;
             Cookies.set('user', response.id_user);
             Cookies.set('username', response.username);
             $(".spinner").hide();
