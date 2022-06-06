@@ -11,6 +11,7 @@ const audio = document.getElementById('audio');
 //const currTime = document.querySelector('#currTime');
 //const durTime = document.querySelector('#durTime');
 var songs = [];
+var songsName = [];
 
 $.ajax({
   type: "GET",
@@ -20,6 +21,7 @@ $.ajax({
   success: function (response) {
     response.forEach(element => {
       songs.push(element['link']);
+      songsName.push(element['name']);
     });
   }
 });
@@ -29,7 +31,7 @@ let songIndex = 0;
 
 // Initially load song details into DOM
 loadSong(songs[songIndex]);
-
+$("#songsName").val(songsName[songIndex]);
 // Update song details
 function loadSong(song) {
   console.log("Canço actual" + song);
@@ -59,9 +61,11 @@ function prevSong() {
 
   if (songIndex < 0) {
     songIndex = songs.length - 1;
+    
   }
 
   loadSong(songs[songIndex]);
+  $("#songsName").val(songsName[songIndex]);
 
   playSong();
 }
@@ -73,7 +77,7 @@ function nextSong() {
   if (songIndex > songs.length - 1) {
     songIndex = 0;
   }
-
+  $("#songsName").val(songsName[songIndex]);
   loadSong(songs[songIndex]);
 
   playSong();

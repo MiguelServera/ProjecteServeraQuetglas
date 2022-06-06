@@ -68,20 +68,21 @@ $(function () {
 
     $("#saveProfileButton").click(function (e) {
         e.preventDefault();
-
-        var myFormData = new FormData();
-        let files = $("#inputImg")[0].files;
-        myFormData.append('picture', files[0]);
-        $.ajax({
-            type: "POST",
-            url: "http://stm.projectebaleart.com/public/api/users/" + user + "/image",
-            data: myFormData,
-            processData: false,
-            contentType: false,
-            success: function (response) {
-            }, error: function (response) {
-            }
-        });
+        if ($('#inputImg').get(0).files.length === 0) {
+            var myFormData = new FormData();
+            let files = $("#inputImg")[0].files;
+            myFormData.append('picture', files[0]);
+            $.ajax({
+                type: "POST",
+                url: "http://stm.projectebaleart.com/public/api/users/" + user + "/image",
+                data: myFormData,
+                processData: false,
+                contentType: false,
+                success: function (response) {
+                }, error: function (response) {
+                }
+            });
+        }
 
         $('.radioAllow').each(function (indexInArray, valueOfElement) {
             if ($(this).is(':checked')) {
@@ -110,7 +111,7 @@ $(function () {
         });
     });
 
-    $("#editCategories").click(function (e) { 
+    $("#editCategories").click(function (e) {
         e.preventDefault();
         $("#selectCategory").toggle(500, function () {
             console.log("Au!");
@@ -119,16 +120,16 @@ $(function () {
 
     getCategories();
 
-    $("#addCategory").click(function (e) { 
+    $("#addCategory").click(function (e) {
         e.preventDefault();
         if ($("#filterCategories").val() != "") {
             addCategory($("#filterCategories").val());
         }
     });
 
-    $("#filterCategories").change(function (e) { 
+    $("#filterCategories").change(function (e) {
         e.preventDefault();
-        if ($("#categoriesProfile").text().includes($( "#filterCategories option:selected" ).text())) {
+        if ($("#categoriesProfile").text().includes($("#filterCategories option:selected").text())) {
             $("#addCategory").removeClass("btn-secondary");
             $("#addCategory").addClass("btn-danger");
             $("#addCategory").text("Remove");
@@ -139,7 +140,7 @@ $(function () {
         }
     });
 
-    $("#saveSongButton").click(function (e) { 
+    $("#saveSongButton").click(function (e) {
         e.preventDefault();
         var myFormData2 = new FormData();
         let files2 = $("#inputSong")[0].files;
@@ -164,27 +165,27 @@ $(function () {
         });
     });
 
-    $("#uploadSong").click(function (e) { 
+    $("#uploadSong").click(function (e) {
         $("#songModal").modal('show');
     });
 });
 
-function addCategory(category){
+function addCategory(category) {
     $.ajax({
         type: "GET",
-        url: url + "/categories/user/"+user+"/"+category,
+        url: url + "/categories/user/" + user + "/" + category,
         dataType: "json",
         success: function (response) {
             getUserCategory();
-        }, error: function (response) { 
-         }
+        }, error: function (response) {
+        }
     });
 }
 
-function getUserCategory(){
+function getUserCategory() {
     $.ajax({
         type: "GET",
-        url: url + "/categories/"+user,
+        url: url + "/categories/" + user,
         dataType: "json",
         success: function (response) {
             console.log(response);
@@ -192,9 +193,9 @@ function getUserCategory(){
             response.result.forEach(element => {
                 string += element["name"] + " - ";
             });
-            string = string.slice(0,-2);
+            string = string.slice(0, -2);
             document.getElementById('categoriesProfile').innerHTML = string;
-            if ($("#categoriesProfile").text().includes($( "#filterCategories option:selected" ).text())) {
+            if ($("#categoriesProfile").text().includes($("#filterCategories option:selected").text())) {
                 $("#addCategory").removeClass("btn-secondary");
                 $("#addCategory").addClass("btn-danger");
                 $("#addCategory").text("Remove");
@@ -203,22 +204,22 @@ function getUserCategory(){
                 $("#addCategory").removeClass("btn-danger");
                 $("#addCategory").text("Add");
             }
-        }, error: function (response) { 
-         }
+        }, error: function (response) {
+        }
     });
 }
 
-function getCategories(){
+function getCategories() {
     $.ajax({
         type: "GET",
         url: url + "/categories",
         dataType: "json",
         success: function (response) {
             response.forEach(element => {
-                $(".filterCategories").append("<option value='"+element['id_category']+"'>"+element['name']+"</option>");
+                $(".filterCategories").append("<option value='" + element['id_category'] + "'>" + element['name'] + "</option>");
             });
-        }, error: function (response) { 
-         }
+        }, error: function (response) {
+        }
     });
 }
 

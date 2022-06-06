@@ -19,7 +19,7 @@ function getFollowersMusic(){
                 "<span>" + element['username'] + "</span>" +
                 "</div>" +
                 "<div class='description'>" +
-                "<span>Pues mira soy Pep</span>" +
+                "<span></span>" +
                 "</div>" +
                 "</div>" +
                 "</div>"); 

@@ -2,6 +2,8 @@ let user = "";
 let username = "";
 var imagen = "";
 let distance = 0;
+var array = []
+
 if (Cookies.get("user") != undefined) {
   user = Cookies.get("user");
   username = Cookies.get("username");
@@ -34,41 +36,63 @@ $(document).ready(function () {
   $('input[type=radio][name=radioDistance]').change(function () {
     getPeopleNearby();
   });
-  getPeopleNearby()
+
+  $('select').change(function () {
+    getPeopleNearby();
+  });
   getCategories();
+  getPeopleNearby()
 });
 
-function getCategories(){
+function getCategories() {
   $.ajax({
-      type: "GET",
-      url: url + "/categories",
-      dataType: "json",
-      success: function (response) {
-          response.forEach(element => {
-              $(".filterCategories").append("<option value='"+element['id_category']+"'>"+element['name']+"</option>");
-          });
-      }, error: function (response) { 
-       }
+    type: "GET",
+    url: url + "/categories",
+    dataType: "json",
+    success: function (response) {
+      response.forEach(element => {
+        $(".filterCategories").append("<option value='" + element['id_category'] + "'>" + element['name'] + "</option>");
+      });
+    }, error: function (response) {
+    }
   });
 }
 function getPeopleNearby() {
+  array = [];
+  var categories = "";
   $('.radioDistance').each(function (indexInArray, valueOfElement) {
     if ($(this).is(':checked')) {
       distance = $(this).val();
     }
   });
+  $("select").each(function (index, element) {
+    // element == this
+    console.log($(element).val());
+    if ($(element).has('option:selected')) {
+      if ($(element).val() != "") {
+        console.log("He entrat0" + $(element).val())
+        categories += $(element).val() + ",";
+      }
+    }
+  });
+  categories = categories.slice(0, -1);
+  console.log(categories);
   $.ajax({
     type: "POST",
     url: url + "/users/nearby/" + userLogged.id_user,
     dataType: "json",
-    data:{
-      distance: distance
+    data: {
+      distance: distance,
+      categories: categories
     },
     success: function (response) {
+      console.log("No hay illoh pero en verdad si");
       $(".peopleNearby").remove();
       let location = "";
-      let array = []
+      $(".people").empty();
+
       response.result.forEach(element => {
+
         if (element['id_user'] != userLogged.id_user) {
           location = element['location'];
           let longitud = location.substr(0, location.indexOf(','));
@@ -93,22 +117,23 @@ function getPeopleNearby() {
             "</div>");
         }
       });
+
       initMap(array)
     }, error: function (response) {
+      $(".people").html("<h3 id='warningPostsProfile' class='d-flex h-100 w-100 text-center flex-column justify-content-center align-items-center'>NO HI HA USUARIS A PROP</h3>");
+      initMap(array)
     }
   });
 }
 
 function initMap(array) {
-  // The location of Uluru
-  // The location of Uluru
+  $("#map").empty();
   let location = userLogged.location;
   let latitud = location.substr(0, location.indexOf(','));
   let longitud = location.substr(location.indexOf(',') + 1);
 
   const myLatLng = { lat: parseFloat(latitud), lng: parseFloat(longitud) };
 
-  // The map, centered at Uluru
   const map = new google.maps.Map(document.getElementById("map"), {
     zoom: 11,
     center: myLatLng,
@@ -127,16 +152,15 @@ function initMap(array) {
     map,
     icon: icon
   });
-
-  array.forEach(element => {
-    icon.url = element['img'] + '#custom_marker';
-    marker = new google.maps.Marker({
-      position: new google.maps.LatLng(parseFloat(element['longitudVar']), parseFloat(element['latitudVar'])),
-      map: map,
-      icon: icon
-    })
-  });
-  // The marker, positioned at Uluru
+  console.log(array);
+  if (array !== undefined) {
+    array.forEach(element => {
+      icon.url = element['img'] + '#custom_marker';
+      marker = new google.maps.Marker({
+        position: new google.maps.LatLng(parseFloat(element['longitudVar']), parseFloat(element['latitudVar'])),
+        map: map,
+        icon: icon
+      })
+    });
+  }
 }
-
-    // The marker, positioned at Uluru
