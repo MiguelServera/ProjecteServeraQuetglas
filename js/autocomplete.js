@@ -1,6 +1,8 @@
 $(function () {
     $.ajax({
-        type: "GET",
+        type: "GET",        
+        headers: { Authorization: 'Bearer ' + userLogged.token },
+
         url: "http://stm.projectebaleart.com/public/api/users",
         dataType: "json",
         success: function (response) {

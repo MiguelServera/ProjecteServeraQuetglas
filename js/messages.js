@@ -21,6 +21,7 @@ function insertMessage() {
   $.ajax({
     type: "POST",
     url: url + "/messages",
+    headers: { Authorization: 'Bearer ' + userLogged.token },
     data: {
       "text": $("#inputUser").val(),
       "userFrom": user,
@@ -38,6 +39,7 @@ function retrieveMessagesFromUser(otherUserUsername) {
   $.ajax({
     type: "GET",
     url: url + "/messages/chat/" + user + "/" + otherUser,
+    headers: { Authorization: 'Bearer ' + userLogged.token },
     dataType: "json",
     success: function (response) {
       $(".messages").empty();
@@ -74,6 +76,7 @@ function getFollowersMessages() {
   $.ajax({
     type: "GET",
     url: url + "/followers/" + user,
+    headers: { Authorization: 'Bearer ' + userLogged.token },
     dataType: "json",
     success: function (response) {
       response.forEach(element => {
@@ -108,6 +111,7 @@ function getRecentChats() {
   $.ajax({
     type: "GET",
     url: url + "/messages/list/" + user,
+    headers: { Authorization: 'Bearer ' + userLogged.token },
     dataType: "json",
     success: function (response) {
       $("#allChats").empty();

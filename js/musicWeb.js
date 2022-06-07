@@ -2,16 +2,16 @@ $(function () {
     getFollowersMusic();
     setInterval(() => {
         getFollowersMusic();
-    }, 5000);
+    }, 8000);
 });
 
 function getFollowersMusic(){
     $.ajax({
-        type: "GET",
+        type: "GET",        
+        headers: { Authorization: 'Bearer ' + userLogged.token },
         url: "http://stm.projectebaleart.com/public/api/followers/"+userLogged['id_user']+"/follows",
         dataType: "json",
         success: function (response) {
-            console.log(response);
             $(".followersMusic").empty();
             response.forEach(element => {
                 console.log(element);
@@ -29,7 +29,6 @@ function getFollowersMusic(){
                 "</div>"); 
             });
         }, error: function(response){
-            console.log(response);
         }
     });
 }

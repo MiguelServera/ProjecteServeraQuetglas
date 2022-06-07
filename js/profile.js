@@ -72,7 +72,8 @@ $(function () {
     });
     function followUser() {
         $.ajax({
-            type: "POST",
+            type: "POST",        
+            headers: { Authorization: 'Bearer ' + userLogged.token },
             url: url + "/followers",
             data: {
                 "userFollows": userLogged.id_user,
@@ -91,7 +92,8 @@ $(function () {
             let files = $("#inputImg")[0].files;
             myFormData.append('picture', files[0]);
             $.ajax({
-                type: "POST",
+                type: "POST",        
+            headers: { Authorization: 'Bearer ' + userLogged.token },
                 url: "http://stm.projectebaleart.com/public/api/users/" + user + "/image",
                 data: myFormData,
                 processData: false,
@@ -113,7 +115,8 @@ $(function () {
         });
 
         $.ajax({
-            type: "PUT",
+            type: "PUT",        
+            headers: { Authorization: 'Bearer ' + userLogged.token },
             url: url + "/users/" + user,
             data: {
                 name: $("#inputName").val(),
@@ -174,7 +177,8 @@ $(function () {
             myFormData2.append('song_picture', files2img[0]);
         }
         $.ajax({
-            type: "POST",
+            type: "POST",        
+            headers: { Authorization: 'Bearer ' + userLogged.token },
             url: "http://stm.projectebaleart.com/public/api/songs",
             data: myFormData2,
             processData: false,
@@ -194,7 +198,8 @@ $(function () {
 
 function addCategory(category) {
     $.ajax({
-        type: "GET",
+        type: "GET",        
+        headers: { Authorization: 'Bearer ' + userLogged.token },
         url: url + "/categories/user/" + user + "/" + category,
         dataType: "json",
         success: function (response) {
@@ -206,7 +211,8 @@ function addCategory(category) {
 
 function getUserCategory() {
     $.ajax({
-        type: "GET",
+        type: "GET",        
+        headers: { Authorization: 'Bearer ' + userLogged.token },
         url: url + "/categories/" + user,
         dataType: "json",
         success: function (response) {
@@ -233,7 +239,8 @@ function getUserCategory() {
 
 function getCategories() {
     $.ajax({
-        type: "GET",
+        type: "GET",        
+        headers: { Authorization: 'Bearer ' + userLogged.token },
         url: url + "/categories",
         dataType: "json",
         success: function (response) {
@@ -247,7 +254,8 @@ function getCategories() {
 
 function getPosts(userP) {
     $.ajax({
-        type: "GET",
+        type: "GET",        
+        headers: { Authorization: 'Bearer ' + userLogged.token },
         url: url + "/posts/" + userP,
         dataType: "json",
         success: function (response) {
@@ -284,7 +292,8 @@ function getPosts(userP) {
 function getProfile(userP) {
     console.log("Helloooooo");
     $.ajax({
-        type: "GET",
+        type: "GET",        
+        headers: { Authorization: 'Bearer ' + userLogged.token },
         url: url + "/users/" + userP,
         dataType: "json",
         success: function (response) {

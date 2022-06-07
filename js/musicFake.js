@@ -1,5 +1,6 @@
 $(function () {
   let audio = window.parent.document.getElementById('audio')
+  
   audio.addEventListener('loadedmetadata', function () {
     if (Math.floor(audio.duration % 60) < 10) {
       $("#songDuration").text(Math.floor(audio.duration / 60) + ':0' + Math.floor(audio.duration % 60));

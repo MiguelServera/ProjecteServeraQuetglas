@@ -525,6 +525,10 @@ a {
     overflow-y: auto!important;
 }
 
+.filters{
+    display: none;
+}
+
 
 iframe {
     width: 100vw;

@@ -1,4 +1,4 @@
-const url = "http://stm.projectebaleart.com/public/api"
+const url2 = "http://stm.projectebaleart.com/public/api"
 $(function () {
     $(".spinner").hide();
     $(this).keypress(function(event){
@@ -10,7 +10,6 @@ $(function () {
 
     $("#register").click(function (e) { 
         e.preventDefault();
-        verifyEmail();
         registerUser();
     });
 
@@ -43,7 +42,7 @@ function registerUser(){
             "accept": "application/json",
             "Access-Control-Allow-Origin":"*"
         },
-        url: url+"/users",
+        url: url2+"/users",
         data: {
             "email": $("#registerEmail").val(),
             "password": $("#registerPassword").val(),
@@ -63,7 +62,7 @@ function loginUser(){
             "accept": "application/json",
             "Access-Control-Allow-Origin":"*"
         },
-        url: url+"/login",
+        url: url2+"/login",
         data: {
             "email": $("#loginEmail").val(),
             "password": $("#loginPassword").val(),
@@ -71,16 +70,16 @@ function loginUser(){
         dataType: "json",
         success: function (response) {
             userToken = response.token;
+            id_userLog = response.id_user;
             Cookies.set('user', response.id_user);
             Cookies.set('username', response.username);
+            Cookies.set('token', response.token);
+            getUserLogged();
             $(".spinner").hide();
             window.location.href="index.html";
         }, error: function(response){
+            console.log(response);
             $(".spinner").hide();
         }
     });
 }
-
-function verifyEmail(){
-    
-} 

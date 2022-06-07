@@ -15,16 +15,21 @@ var songsName = [];
 var songIndex = 0;
 var songsPictures = [];
 var artistName = [];
-updateSongs();
-
-setInterval(function () {
+$(function () {
   updateSongs();
-}, 5000);
 
-function updateSongs(){
+  setInterval(function () {
+    updateSongs();
+  }, 5000);
+
+  loadSong(songs[songIndex]);
+});
+
+function updateSongs() {
   $.ajax({
     type: "GET",
     url: "http://stm.projectebaleart.com/public/api/songs",
+    headers: { Authorization: 'Bearer ' + userLogged.token },
     dataType: "JSON",
     async: false,
     success: function (response) {
@@ -37,20 +42,14 @@ function updateSongs(){
         songsName.push(element['name']);
         songsPictures.push(element['song_picture']);
       });
+      $("#songName").val(songsName[songIndex]);
+      $("#songPicture").val(songsPictures[songIndex]);
+      $("#navSongImage").attr('src', songsPictures[songIndex]);
     }
   });
 }
-// Keep track of song
-
-// Initially load song details into DOM
-loadSong(songs[songIndex]);
-$("#songName").val(songsName[songIndex]);
-$("#songPicture").val(songsPictures[songIndex]);
-$("#navSongImage").attr('src', songsPictures[songIndex]);
-console.log($("#songName").val());
 // Update song details
 function loadSong(song) {
-  console.log("Canço actual" + song);
   audio.src = song;
   listeningUser();
 }
@@ -122,12 +121,13 @@ nextBtn.addEventListener('click', nextSong);
 // Song ends
 audio.addEventListener('ended', nextSong);
 
-function listeningUser(){
+function listeningUser() {
   $.ajax({
     type: "PUT",
-    url: url + "/users/" + userLogged['id_user'] + "/music",
+    url: url + "/users/" + userLogged.id_user + "/music",
+    headers: { Authorization: 'Bearer ' + userLogged.token },
     data: {
-      listening_now: "Està escoltant - "+songsName[songIndex]+" - de l'artista "+ artistName[songIndex]
+      listening_now: "Està escoltant - " + songsName[songIndex] + " - de l'artista " + artistName[songIndex]
     },
     dataType: "dataType",
     success: function (response) {
@@ -135,5 +135,5 @@ function listeningUser(){
     }, error: function (response) {
       console.log(response);
     }
-});
+  });
 }

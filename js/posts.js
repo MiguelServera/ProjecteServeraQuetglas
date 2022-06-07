@@ -9,7 +9,6 @@ if (Cookies.get("user") != undefined) {
 }
 
 $(function () {
-    
     $("#navUserImg").attr('src', userLogged.picture);
 
     $(".user").text(username);
@@ -23,13 +22,15 @@ $(function () {
 });
 
 function getPosts() {
-    console.log(userLogged.token);
     $.ajax({
-        type: "GET",
+        type: "GET",        
+        headers: { Authorization: 'Bearer ' + userLogged.token },
+
         url: url + "/posts/" + user + "/follows",
         headers: { Authorization: 'Bearer ' + userLogged.token },
         dataType: "json",
         success: function (response) {
+            console.log(response);
             if (response.status != 0) {
                 $(".usersPost").remove();
                 response.forEach(element => {
@@ -57,8 +58,11 @@ function getPosts() {
                 e.preventDefault();
                 let id_post = $(this).closest('.usersPost').attr('id');
                 $.ajax({
-                    type: "GET",
+                    type: "GET",        
+        headers: { Authorization: 'Bearer ' + userLogged.token },
+
                     url: url+"/posts/like/"+id_post+"/"+user,
+                    headers: { Authorization: 'Bearer ' + userLogged.token },
                     dataType: "json",
                     success: function (response) {
                         getPosts();
@@ -74,8 +78,11 @@ function getPosts() {
 
 function insertPost() {
     $.ajax({
-        type: "POST",
+        type: "POST",        
+        headers: { Authorization: 'Bearer ' + userLogged.token },
+
         url: url + "/posts",
+        headers: { Authorization: 'Bearer ' + userLogged.token },
         data: {
             "text": $("#textPost").text(),
             "user": user
@@ -91,8 +98,11 @@ function insertPost() {
 
 function followUser(parent) {
     $.ajax({
-        type: "POST",
+        type: "POST",        
+        headers: { Authorization: 'Bearer ' + userLogged.token },
+
         url: url + "/followers",
+        headers: { Authorization: 'Bearer ' + userLogged.token },
         data: {
             "userFollows": user,
             "userFollowed": parent
@@ -106,8 +116,11 @@ function followUser(parent) {
 
 function deleteFollowUser(parent) {
     $.ajax({
-        type: "DELETE",
+        type: "DELETE",        
+        headers: { Authorization: 'Bearer ' + userLogged.token },
+
         url: url + "/followers",
+        headers: { Authorization: 'Bearer ' + userLogged.token },
         data: {
             "userFollows": parent,
             "userFollowed": user
@@ -120,8 +133,11 @@ function deleteFollowUser(parent) {
 
 function randomSuggests() {
     $.ajax({
-        type: "GET",
+        type: "GET",        
+        headers: { Authorization: 'Bearer ' + userLogged.token },
+
         url: url + "/followers/" + user + "/new",
+        headers: { Authorization: 'Bearer ' + userLogged.token },
         dataType: "json",
         success: function (response) {
             $(".suggestion").remove();

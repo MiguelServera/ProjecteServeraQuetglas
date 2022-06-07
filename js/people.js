@@ -12,7 +12,6 @@ if (Cookies.get("user") != undefined) {
 }
 
 $(document).ready(function () {
-  
   $("#navUserImg").attr('src', userLogged.picture);
   $(".filters").hide();
   $("#logOut").click(function (e) {
@@ -48,6 +47,7 @@ $(document).ready(function () {
 function getCategories() {
   $.ajax({
     type: "GET",
+    headers: { Authorization: 'Bearer ' + userLogged.token },
     url: url + "/categories",
     dataType: "json",
     success: function (response) {
@@ -80,6 +80,7 @@ function getPeopleNearby() {
   console.log(categories);
   $.ajax({
     type: "POST",
+    headers: { Authorization: 'Bearer ' + userLogged.token },
     url: url + "/users/nearby/" + userLogged.id_user,
     dataType: "json",
     data: {

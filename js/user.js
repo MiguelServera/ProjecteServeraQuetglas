@@ -1,4 +1,4 @@
-const url2 = "http://stm.projectebaleart.com/public/api"
+const url = "http://stm.projectebaleart.com/public/api"
 
 /*if (Cookies.get("user") != undefined) {
     user = Cookies.get("user");
@@ -7,15 +7,21 @@ const url2 = "http://stm.projectebaleart.com/public/api"
     window.location.href = "login.html";
 }*/
 
-var userToken = "";
+
+var userToken = Cookies.get("token");
+let id_userLog = Cookies.get("user");
 var userLogged = {
 
 };
-$(document).ready(function () {
-    console.log("User "+userToken);
+
+$(function () {
+    getUserLogged();
+});
+function getUserLogged(){
     $.ajax({
-        type: "GET",
-        url: url2 + "/users/" + user,
+        type: "GET",        
+        headers: { Authorization: 'Bearer ' + userLogged.token },
+        url: url + "/users/" + id_userLog,
         headers: { Authorization: 'Bearer ' + userToken },
         dataType: "json",
         async: false,
@@ -28,12 +34,9 @@ $(document).ready(function () {
             userLogged.picture = response['picture'];
             userLogged.name = response['name'];
             userLogged.location = response['location'];
-            userLogged.token = response['token'];
-            console.log("User "+userLogged.token);
-            console.log(response);        },
+            userLogged.token = userToken;
+        },
         error: function (response) {
-            console.log("User "+userLogged.token);
-            console.log(response);
         }
     });
-});
+}
