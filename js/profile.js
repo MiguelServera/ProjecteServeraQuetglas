@@ -6,13 +6,17 @@ if (Cookies.get("user") != undefined) {
     user = Cookies.get("user");
     username = Cookies.get("username");
 } else {
-    window.location.href = "login.html";
+    window.location.href = "main.html";
 }
 
 $(function () {
-    $(".followButton").click(function (e) { 
+    $("#followButton").click(function (e) {
         e.preventDefault();
-        followUser();
+        if ($("#followButton").hasClass("btn-danger")) {
+            deleteFollowUser();
+        } else {
+            followUser();
+        }
     });
 
     $("#selectCategory").hide();
@@ -51,14 +55,14 @@ $(function () {
     });
 
     if (getParamValue("user") != false) {
-        let otherUser = getParamValue("user");
+        var otherUser = getParamValue("user");
+        checkUser();
         $("#editProfile").hide();
         $("#editCategories").hide();
         getProfile(otherUser);
         getPosts(otherUser);
         $("#followButton").show();
     } else {
-        console.log("El otro usuario es mio" + user);
         getProfile(user);
         getPosts(user);
         $("#followButton").hide();
@@ -68,11 +72,34 @@ $(function () {
         e.preventDefault();
         Cookies.remove("user");
         Cookies.remove("username");
-        window.location = "login.html";
+        window.location = "main.html";
     });
+
+    function checkUser() {
+        $.ajax({
+            type: "GET",
+            headers: { Authorization: 'Bearer ' + userLogged.token },
+            url: url + "/followers/" + user + "/" + otherUser,
+            dataType: "json",
+            success: function (response) {
+                if (response.length != 0) {
+                    $("#followButton").removeClass("btn-primary");
+                    $("#followButton").addClass("btn-danger");
+                    $("#followButton").text("Unfollow");
+                } else {
+                    $("#followButton").addClass("btn-primary");
+                    $("#followButton").removeClass("btn-danger");
+                    $("#followButton").text("Follow");
+
+                }
+            }, error: function (response) {
+            }
+        });
+    }
+
     function followUser() {
         $.ajax({
-            type: "POST",        
+            type: "POST",
             headers: { Authorization: 'Bearer ' + userLogged.token },
             url: url + "/followers",
             data: {
@@ -81,19 +108,35 @@ $(function () {
             },
             dataType: "json",
             success: function (response) {
-                console.log(response);
+                checkUser();
+                getProfile(otherUser);
             }
         });
     }
+
+    function deleteFollowUser() {
+        $.ajax({
+            type: "DELETE",
+            headers: { Authorization: 'Bearer ' + userLogged.token },
+
+            url: url + "/followers/" + user + "/" + otherUser,
+            dataType: "json",
+            success: function (response) {
+                checkUser();
+                getProfile(otherUser);
+            }
+        });
+    }
+
     $("#saveProfileButton").click(function (e) {
         e.preventDefault();
-        if ($('#inputImg').get(0).files.length === 0) {
+        if ($('#inputImg').get(0).files.length !== 0) {
             var myFormData = new FormData();
             let files = $("#inputImg")[0].files;
             myFormData.append('picture', files[0]);
             $.ajax({
-                type: "POST",        
-            headers: { Authorization: 'Bearer ' + userLogged.token },
+                type: "POST",
+                headers: { Authorization: 'Bearer ' + userLogged.token },
                 url: "http://stm.projectebaleart.com/public/api/users/" + user + "/image",
                 data: myFormData,
                 processData: false,
@@ -102,11 +145,11 @@ $(function () {
                 }, error: function (response) {
                 }
             });
+        } else {
         }
 
         $('.radioAllow').each(function (indexInArray, valueOfElement) {
             if ($(this).is(':checked')) {
-                console.log($(this).val());
                 allowLocation = $(this).val();
                 return false;
             } else {
@@ -115,7 +158,7 @@ $(function () {
         });
 
         $.ajax({
-            type: "PUT",        
+            type: "PUT",
             headers: { Authorization: 'Bearer ' + userLogged.token },
             url: url + "/users/" + user,
             data: {
@@ -130,12 +173,13 @@ $(function () {
             }, error: function (response) {
             }
         });
+
+        getProfile(user);
     });
 
     $("#editCategories").click(function (e) {
         e.preventDefault();
         $("#selectCategory").toggle(500, function () {
-            console.log("Au!");
         });
     });
 
@@ -162,11 +206,9 @@ $(function () {
     });
 
     $("#saveSongButton").click(function (e) {
-        e.preventDefault();
         var myFormData2 = new FormData();
         let files2 = $("#inputSong")[0].files;
         let files2img = $("#songImg")[0].files;
-        console.log($("#songName").text());
         myFormData2.append("name", $("#songName").val());
         myFormData2.append("category", $("#songCategories").val());
         myFormData2.append("artist", user);
@@ -177,16 +219,14 @@ $(function () {
             myFormData2.append('song_picture', files2img[0]);
         }
         $.ajax({
-            type: "POST",        
+            type: "POST",
             headers: { Authorization: 'Bearer ' + userLogged.token },
             url: "http://stm.projectebaleart.com/public/api/songs",
             data: myFormData2,
             processData: false,
             contentType: false,
             success: function (response) {
-                console.log(response);
             }, error: function (response) {
-                console.log(response);
             }
         });
     });
@@ -198,7 +238,7 @@ $(function () {
 
 function addCategory(category) {
     $.ajax({
-        type: "GET",        
+        type: "GET",
         headers: { Authorization: 'Bearer ' + userLogged.token },
         url: url + "/categories/user/" + user + "/" + category,
         dataType: "json",
@@ -211,26 +251,27 @@ function addCategory(category) {
 
 function getUserCategory() {
     $.ajax({
-        type: "GET",        
+        type: "GET",
         headers: { Authorization: 'Bearer ' + userLogged.token },
         url: url + "/categories/" + user,
         dataType: "json",
         success: function (response) {
-            console.log(response);
             let string = ""
-            response.result.forEach(element => {
-                string += element["name"] + " - ";
-            });
-            string = string.slice(0, -2);
-            document.getElementById('categoriesProfile').innerHTML = string;
-            if ($("#categoriesProfile").text().includes($("#filterCategories option:selected").text())) {
-                $("#addCategory").removeClass("btn-secondary");
-                $("#addCategory").addClass("btn-danger");
-                $("#addCategory").text("Remove");
-            } else {
-                $("#addCategory").addClass("btn-secondary");
-                $("#addCategory").removeClass("btn-danger");
-                $("#addCategory").text("Add");
+            if (response.result !== null) {
+                response.result.forEach(element => {
+                    string += element["name"] + " - ";
+                });
+                string = string.slice(0, -2);
+                document.getElementById('categoriesProfile').innerHTML = string;
+                if ($("#categoriesProfile").text().includes($("#filterCategories option:selected").text())) {
+                    $("#addCategory").removeClass("btn-secondary");
+                    $("#addCategory").addClass("btn-danger");
+                    $("#addCategory").text("Remove");
+                } else {
+                    $("#addCategory").addClass("btn-secondary");
+                    $("#addCategory").removeClass("btn-danger");
+                    $("#addCategory").text("Add");
+                }
             }
         }, error: function (response) {
         }
@@ -239,7 +280,7 @@ function getUserCategory() {
 
 function getCategories() {
     $.ajax({
-        type: "GET",        
+        type: "GET",
         headers: { Authorization: 'Bearer ' + userLogged.token },
         url: url + "/categories",
         dataType: "json",
@@ -254,7 +295,7 @@ function getCategories() {
 
 function getPosts(userP) {
     $.ajax({
-        type: "GET",        
+        type: "GET",
         headers: { Authorization: 'Bearer ' + userLogged.token },
         url: url + "/posts/" + userP,
         dataType: "json",
@@ -267,22 +308,72 @@ function getPosts(userP) {
                 $("#profilePosts").removeClass("d-flex");
                 $("#warningPostsProfile").remove();
                 response.forEach(element => {
-                    $("#profilePosts").append("<div class='usersPost'>" +
-                        "<div class='d-flex'>" +
-                        "<img class='userIcon mr-2' src='" + element['user']['picture'] + "' alt='' />" +
-                        "<div class='userInfo mw-100 w-100'>" +
-                        "<div class='name'>" +
-                        "<span id='user'>" + element['user']['username'] + "</span>" +
-                        "</div>" +
-                        "<div class='text w-100'>" +
-                        "<span>" + element['text'] + "</span>" +
-                        "</div>" +
-                        "</div>" +
-                        "</div>" +
-                        "</div>");
+                    if (userP == userLogged.id_user) {
+                        if (element['user']['id_user'] == userLogged.id_user) {
+                            $("#profilePosts").append("<div class='usersPost'>" +
+                                "<div class='d-flex'>" +
+                                "<img class='userIcon mr-2' src='" + element['user']['picture'] + "' alt='' />" +
+                                "<div class='userInfo mw-100 w-100'>" +
+                                "<div class='name'>" +
+                                "<span id='user'>" + element['user']['username'] + "</span>" +
+                                "</div>" +
+                                "<div class='text w-100'>" +
+                                "<span>" + element['text'] + "</span>" +
+                                "</div>" +
+                                "</div>" +
+                                "</div>" +
+                                "</div>");
+                        } else {
+                            $("#profilePosts").append("<div class='usersPost'>" +
+                                "<span class='w-100'><i class='fa fa-retweet' aria-hidden='true'></i> Respoted per mi</span>" +
+                                "<div class='d-flex'>" +
+                                "<img class='userIcon mr-2' src='" + element['user']['picture'] + "' alt='' />" +
+                                "<div class='userInfo mw-100 w-100'>" +
+                                "<div class='name'>" +
+                                "<span id='user'>" + element['user']['username'] + "</span>" +
+                                "</div>" +
+                                "<div class='text w-100'>" +
+                                "<span>" + element['text'] + "</span>" +
+                                "</div>" +
+                                "</div>" +
+                                "</div>" +
+                                "</div>");
+                        }
+                    } else {
+                        if (userP == element['user']['id_user']) {
+                            $("#profilePosts").append("<div class='usersPost'>" +
+                                "<div class='d-flex'>" +
+                                "<img class='userIcon mr-2' src='" + element['user']['picture'] + "' alt='' />" +
+                                "<div class='userInfo mw-100 w-100'>" +
+                                "<div class='name'>" +
+                                "<span id='user'>" + element['user']['username'] + "</span>" +
+                                "</div>" +
+                                "<div class='text w-100'>" +
+                                "<span>" + element['text'] + "</span>" +
+                                "</div>" +
+                                "</div>" +
+                                "</div>" +
+                                "</div>");
+                        } else {
+                            $("#profilePosts").append("<div class='usersPost'>" +
+                                "<span class='w-100'><i class='fa fa-retweet' aria-hidden='true'></i> Respoted per mi</span>" +
+                                "<div class='d-flex'>" +
+                                "<img class='userIcon mr-2' src='" + element['user']['picture'] + "' alt='' />" +
+                                "<div class='userInfo mw-100 w-100'>" +
+                                "<div class='name'>" +
+                                "<span id='user'>" + element['user']['username'] + "</span>" +
+                                "</div>" +
+                                "<div class='text w-100'>" +
+                                "<span>" + element['text'] + "</span>" +
+                                "</div>" +
+                                "</div>" +
+                                "</div>" +
+                                "</div>");
+                        }
+
+                    }
                 });
             }
-
         },
         error: function (response) {
         }
@@ -290,15 +381,13 @@ function getPosts(userP) {
 }
 
 function getProfile(userP) {
-    console.log("Helloooooo");
     $.ajax({
-        type: "GET",        
+        type: "GET",
         headers: { Authorization: 'Bearer ' + userLogged.token },
         url: url + "/users/" + userP,
         dataType: "json",
         success: function (response) {
-            console.log("ha entrao");
-            console.log(response);
+            getUserCategory();
             $(".profileImg").attr("src", response['picture']);
             $("#inputName").val(response['name']);
             $("#inputUsername").val(response['username']);
@@ -310,14 +399,14 @@ function getProfile(userP) {
             }
             $("#inputEmail").val(response['email']);
             $("#inputDescription").text(response['description']);
+            $(".modalUsername").text(response['username']);
             $("#nameProfile").text(response['name']);
             $("#usernameProfile").text(response['username']);
             $("#descriptionProfile").text(response['description']);
-            getUserCategory();
+            $("#followersCount").html("<strong>" + response['followers'] + " Seguidors</strong>");
+            $("input[name=radioAllow][value=" + response['allowLocation'] + "]").attr('checked', 'checked');
         },
         error: function (response) {
-            console.log("ha entrao pos no");
-            console.log(response);
         }
     });
 }

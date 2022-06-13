@@ -3,6 +3,12 @@ $(function () {
     setInterval(() => {
         getFollowersMusic();
     }, 8000);
+
+    getSongsList();
+
+    setInterval(() => {
+        getSongsList();
+    }, 8000);
 });
 
 function getFollowersMusic(){
@@ -14,7 +20,6 @@ function getFollowersMusic(){
         success: function (response) {
             $(".followersMusic").empty();
             response.forEach(element => {
-                console.log(element);
                 $(".followersMusic").append("<div class='m-2'>" +
                 "<img class='userIcon' src='" + element['picture'] + "' alt='' />" +
                 "<div class='userInfo mw-100'>" +
@@ -29,6 +34,18 @@ function getFollowersMusic(){
                 "</div>"); 
             });
         }, error: function(response){
+        }
+    });
+}
+
+function getSongsList(){
+    $.ajax({
+        type: "GET",
+        url: "http://stm.projectebaleart.com/public/api/songs",
+        headers: { Authorization: 'Bearer ' + userLogged.token },
+        dataType: "json",
+        success: function (response) {
+            
         }
     });
 }

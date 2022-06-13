@@ -34,17 +34,14 @@ $(function () {
                     };
                   },
                   select: function(event, ui) {
-                    console.log(ui.item); 
                     window.parent.document.getElementById('audio').src = ui.item.label;
                     window.parent.document.getElementById('audio').play();
                     window.parent.document.getElementById('navSongImage').src = ui.item.icon;
                     window.parent.document.getElementById('songPicture').value = ui.item.icon;
                     window.parent.document.getElementById('songName').value = ui.item.value;
-                    console.log(window.parent.document.getElementById('songName').value);
                     window.parent.document.getElementById('buttonPlay').classList.remove("fa-play");
                     window.parent.document.getElementById('buttonPlay').classList.add("fa-pause");
                     window.parent.document.getElementById('music-container').classList.add('play');  
-                    console.log("Cambios las cosas");
                     $(".buttonPlay").removeClass("fa-play");
                     $(".buttonPlay").addClass("fa-pause");
                     $("#songTitle").text(ui.item.value);

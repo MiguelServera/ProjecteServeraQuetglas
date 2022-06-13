@@ -17,7 +17,9 @@ var songsPictures = [];
 var artistName = [];
 $(function () {
   updateSongs();
-
+  $("#songName").val(songsName[songIndex]);
+  $("#songPicture").val(songsPictures[songIndex]);
+  $("#navSongImage").attr('src', songsPictures[songIndex]);
   setInterval(function () {
     updateSongs();
   }, 5000);
@@ -42,9 +44,6 @@ function updateSongs() {
         songsName.push(element['name']);
         songsPictures.push(element['song_picture']);
       });
-      $("#songName").val(songsName[songIndex]);
-      $("#songPicture").val(songsPictures[songIndex]);
-      $("#navSongImage").attr('src', songsPictures[songIndex]);
     }
   });
 }
@@ -131,9 +130,7 @@ function listeningUser() {
     },
     dataType: "dataType",
     success: function (response) {
-      console.log(response);
     }, error: function (response) {
-      console.log(response);
     }
   });
 }

@@ -4,7 +4,7 @@ const url = "http://stm.projectebaleart.com/public/api"
     user = Cookies.get("user");
     username = Cookies.get("username");
 } else {
-    window.location.href = "login.html";
+    window.location.href = "main.html";
 }*/
 
 
@@ -26,7 +26,6 @@ function getUserLogged(){
         dataType: "json",
         async: false,
         success: function (response) {
-            console.log(response);
             userLogged.id_user = response['id_user'];
             userLogged.name = response['name'];
             userLogged.username = response['username'];

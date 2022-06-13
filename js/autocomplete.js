@@ -7,8 +7,6 @@ $(function () {
         dataType: "json",
         success: function (response) {
             let availableFollowers = [];
-            console.log(response);
-            console.log("lol");
             response.forEach(element => {
                 availableFollowers.push({
                     value: element['username'],
@@ -35,7 +33,6 @@ $(function () {
                     };
                   },
                   select: function(event, ui) {   
-                    console.log(ui.item.value);
                     $("#contenedor").attr('src', 'profile.html?user='+ui.item.desc);
                 }
               });

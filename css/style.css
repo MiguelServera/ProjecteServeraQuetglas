@@ -29,13 +29,6 @@
 #songCover > img{
     width: 100%;
 }
-#mainContainer{
-    width: 500px;
-    height: 80vh;
-    background-color: rgba(14, 14, 14, 0.753);
-    display: flex;
-    justify-content: center;
-}
 
 #musicContainer{
     width: 300px;

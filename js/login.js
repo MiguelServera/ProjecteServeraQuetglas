@@ -1,10 +1,16 @@
 const url2 = "http://stm.projectebaleart.com/public/api"
 $(function () {
-    $(".spinner").hide();
-    $(this).keypress(function(event){
+    $(".login-form").keypress(function(event){
         var keycode = (event.keyCode ? event.keyCode : event.which);
         if(keycode == '13'){
           $("#login").click();
+        }
+    });
+
+    $(".register-form").keypress(function(event){
+        var keycode = (event.keyCode ? event.keyCode : event.which);
+        if(keycode == '13'){
+          $("#register").click();
         }
     });
 
@@ -15,7 +21,7 @@ $(function () {
 
     $("#login").click(function (e) { 
         e.preventDefault();
-        $(".spinner").show();
+        $(".avis").text("");
         loginUser();
     });
 
@@ -28,6 +34,7 @@ $(function () {
 
     $("#chgRegister").click(function (e) { 
         e.preventDefault();
+        $(".spinner2").show();
         $(".login-form").fadeOut(500, function(){
             $(".register-form").fadeIn(1500);
         });
@@ -51,6 +58,25 @@ function registerUser(){
         },
         dataType: "json",
         success: function (response) {
+            if (response.status != "Created") {
+                if (typeof response.email !== 'undefined') {
+                    $(".avisRegister").text("Aquest e-mail ja existeix");
+                    $(".spinner2").hide();
+                } else if (typeof response.username !== 'undefined') {
+                    $(".avisRegister").text("Aquest username ja existeix");
+                    $(".spinner2").hide();
+                } else {
+                    $(".avisRegister").text("Usuari registrat correctament");
+                    $(".spinner2").hide();
+                }
+            } else {
+                $(".avisRegister").text("Usuari registrat correctament");
+                $(".spinner2").hide();
+            }
+            
+        }, error: function(response){
+            $(".avisRegister").text("Usuari no registrat");
+            $(".spinner2").hide();
         }
     });
 }
@@ -76,9 +102,9 @@ function loginUser(){
             Cookies.set('token', response.token);
             getUserLogged();
             $(".spinner").hide();
-            window.location.href="index.html";
+            window.location.href="main.html";
         }, error: function(response){
-            console.log(response);
+            $(".avis").text("Credencials incorrectes");
             $(".spinner").hide();
         }
     });

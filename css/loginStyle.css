@@ -20,6 +20,10 @@ html {
     margin-left: -41.5%;
 }
 
+.spinner, .spinner2{
+    display: none;
+}
+
 .login-logo img {
     position: absolute;
     width: 20%;
@@ -46,6 +50,7 @@ a{
 }
 
 .register-form {
+    display: none;
     padding: 5%;
     height: 100%;
     z-index: 9999;

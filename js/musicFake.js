@@ -69,7 +69,6 @@ $(function () {
       $(".buttonPlay").addClass("fa-pause");
       $(".buttonPlay").removeClass("fa-play");
     }
-    console.log(window.parent.document.getElementById('songPicture').value);
   }
 
   $("#prevFake").click(function (e) {
@@ -87,7 +86,6 @@ $(function () {
       $(".buttonPlay").addClass("fa-pause");
       $(".buttonPlay").removeClass("fa-play");
     }
-    console.log(window.parent.document.getElementById('songPicture').value);
     $("#songTitle").text(window.parent.document.getElementById('songName').value);
     $(".songImage").attr('src', window.parent.document.getElementById('songPicture').value);
   });
@@ -144,7 +142,6 @@ $(function () {
     secsCurr = Math.floor(audio.currentTime % 60);
     minsDur = Math.floor(audio.duration / 60);
     secsDur = Math.floor(audio.duration % 60);
-    console.log(secsDur);
     if (secsCurr < 10) {
       secsCurr = '0' + String(secsCurr);
     }

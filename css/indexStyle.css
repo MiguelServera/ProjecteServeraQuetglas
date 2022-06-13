@@ -19,6 +19,10 @@ span {
     white-space: pre-wrap
 }
 
+img{
+    object-fit: cover!important;
+}
+
 * {
     font-size: 11pt;
 }
@@ -60,7 +64,9 @@ span {
     padding-top: 5px;
 }
 
-.classNORESPONSIVE {}
+.classNORESPONSIVE {
+    
+}
 
 .userIcon {
     width: 50px;
@@ -107,6 +113,110 @@ a:link {
     padding-top: 20px;
 }
 
+.wrapper{
+    position: relative;
+    width: 100%!important;
+    height: 100%!important;
+}
+
+.spinnerContainer{
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 95vh;
+    opacity: 100;
+    background-color: white;
+}
+
+.spinnerMusic{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    opacity: 100;
+    background-color: white;
+}
+
+.spinnerMain{
+    width: 12px;
+    height: 4px;
+    border-radius: 10px;
+    background-color: #fff;
+    animation: musicMain 1s ease-in-out infinite;
+}
+
+@keyframes musicMain {
+
+    0%{height: 4px;} 
+    50%{height: 90px;}  
+    100%{height: 4px;} 
+    
+}
+
+.spinnerMain:nth-child(1){
+    background-color: #d715d7;
+    animation-delay: 1s;
+}
+.spinnerMain:nth-child(2){
+    background-color: #d71515;
+    animation-delay: 0.8s;
+}
+.spinnerMain:nth-child(3){
+    background-color: #d71579;
+    animation-delay: 0.6s;
+}
+.spinnerMain:nth-child(4){
+    background-color: #d76715;
+    animation-delay: 0.4s;
+}
+.spinnerMain:nth-child(5){
+    background-color: #d76415;
+    animation-delay: 0.2s;
+}
+.spinnerMain:nth-child(6){
+    background-color: #d70415;
+    animation-delay: 0.4s;
+}
+
+.spinnerMain:nth-child(7){
+    background-color: #d76715;
+    animation-delay: 0.4s;
+}
+
+.spinnerMain:nth-child(8){
+    background-color: #d71579;
+    animation-delay: 0.6s;
+}
+.spinnerMain:nth-child(9){
+    background-color: #d71515;
+    animation-delay: 0.8s;
+}
+.spinnerMain:nth-child(10){
+    background-color: #d715d7;
+    animation-delay: 1s;
+}
+/*
+.spinnerMain {
+    border: 10px solid rgba(253, 253, 253, 0.1);
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border-left-color: rgb(160, 137, 223);
+    text-align: center;
+    margin: auto;
+    animation: spin 1s ease infinite;
+  }
+  
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+  
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+*/
 .searchIcon {
     position: absolute;
     top: 15px;
@@ -118,6 +228,9 @@ a:link {
     float: right;
 }
 
+#followButton{
+    display: none;
+}
 .sendButton {
     clear: right;
     float: right;
@@ -288,7 +401,7 @@ input[type="search"]::-webkit-search-results-decoration {
     margin-bottom: 10px;
     margin-top: 10px;
     border-radius: 5px;
-    height: 50%;
+    min-width: 50%;
 }
 
 .textMessageUser>* {
@@ -587,6 +700,7 @@ iframe {
         padding-top: 50%;
     }
 }
+
 
 @media (max-width: 768px) {
     .divImage {

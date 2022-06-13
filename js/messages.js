@@ -10,9 +10,17 @@ $(function () {
 
   $("#logOut").click(function (e) { 
     e.preventDefault();
+    $.ajax({
+      type: "POST",
+      url: url + "/logout",
+      headers: { Authorization: 'Bearer ' + userLogged.token },
+      dataType: "json",
+      success: function (response) {
+      }
+    });
     Cookies.remove("user");
     Cookies.remove("username");
-    window.location = "login.html";
+    window.location = "main.html";
 });
 getRecentChats();
 });
@@ -139,4 +147,6 @@ function getRecentChats() {
       });
     }
   });
+  check3 = true;
+  checkChecks();
 }

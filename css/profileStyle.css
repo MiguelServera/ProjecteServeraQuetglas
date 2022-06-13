@@ -38,6 +38,11 @@ img[src$="#custom_marker"]{
     height: 70vh;
 }
 
+#selectCategory{
+    display: none;
+}
+
+
 .collapse > .card{
     background-color: rgb(214, 191, 211)!important;
 }
