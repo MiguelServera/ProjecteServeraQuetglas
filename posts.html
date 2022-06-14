@@ -10,12 +10,13 @@
     integrity='sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l' crossorigin='anonymous'>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
     integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
   <link rel='stylesheet' href='css/indexStyle.css'>
 </head>
 
 <body>
   <div class="wrapper">
-    <div class='main-container d-flex pt-4'>
+    <div class='main-container hideMob d-flex pt-4'>
       <div id="suggested" class='suggested col-3'>
         <h2 class='text-center mb-4'>RECOMENDATIONS</h2>
       </div>
@@ -24,7 +25,7 @@
         <h2 class='text-center mb-4'>POSTS</h2>
         <div class='userPost overflow-hidden'>
           <div class='d-flex overflow-hidden'>
-            <img id="myUserIcon" class='userIcon mr-2' src='img/userIcon.png' alt='' />
+            <img class='myUserIcon userIcon mr-2' src='img/userIcon.png' alt='' />
             <div class='userInfo mw-100 w-100'>
               <div class='name'>
                 <span class='user'></span>
@@ -32,7 +33,7 @@
               <div id='textPost' class='text w-100' contenteditable='true'></div>
             </div>
           </div>
-          <button type='button' class='sendButton btn btn-dark sendPost'>Send</button>
+          <button type='button' class='sendButton btn btn-dark sendPost'>Enviar</button>
           <span id="characterCount">255</span>
         </div>
       </div>
@@ -40,7 +41,7 @@
       <div class='messsages chatsDiv col-3'>
         <h2 class='text-center mb-4'>MESSAGES<button type="button" class="newMessage btn btn-dark" data-toggle="modal"
             data-target="#newMessages"><i class="fa fa-feather"></i></button></h2>
-        <div id="allChats" class="overflow-auto">
+        <div class="allChats overflow-auto">
 
         </div>
 
@@ -52,15 +53,14 @@
         <!-- Modal content-->
         <div class="modal-content">
           <div class="modal-header">
-            <h4 class="modal-title">New Message</h4>
+            <h4 class="modal-title">Nou missatge</h4>
             <button type="button" class="close" data-dismiss="modal">&times;</button>
           </div>
           <div class="modal-body">
             <div class='search-box w-100'>
-              <input id="searchFollower" class='search-input w-100' type='text' name='' placeholder='Search'>
+              <input id="searchFollower" class='search-input w-100' type='text' name='' placeholder='Cercar'>
             </div>
             <div id="followersMessages">
-              <h3>New message</h3>
 
             </div>
           </div>
@@ -77,7 +77,7 @@
         <!-- Modal content-->
         <div class="modal-content">
           <div class="modal-header">
-            <h5 id="followerUsername">ElFollowerEnCustion</h5>
+            <h5 id="followerUsername"></h5>
             <button type="button" class="close" data-dismiss="modal">&times;</button>
           </div>
           <div class="modal-body">
@@ -95,6 +95,45 @@
 
       </div>
     </div>
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <div id="suggested" class='suggested col-12'>
+            <h2 class='text-center mb-4'>RECOMANACIONS</h2>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class='posts col-12'>
+            <h2 class='text-center mb-4'>POSTS</h2>
+            <div class='userPost overflow-hidden'>
+              <div class='d-flex overflow-hidden'>
+                <img class='myUserIcon userIcon mr-2' src='img/userIcon.png' alt='' />
+                <div class='userInfo mw-100 w-100'>
+                  <div class='name'>
+                    <span class='user'></span>
+                  </div>
+                  <div id='textPost' class='text w-100' contenteditable='true'></div>
+                </div>
+              </div>
+              <button type='button' class='sendButton btn btn-dark sendPost'>Enviar</button>
+              <span id="characterCount">255</span>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class='messsages col-12'>
+            <h2 class='text-center mb-4'>MISSATGES<button type="button" class="newMessage btn btn-dark"
+                data-toggle="modal" data-target="#newMessages"><i class="fa fa-feather"></i></button></h2>
+            <div class="allChats overflow-auto">
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="swiper-scrollbar"></div>
+    </div>
+
     <div class="spinnerContainer d-flex align-items-center col-12 flex-column justify-content-center text-center">
       <div class="spinnerMusic">
         <div class="spinnerMain"></div>
@@ -109,7 +148,17 @@
         <div class="spinnerMain"></div>
       </div>
     </div>
+
   </div>
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script>
+    var swiper = new Swiper(".mySwiper", {
+      scrollbar: {
+        el: ".swiper-scrollbar",
+        hide: true,
+      },
+    });
+  </script>
   <script src='https://code.jquery.com/jquery-3.6.0.js' integrity='sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk='
     crossorigin='anonymous'></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js'

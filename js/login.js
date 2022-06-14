@@ -58,6 +58,7 @@ function registerUser(){
         },
         dataType: "json",
         success: function (response) {
+            console.log(response);
             if (response.status != "Created") {
                 if (typeof response.email !== 'undefined') {
                     $(".avisRegister").text("Aquest e-mail ja existeix");

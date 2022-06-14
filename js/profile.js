@@ -1,6 +1,7 @@
 let user = "";
 let username = "";
 let allowLocation = 0;
+var check1, check2, check3 = false;
 
 if (Cookies.get("user") != undefined) {
     user = Cookies.get("user");
@@ -89,7 +90,7 @@ $(function () {
                 } else {
                     $("#followButton").addClass("btn-primary");
                     $("#followButton").removeClass("btn-danger");
-                    $("#followButton").text("Follow");
+                    $("#followButton").text("Seguir");
 
                 }
             }, error: function (response) {
@@ -257,7 +258,8 @@ function getUserCategory() {
         dataType: "json",
         success: function (response) {
             let string = ""
-            if (response.result !== null) {
+            console.log(response);
+            if (response.status != 0) {
                 response.result.forEach(element => {
                     string += element["name"] + " - ";
                 });
@@ -273,6 +275,8 @@ function getUserCategory() {
                     $("#addCategory").text("Add");
                 }
             }
+            check1 = true;
+            checkChecks();
         }, error: function (response) {
         }
     });
@@ -288,6 +292,8 @@ function getCategories() {
             response.forEach(element => {
                 $(".filterCategories").append("<option value='" + element['id_category'] + "'>" + element['name'] + "</option>");
             });
+            check2 = true;
+            checkChecks();
         }, error: function (response) {
         }
     });
@@ -374,6 +380,8 @@ function getPosts(userP) {
                     }
                 });
             }
+            check3 = true;
+            checkChecks();
         },
         error: function (response) {
         }
@@ -421,5 +429,14 @@ function getParamValue(paramName) {
         } else {
             return false;
         }
+    }
+}
+
+function checkChecks(){
+    if (check1 == true && check2 == true && check3 == true) {
+      $(".spinnerContainer").fadeOut();
+      $(".spinnerContainer").removeClass("d-flex");
+      $(".spinnerMusic").hide();
+      $(".main-container").fadeIn(1000);
     }
 }

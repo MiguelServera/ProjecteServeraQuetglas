@@ -15,6 +15,7 @@ if (Cookies.get("user") != undefined) {
 }
 
 $(document).ready(function () {
+  getEvents();
   $("#navUserImg").attr('src', userLogged.picture);
   $("#logOut").click(function (e) {
     e.preventDefault();
@@ -53,6 +54,62 @@ $(document).ready(function () {
   getCategories();
   getPeopleNearby()
 });
+
+function getEvents() {
+  $.ajax({
+    type: "GET",
+    headers: { Authorization: 'Bearer ' + userLogged.token },
+    url: url + "/events",
+    dataType: "json",
+    success: function (response) {
+      console.log(response);
+      let contador = 0;
+      let bool = 0;
+      let string = "";
+      $(".events").empty();
+      response.forEach(element => {
+        if (contador == 0) {
+          if (bool != 1) {
+            string += '<div class="carousel-item active">' +
+            '<div class="d-flex h-100 justify-content-center bg-light">' +
+            '<div class="eventProfile col-4">' +
+            '<h4>' + element["name"] + '</h4>' +
+            '<img src="' + element["picture"] + '" alt="">' +
+            '<p class="descripcionEvento">' + element["description"] + '</p>' +
+            '</div>';
+            contador++;
+          } else {
+            console.log(element['name']);
+            string += '<div class="carousel-item">' +
+            '<div class="d-flex h-100 justify-content-center bg-light">' +
+            '<div class="eventProfile col-4">' +
+            '<h4>' + element["name"] + '</h4>' +
+            '<img src="' + element["picture"] + '" alt="">' +
+            '<p class="descripcionEvento">' + element["description"] + '</p>' +
+            '</div>';
+            contador++;
+          }
+          
+        } else {
+          if (contador == 1) {
+            string += '<div class="eventProfile col-4">' +
+              '<h4>' + element["name"] + '</h4>' +
+              '<img src="' + element["picture"] + '" alt="">' +
+              '<p class="descripcionEvento">' + element["description"] + '</p>' +
+              '</div></div></div>';
+            contador++;
+            contador = 0;
+            bool = 1;
+          }
+        }
+      });
+      console.log(string);
+      $(".events").html(string);
+    },
+    error: function (response) {
+    }
+  });
+}
 
 function getCategories() {
   $.ajax({
@@ -141,15 +198,23 @@ function getPeopleNearby() {
 
 function initMap(array) {
   $("#map").empty();
+  $("#map2").empty();
   let location = userLogged.location;
   if (location != null) {
     $("#map").html("");
+    $("#map2").html("");
     let latitud = location.substr(0, location.indexOf(','));
     let longitud = location.substr(location.indexOf(',') + 1);
 
     const myLatLng = { lat: parseFloat(latitud), lng: parseFloat(longitud) };
 
     var map = new google.maps.Map(document.getElementById("map"), {
+      zoom: 11,
+      center: myLatLng,
+      position: myLatLng,
+    });
+
+    var map2 = new google.maps.Map(document.getElementById("map2"), {
       zoom: 11,
       center: myLatLng,
       position: myLatLng,
@@ -169,12 +234,23 @@ function initMap(array) {
       icon: icon
     });
 
+    new google.maps.Marker({
+      position: myLatLng,
+      map: map2,
+      icon: icon
+    });
+
     if (array !== undefined) {
       array.forEach(element => {
         icon.url = element['img'] + '#custom_marker';
         marker = new google.maps.Marker({
           position: new google.maps.LatLng(parseFloat(element['longitudVar']), parseFloat(element['latitudVar'])),
           map: map,
+          icon: icon
+        })
+        marker2 = new google.maps.Marker({
+          position: new google.maps.LatLng(parseFloat(element['longitudVar']), parseFloat(element['latitudVar'])),
+          map: map2,
           icon: icon
         })
       });
@@ -185,10 +261,11 @@ function initMap(array) {
     check2 = true;
     checkChecks();
     $("#map").html("<span>ACTIVA LA LOCALITZACIÓ PER PODER VEURE A PERSONES ARREU TEVA</span>");
+    $("#map2").html("<span>ACTIVA LA LOCALITZACIÓ PER PODER VEURE A PERSONES ARREU TEVA</span>");
   }
 }
 
-function checkChecks(){
+function checkChecks() {
   if (check1 == true && check2 == true) {
     $(".spinnerContainer").fadeOut();
     $(".spinnerContainer").removeClass("d-flex");

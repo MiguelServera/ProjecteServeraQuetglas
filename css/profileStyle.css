@@ -85,10 +85,6 @@ img[src$="#custom_marker"]{
     cursor: pointer;
 }
 
-.descripcionEvento{
-    height: 100%;
-}
-
 .carousel-inner{
     height: 100%;
 }

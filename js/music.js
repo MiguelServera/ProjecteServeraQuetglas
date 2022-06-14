@@ -16,6 +16,11 @@ var songIndex = 0;
 var songsPictures = [];
 var artistName = [];
 $(function () {
+  if ($(".hideMob").is(":hidden")) {
+    console.log("hello");
+    $(".hideMob").remove();
+    window.parent.document.getElementById('navPc').remove();
+  }
   updateSongs();
   $("#songName").val(songsName[songIndex]);
   $("#songPicture").val(songsPictures[songIndex]);

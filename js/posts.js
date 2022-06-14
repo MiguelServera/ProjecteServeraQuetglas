@@ -10,30 +10,15 @@ if (Cookies.get("user") != undefined) {
 }
 
 $(function () {
-    maxCharacters = 255;
-
-    $('#characterCount').text(maxCharacters);
-
-    $('#textPost').bind('input', function () {
-
-        var count = $('#characterCount');
-        var characters = $(this).text().length;
-        var newlines = $($(this).html()).length;
-
-        if (!!newlines) newlines -= 1;
-
-        characters += newlines;
-        count.text(maxCharacters - characters);
-
-    });
-
-
+    const swiper = document.querySelector('.swiper').swiper;
+    swiper.slideTo(1);
     $("#navUserImg").attr('src', userLogged.picture);
-    $("#myUserIcon").attr('src', userLogged.picture);
+    $(".myUserIcon").attr('src', userLogged.picture);
+    window.parent.document.getElementById('navUserImg').src = userLogged.picture;
+
     $(".user").text(username);
     getPosts();
     randomSuggests();
-
     $(".sendPost").click(function (e) {
         e.preventDefault();
         insertPost();
@@ -60,15 +45,15 @@ function getPosts() {
                         "<img class='userIcon mr-2' src='" + element['user']['picture'] + "' alt='' />" +
                         "<div class='userInfo mw-100 w-100'>" +
                         "<div class='name'>" +
-                        "<span id='"+element['user']['id_user']+"'>" + element['user']['username'] + "</span>" +
+                        "<span id='" + element['user']['id_user'] + "'>" + element['user']['username'] + "</span>" +
                         "</div>" +
                         "<div class='text w-100'>" +
                         "<span>" + element['text'] + "</span>" +
                         "</div>" +
                         "<div class='text w-100'>" +
-                        "<span class='text-center ml-3 mr-3 col-3'><i role='button' class='musicFav fas fa-music'></i> 0 </span>" +
-                        "<span class='text-center ml-3 mr-3 col-3'><i role='button' class='rePost fa fa-retweet'></i> " + element['spots'] + " </span>" +
-                        "<span class='text-center ml-3 mr-3 col-3'><i role='button' class='like far fa-heart'></i> " + element['likes'] + " </span>" +
+                        "<span class='text-center ml-1 mr-1 col-3'><i role='button' class='musicFav fas fa-music'></i> 0 </span>" +
+                        "<span class='text-center ml-1 mr-1 col-3'><i role='button' class='rePost fa fa-retweet'></i> " + element['spots'] + " </span>" +
+                        "<span class='text-center ml-1 mr-1 col-3'><i role='button' class='like far fa-heart'></i> " + element['likes'] + " </span>" +
                         "</div>" +
                         "</div>" +
                         "</div>" +
@@ -77,7 +62,7 @@ function getPosts() {
                 $(".usersPost").click(function (e) {
                     let idUserClicked = $(this).find('.name').find('span').attr("id");
                     window.parent.document.getElementById('contenedor').src = 'profile.html?user=' + idUserClicked;
-                  });
+                });
             }
             $(".like").click(function (e) {
                 e.preventDefault();
@@ -187,14 +172,14 @@ function randomSuggests() {
                     "<img class='userIcon mr-2' src='" + element['picture'] + "' alt='' />" +
                     "<div class='userInfo mw-100'>" +
                     "<div class='name'>" +
-                    "<span id='"+element['id_user']+"'>" + element['username'] + "</span>" +
+                    "<span id='" + element['id_user'] + "'>" + element['username'] + "</span>" +
                     "</div>" +
                     "<div class='description'>" +
                     "<span>" + element['email'] + "</span>" +
                     "</div>" +
                     "</div>" +
                     "</div>" +
-                    "<button type='button' class='btn btn-primary followButton'>Follow</button></div>");
+                    "<button type='button' class='btn btn-primary followButton'>Seguir</button></div>");
             });
             $(".suggestion").hide();
             $(".suggestion").fadeIn();
@@ -209,11 +194,11 @@ function randomSuggests() {
     });
 }
 
-function checkChecks(){
+function checkChecks() {
     if (check1 == true && check2 == true && check3 == true) {
-      $(".spinnerContainer").fadeOut();
-      $(".spinnerContainer").removeClass("d-flex");
-      $(".spinnerMusic").hide();
-      $(".main-container").fadeIn(1000);
+        $(".spinnerContainer").fadeOut();
+        $(".spinnerContainer").removeClass("d-flex");
+        $(".spinnerMusic").hide();
+        $(".main-container").fadeIn(1000);
     }
 }

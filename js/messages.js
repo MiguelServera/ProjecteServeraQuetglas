@@ -37,6 +37,7 @@ function insertMessage() {
     },
     dataType: "json",
     success: function (response) {
+      $("#inputUser").val("");
       retrieveMessagesFromUser();
       getRecentChats();
     }
@@ -52,6 +53,7 @@ function retrieveMessagesFromUser(otherUserUsername) {
     success: function (response) {
       $(".messages").empty();
       $("#followerUsername").text(otherUserUsername);
+      console.log(response);
       response.forEach(element => {
         if (element['userFrom']['id_user'] != user) {
           $(".messages").append("<div id='" + element['id_message'] + "' class='followerMessage'>" +
@@ -122,9 +124,9 @@ function getRecentChats() {
     headers: { Authorization: 'Bearer ' + userLogged.token },
     dataType: "json",
     success: function (response) {
-      $("#allChats").empty();
+      $(".allChats").empty();
       response.forEach(element => {
-        $("#allChats").append("<div id='" + element[0]['id_user'] + "' class='followerChat overflow-hidden'>" +
+        $(".allChats").append("<div id='" + element[0]['id_user'] + "' class='followerChat overflow-hidden'>" +
           "<div class='d-flex'>" +
           "<img class='userIcon mr-2' src='"+element[0]['picture']+"' alt='' />" +
           "<div class='userInfo mw-100'>" +

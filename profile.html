@@ -21,7 +21,7 @@
 <body>
     <div class="wrapper">
         <div class="main-container">
-            <div class="container mt-4 mb-4 d-flex profileContainer justify-content-center">
+            <div id="containerProfile" class="container mt-4 mb-4 d-flex profileContainer justify-content-center">
                 <div class="col-4 image d-flex flex-column justify-content-center align-items-center card p-4">
                     <img id="profileImg" src="img/userIcon.png" class="profileImg userImgProfile" alt="">
                     <h5 id="nameProfile"></h5>
@@ -40,131 +40,11 @@
                     </div>
                     <span id="followersCount"></span>
                     <button type="button" name="" id="followButton" class="btn btn-primary" btn-lg
-                        btn-block">Follow</button>
+                        btn-block">Seguir</button>
 
                 </div>
                 <div id="profilePosts" class="col-8 mh-100 h-100 overflow-auto">
 
-                </div>
-            </div>
-            <div class="container">
-                <button class="btn btn-primary w-100" type="button" data-toggle="collapse"
-                    data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                    <i class="fas fa-arrow-down"></i>
-                </button>
-                <div class="collapse" id="collapseExample">
-                    <div class="card card-body w-100">
-                        <div id="carouselExampleIndicators" class="carousel slide" data-interval="false">
-                            <ol class="carousel-indicators">
-                                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                            </ol>
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <div class="d-flex h-100 justify-content-center">
-                                        <div class="eventProfile col-6">
-                                            <h4>Titulo Evento</h4>
-                                            <img src="img/parque.jpg" alt="">
-                                            <p class="descripcionEvento">Curabitur ut tempor mi, a commodo purus.
-                                                Maecenas
-                                                condimentum dignissim ligula non euismod. Integer porttitor sodales
-                                                lorem
-                                                quis tristique. Mauris quis ligula eget quam porttitor vulputate. Etiam
-                                                nec
-                                                massa sodales, faucibus augue nec, mollis risus. Nulla finibus lorem
-                                                tincidunt, euismod tortor in, posuere orci. Curabitur porttitor nisi
-                                                efficitur convallis semper. Pellentesque consequat consequat orci, vitae
-                                                interdum lectus tincidunt eu.Curabitur ut tempor mi, a commodo purus.
-                                                Maecenas
-                                                condimentum dignissim ligula non euismod. Integer porttitor sodales
-                                                lorem
-                                                quis tristique. Mauris quis ligula eget quam porttitor vulputate. Etiam
-                                                nec
-                                                massa sodales, faucibus augue nec, mollis risus. Nulla finibus lorem
-                                                tincidunt, euismod tortor in, posuere orci. Curabitur porttitor nisi
-                                                efficitur convallis semper. Pellentesque consequat consequat orci, vitae
-                                                interdum lectus tincidunt eu.Curabitur ut tempor mi, a commodo purus.
-                                                Maecenas
-                                                condimentum dignissim ligula non euismod. Integer porttitor sodales
-                                                lorem
-                                                quis tristique. Mauris quis ligula eget quam porttitor vulputate. Etiam
-                                                nec
-                                                massa sodales, faucibus augue nec, mollis risus. Nulla finibus lorem
-                                                tincidunt, euismod tortor in, posuere orci. Curabitur porttitor nisi
-                                                efficitur convallis semper. Pellentesque consequat consequat orci, vitae
-                                                interdum lectus tincidunt eu.Curabitur ut tempor mi, a commodo purus.
-                                                Maecenas
-                                                condimentum dignissim ligula non euismod. Integer porttitor sodales
-                                                lorem
-                                                quis tristique. Mauris quis ligula eget quam porttitor vulputate. Etiam
-                                                nec
-                                                massa sodales, faucibus augue nec, mollis risus. Nulla finibus lorem
-                                                tincidunt, euismod tortor in, posuere orci. Curabitur porttitor nisi
-                                                efficitur convallis semper. Pellentesque consequat consequat orci, vitae
-                                                interdum lectus tincidunt eu.Curabitur ut tempor mi, a commodo purus.
-                                                Maecenas
-                                                condimentum dignissim ligula non euismod. Integer porttitor sodales
-                                                lorem
-                                                quis tristique. Mauris quis ligula eget quam porttitor vulputate. Etiam
-                                                nec
-                                                massa sodales, faucibus augue nec, mollis risus. Nulla finibus lorem
-                                                tincidunt, euismod tortor in, posuere orci. Curabitur porttitor nisi
-                                                efficitur convallis semper. Pellentesque consequat consequat orci, vitae
-                                                interdum lectus tincidunt eu.</p>
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <div class="carousel-item">
-                                    <div class="d-flex">
-                                        <div class="eventProfile">
-                                            <h4>Titulo Evento</h4>
-                                            <img src="img/parque.jpg" alt="">
-                                            <p class="descripcionEvento">Curabitur ut tempor mi, a commodo purus.
-                                                Maecenas
-                                                condimentum dignissim ligula non euismod. Integer porttitor sodales
-                                                lorem
-                                                quis tristique. Mauris quis ligula eget quam porttitor vulputate. Etiam
-                                                nec
-                                                massa sodales, faucibus augue nec, mollis risus. Nulla finibus lorem
-                                                tincidunt, euismod tortor in, posuere orci. Curabitur porttitor nisi
-                                                efficitur convallis semper. Pellentesque consequat consequat orci, vitae
-                                                interdum lectus tincidunt eu.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="carousel-item">
-                                    <div class="d-flex">
-                                        <div class="eventProfile">
-                                            <h4>Titulo Evento</h4>
-                                            <img src="img/parque.jpg" alt="">
-                                            <p class="descripcionEvento">Curabitur ut tempor mi, a commodo purus.
-                                                Maecenas
-                                                condimentum dignissim ligula non euismod. Integer porttitor sodales
-                                                lorem
-                                                quis tristique. Mauris quis ligula eget quam porttitor vulputate. Etiam
-                                                nec
-                                                massa sodales, faucibus augue nec, mollis risus. Nulla finibus lorem
-                                                tincidunt, euismod tortor in, posuere orci. Curabitur porttitor nisi
-                                                efficitur convallis semper. Pellentesque consequat consequat orci, vitae
-                                                interdum lectus tincidunt eu.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button"
-                                data-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Previous</span>
-                            </a>
-                            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button"
-                                data-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Next</span>
-                            </a>
-                        </div>
-                    </div>
                 </div>
             </div>
             <div class="modal fade" id="profileModal" role="dialog">
@@ -280,27 +160,28 @@
                 <div class="spinnerMain"></div>
             </div>
         </div>
+    </div>
 
-        <!-- Optional JavaScript -->
-        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <script src='https://code.jquery.com/jquery-3.6.0.js'
-            integrity='sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=' crossorigin='anonymous'></script>
-        <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js'
-            integrity='sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1' crossorigin='anonymous'>
-            </script>
-        <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js'
-            integrity='sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM' crossorigin='anonymous'>
-            </script>
-        <script src='https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js'
-            integrity='sha256-0H3Nuz3aug3afVbUlsu12Puxva3CP4EhJtPExqs54Vg=' crossorigin='anonymous'></script>
-        <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"
-            integrity="sha256-xH4q8N0pEzrZMaRmd7gQVcTZiFei+HfRTBPJ1OGXC0k=" crossorigin="anonymous"></script>
-        <script src='js/user.js'></script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src='https://code.jquery.com/jquery-3.6.0.js'
+        integrity='sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=' crossorigin='anonymous'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js'
+        integrity='sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1' crossorigin='anonymous'>
+        </script>
+    <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js'
+        integrity='sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM' crossorigin='anonymous'>
+        </script>
+    <script src='https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js'
+        integrity='sha256-0H3Nuz3aug3afVbUlsu12Puxva3CP4EhJtPExqs54Vg=' crossorigin='anonymous'></script>
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"
+        integrity="sha256-xH4q8N0pEzrZMaRmd7gQVcTZiFei+HfRTBPJ1OGXC0k=" crossorigin="anonymous"></script>
+    <script src='js/user.js'></script>
 
-        <script src="js/jquery.ui.autocomplete.scroll.js"></script>
-        <script src="js/jquery.ui.autocomplete.scroll.min.js"></script>
-        <script src="js/profile.js"></script>
-        <script src="js/autocomplete.js"></script>
+    <script src="js/jquery.ui.autocomplete.scroll.js"></script>
+    <script src="js/jquery.ui.autocomplete.scroll.min.js"></script>
+    <script src="js/profile.js"></script>
+    <script src="js/autocomplete.js"></script>
 </body>
 
 </html>
