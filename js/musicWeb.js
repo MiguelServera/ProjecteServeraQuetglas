@@ -23,7 +23,7 @@ function getFollowersMusic(){
             response.forEach(element => {
                 $(".followersMusic").append("<div class='m-2'>" +
                 "<img class='userIcon' src='" + element['picture'] + "' alt='' />" +
-                "<div class='userInfo mw-100'>" +
+                "<div class='userInfoMusic mw-100'>" +
                 "<div class='name'>" +
                 "<input id='" + element['id_user'] + "' type='hidden' name=''>" +
                 "<span>" + element['username'] + "</span>" +
@@ -36,7 +36,11 @@ function getFollowersMusic(){
                 check1 = true;
                 checkChecks(); 
             });
-        }, error: function(response){
+        },
+        error: function (response) {
+          if (response.status == 401) {
+                    window.top.location.href = "index.html";
+          }
         }
     });
 }
@@ -48,18 +52,16 @@ function getSongsList(){
         headers: { Authorization: 'Bearer ' + userLogged.token },
         dataType: "json",
         success: function (response) {
-            console.log(response);
             $(".songsList").html("");
             response.forEach(element => {
-                console.log("Hola");
-                $(".songsList").append("<div role='button' id='" + element['link'] + "' class='songIndividual m-2 d-flex align-items-center col-12 flex-column justify-content-center text-center'>" +
+                $(".songsList").append("<div role='button' style='cursor: pointer;' id='" + element['link'] + "' class='songIndividual m-2 d-flex align-items-center col-12 flex-column justify-content-center text-center'>" +
                 "<img class='userIcon' src='" + element['song_picture'] + "' alt='' />" +
-                "<div class='userInfo mw-100'>" +
+                "<div class='userInfoMusic mw-100'>" +
                 "<div class='name'>" +
                 "<span>Artista: " + element['artist']['username'] + "</span>" +
                 "</div>" +
                 "<div class='description'>" +
-                "<span>"+element['name']+"</span>" +
+                "<p>"+element['name']+"</p>" +
                 "</div>" +
                 "</div>" +
                 "</div>");
@@ -70,18 +72,23 @@ function getSongsList(){
                     window.parent.document.getElementById('audio').play();
                     window.parent.document.getElementById('navSongImage').src = $(this).find('.userIcon').attr("src");
                     window.parent.document.getElementById('songPicture').value = $(this).find('.userIcon').attr("src");
-                    window.parent.document.getElementById('songName').value = $(this).find('.name').find('span').text();
+                    window.parent.document.getElementById('songName').value = $(this).find('.description').find('p').text();
                     window.parent.document.getElementById('buttonPlay').classList.remove("fa-play");
                     window.parent.document.getElementById('buttonPlay').classList.add("fa-pause");
                     window.parent.document.getElementById('music-container').classList.add('play');  
                     $(".buttonPlay").removeClass("fa-play");
                     $(".buttonPlay").addClass("fa-pause");
-                    let name = $(this).find('.name').find('span').text();
+                    let name = $(this).find('.description').find('p').text();
                     $("#songTitle").text(name);
                     $(".songImage").attr('src', $(this).find('.userIcon').attr("src"));
             });
             check2 = true;
             checkChecks();
+        },
+        error: function (response) {
+          if (response.status == 401) {
+                    window.top.location.href = "index.html";
+          }
         }
     });
 }

@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Gent</title>
+    <meta charset='UTF-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Index</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
+        integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel='stylesheet' href='css/indexStyle.css'>
+    <link rel='stylesheet' href='css/profileStyle.css'>
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <div class='main-container pt-4 container-events container'">
+            <div id="mainEvents" class="w-100 text-center mt-4 mb-4">
+                <h2>EVENTS ACTUALS</h2>
+                <div id="events-container">
+                    <div class="swiper mySwiper">
+                        <div class="swiper-wrapper events2">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="spinnerContainer d-flex align-items-center col-12 flex-column justify-content-center text-center">
+            <div class="spinnerMusic">
+                <div class="spinnerMain"></div>
+                <div class="spinnerMain"></div>
+                <div class="spinnerMain"></div>
+                <div class="spinnerMain"></div>
+                <div class="spinnerMain"></div>
+                <div class="spinnerMain"></div>
+                <div class="spinnerMain"></div>
+                <div class="spinnerMain"></div>
+                <div class="spinnerMain"></div>
+                <div class="spinnerMain"></div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script>
+  var swiper = new Swiper(".mySwiper", {
+    scrollbar: {
+      el: ".swiper-scrollbar",
+      hide: true,
+    },
+  });
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDPi0Q-QHx_iiXqU-8w6eYxPyimr4-_kog&callback=&v=weekly"
+    defer></script>
+<script src='js/jquery-3.6.0.min.js'></script>
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js'
+    integrity='sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1' crossorigin='anonymous'>
+    </script>
+<script src='js/bootstrap.min.js'></script>
+
+<script src='https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js'
+    integrity='sha256-0H3Nuz3aug3afVbUlsu12Puxva3CP4EhJtPExqs54Vg=' crossorigin='anonymous'></script>
+<script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"
+    integrity="sha256-xH4q8N0pEzrZMaRmd7gQVcTZiFei+HfRTBPJ1OGXC0k=" crossorigin="anonymous"></script>
+<script src='js/user.js'></script>
+
+<script src="js/jquery.ui.autocomplete.scroll.js"></script>
+<script src="js/jquery.ui.autocomplete.scroll.min.js"></script>
+<script src="js/eventsNav.js"></script>
+<script src="js/autocomplete.js"></script>
+<script src="js/jQueryRotate.js"></script>
+</body>
+
+</html>

@@ -2,16 +2,17 @@
 <html lang="en">
 
 <head>
-    <title>People</title>
+    <title>Gent</title>
     <meta charset='UTF-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <title>Index</title>
-    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css'
-        integrity='sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l' crossorigin='anonymous'>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+
     <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
         integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <link rel='stylesheet' href='css/indexStyle.css'>
     <link rel='stylesheet' href='css/profileStyle.css'>
 </head>
@@ -23,7 +24,7 @@
             <div class="d-flex h-50">
                 <button class="filtersButton w-100 btn-light"><i class="fa fa-arrow-circle-right"
                         aria-hidden="true"></i>
-                    Filters</button>
+                    Filtres</button>
 
                 <div class="col-3 peopleDiv overflow-auto">
                     <div
@@ -32,9 +33,9 @@
                 </div>
                 <div class="col-3 filters">
                     <div id="filtersDiv" class="bg-light d-flex flex-column h-100">
-                        <h5>Music Categories</h5>
+                        <h5>Categories Musicals</h5>
                         <div class="d-flex flex-column">
-                            <label for="distance">Distance</label>
+                            <label for="distance">Distancia</label>
                             <div class="form-check m-2">
                                 <input type="radio" class="form-check-input radioDistance" name="radioDistance" id=""
                                     value="0" checked>
@@ -51,6 +52,12 @@
                                 <input type="radio" class="form-check-input radioDistance" name="radioDistance" id=""
                                     value="2">
                                 &#60;100km
+                                </label>
+                            </div>
+                            <div class="form-check m-2">
+                                <input type="radio" class="form-check-input radioDistance" name="radioDistance" id=""
+                                    value="3">
+                                Tots (Ignora categories)
                                 </label>
                             </div>
                         </div>
@@ -75,7 +82,7 @@
                     </div>
                 </div>
             </div>
-            <div class="w-100 text-center mt-4 mb-4">
+            <div id="mainEvents" class="w-100 text-center mt-4 mb-4">
                 <h2>EVENTOS ACTUALES</h2>
                 <div id="events-container">
                     <div id="carouselExampleIndicators" class="carousel slide" data-interval="false">
@@ -101,23 +108,23 @@
                 </div>
             </div>
         </div>
-    <div class='main-container navMob container-events container'>
+        <div class='main-container navMob container-events container'>
             <div class="d-flex flex-column h-100">
                 <div class="col-12 mh-65 h-65">
                     <div id="map2"
                         class="d-flex h-100 w-100 text-center flex-column justify-content-center align-items-center">
                     </div>
                 </div>
-                <div class="col-12 mh-25 h-25 peopleDiv overflow-auto">
+                <div class="col-12 mh-25 h-25 m-2 p-1 peopleDiv overflow-auto">
                     <div
                         class="people overflow-auto d-flex h-100 w-100 text-center flex-row justify-content-center align-items-center">
                     </div>
                 </div>
-                <div class="col-12 filters mh-25 h-25">
+                <div class="col-12 filters m-2 p-1 mh-25 h-25">
                     <div id="filtersDiv" class="bg-light d-flex flex-column h-100">
-                        <h5>Music Categories</h5>
+                        <h5>Categories Musicals</h5>
                         <div class="d-flex flex-column">
-                            <label for="distance">Distance</label>
+                            <label for="distance">Distancia</label>
                             <div class="form-check m-2">
                                 <input type="radio" class="form-check-input radioDistance" name="radioDistance" id=""
                                     value="0" checked>
@@ -134,6 +141,12 @@
                                 <input type="radio" class="form-check-input radioDistance" name="radioDistance" id=""
                                     value="2">
                                 &#60;100km
+                                </label>
+                            </div>
+                            <div class="form-check m-2">
+                                <input type="radio" class="form-check-input radioDistance" name="radioDistance" id=""
+                                    value="3">
+                                Tots (Ignora categories)
                                 </label>
                             </div>
                         </div>
@@ -154,59 +167,53 @@
                 </div>
                 <button class="filtersButton mh-10 h-10 w-100 btn-light"><i class="fa fa-arrow-circle-right"
                         aria-hidden="true"></i>
-                    Filters</button>
+                    Filtres</button>
             </div>
-            <div class="w-100 text-center mt-4 mb-4">
-                <h2>EVENTOS ACTUALES</h2>
+            <div class="w-100 text-center m-2 p-1 mh-50 h-50">
+                <h2>EVENTS ACTUALS</h2>
                 <div id="events-container">
-                    <div id="carouselExampleIndicators" class="carousel slide" data-interval="false">
-                        <ol class="carousel-indicators">
-                            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                        </ol>
-                        <div class="carousel-inner events">
-                            
+                    <div class="swiper mySwiper">
+                        <div class="swiper-wrapper events2">
+
                         </div>
-                        <a class="carousel-control-prev text-black-50" href="#carouselExampleIndicators" role="button"
-                            data-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Previous</span>
-                        </a>
-                        <a class="carousel-control-next text-black-50" href="#carouselExampleIndicators" role="button"
-                            data-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Next</span>
-                        </a>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="spinnerContainer d-flex align-items-center col-12 flex-column justify-content-center text-center">
-            <div class="spinnerMusic">
-                <div class="spinnerMain"></div>
-                <div class="spinnerMain"></div>
-                <div class="spinnerMain"></div>
-                <div class="spinnerMain"></div>
-                <div class="spinnerMain"></div>
-                <div class="spinnerMain"></div>
-                <div class="spinnerMain"></div>
-                <div class="spinnerMain"></div>
-                <div class="spinnerMain"></div>
-                <div class="spinnerMain"></div>
-            </div>
+    </div>
+    <div class="spinnerContainer d-flex align-items-center col-12 flex-column justify-content-center text-center">
+        <div class="spinnerMusic">
+            <div class="spinnerMain"></div>
+            <div class="spinnerMain"></div>
+            <div class="spinnerMain"></div>
+            <div class="spinnerMain"></div>
+            <div class="spinnerMain"></div>
+            <div class="spinnerMain"></div>
+            <div class="spinnerMain"></div>
+            <div class="spinnerMain"></div>
+            <div class="spinnerMain"></div>
+            <div class="spinnerMain"></div>
         </div>
+    </div>
 </body>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script>
+    var swiper = new Swiper(".mySwiper", {
+        scrollbar: {
+            el: ".swiper-scrollbar",
+            hide: true,
+        },
+    });
+</script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDPi0Q-QHx_iiXqU-8w6eYxPyimr4-_kog&callback=&v=weekly"
     defer></script>
-<script src='https://code.jquery.com/jquery-3.6.0.js' integrity='sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk='
-    crossorigin='anonymous'></script>
+<script src='js/jquery-3.6.0.min.js'></script>
+
 <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js'
     integrity='sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1' crossorigin='anonymous'>
     </script>
-<script src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js'
-    integrity='sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM' crossorigin='anonymous'>
-    </script>
+<script src='js/bootstrap.min.js'></script>
+
 <script src='https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js'
     integrity='sha256-0H3Nuz3aug3afVbUlsu12Puxva3CP4EhJtPExqs54Vg=' crossorigin='anonymous'></script>
 <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"
@@ -215,6 +222,7 @@
 
 <script src="js/jquery.ui.autocomplete.scroll.js"></script>
 <script src="js/jquery.ui.autocomplete.scroll.min.js"></script>
+<script src="js/eventsNav.js"></script>
 <script src="js/people.js"></script>
 <script src="js/autocomplete.js"></script>
 <script src="js/jQueryRotate.js"></script>

@@ -1,16 +1,31 @@
 let user = "";
 let username = "";
 let allowLocation = 0;
+let allowSong = 0;
 var check1, check2, check3 = false;
 
 if (Cookies.get("user") != undefined) {
     user = Cookies.get("user");
     username = Cookies.get("username");
 } else {
-    window.location.href = "main.html";
+    window.top.location.href = "index.html";
 }
 
 $(function () {
+    $("#logoutButtonProfile").click(function (e) {
+        e.preventDefault();
+        $.ajax({
+            type: "POST",
+            url: url + "/logout",
+            headers: { Authorization: 'Bearer ' + userLogged.token },
+            dataType: "json",
+            success: function (response) {
+            }
+        });
+        Cookies.remove("user");
+        Cookies.remove("username");
+        window.top.location.href = "index.html";
+    });
     $("#followButton").click(function (e) {
         e.preventDefault();
         if ($("#followButton").hasClass("btn-danger")) {
@@ -73,7 +88,7 @@ $(function () {
         e.preventDefault();
         Cookies.remove("user");
         Cookies.remove("username");
-        window.location = "main.html";
+        window.top.location.href = "index.html";
     });
 
     function checkUser() {
@@ -93,7 +108,11 @@ $(function () {
                     $("#followButton").text("Seguir");
 
                 }
-            }, error: function (response) {
+            },
+            error: function (response) {
+                if (response.status == 401) {
+                    window.top.location.href = "index.html";
+                }
             }
         });
     }
@@ -131,22 +150,31 @@ $(function () {
 
     $("#saveProfileButton").click(function (e) {
         e.preventDefault();
+        
         if ($('#inputImg').get(0).files.length !== 0) {
-            var myFormData = new FormData();
-            let files = $("#inputImg")[0].files;
-            myFormData.append('picture', files[0]);
-            $.ajax({
-                type: "POST",
-                headers: { Authorization: 'Bearer ' + userLogged.token },
-                url: "http://stm.projectebaleart.com/public/api/users/" + user + "/image",
-                data: myFormData,
-                processData: false,
-                contentType: false,
-                success: function (response) {
-                }, error: function (response) {
-                }
-            });
+            
+                var myFormData = new FormData();
+                let files = $("#inputImg")[0].files;
+                myFormData.append('picture', files[0]);
+                $.ajax({
+                    type: "POST",
+                    headers: { Authorization: 'Bearer ' + userLogged.token },
+                    url: "http://stm.projectebaleart.com/public/api/users/" + user + "/image",
+                    data: myFormData,
+                    processData: false,
+                    contentType: false,
+                    success: function (response) {
+                    },
+                    error: function (response) {
+                        if (response.status == 0) {
+                            window.top.location.href = "index.html";
+                        }
+                    }
+                });
+            
+
         } else {
+            $(".avisSong").text("Te falta l'imatge");
         }
 
         $('.radioAllow').each(function (indexInArray, valueOfElement) {
@@ -171,7 +199,11 @@ $(function () {
             },
             dataType: "dataType",
             success: function (response) {
-            }, error: function (response) {
+            },
+            error: function (response) {
+                if (response.status == 401) {
+                    window.top.location.href = "index.html";
+                }
             }
         });
 
@@ -207,6 +239,20 @@ $(function () {
     });
 
     $("#saveSongButton").click(function (e) {
+        $('.radioSong').each(function (indexInArray, valueOfElement) {
+            if ($(this).is(':checked')) {
+                allowSong = $(this).val();
+                return false;
+            } else {
+                allowSong = 0;
+            }
+        });
+        if (allowSong != 1) {
+            console.log("Holis");
+            $(".avisSong").text("Siusplau, accepta la llei de propietat intelectual");
+        } else {
+        $(".avisSong").text("");
+        $("#songModal").modal('hide');
         var myFormData2 = new FormData();
         let files2 = $("#inputSong")[0].files;
         let files2img = $("#songImg")[0].files;
@@ -227,10 +273,13 @@ $(function () {
             processData: false,
             contentType: false,
             success: function (response) {
+                $("#songModal").modal('hide');
             }, error: function (response) {
             }
         });
+    }
     });
+    
 
     $("#uploadSong").click(function (e) {
         $("#songModal").modal('show');
@@ -257,8 +306,8 @@ function getUserCategory() {
         url: url + "/categories/" + user,
         dataType: "json",
         success: function (response) {
-            let string = ""
             console.log(response);
+            let string = ""
             if (response.status != 0) {
                 response.result.forEach(element => {
                     string += element["name"] + " - ";
@@ -277,7 +326,11 @@ function getUserCategory() {
             }
             check1 = true;
             checkChecks();
-        }, error: function (response) {
+        },
+        error: function (response) {
+            if (response.status == 401) {
+                window.top.location.href = "index.html";
+            }
         }
     });
 }
@@ -294,7 +347,11 @@ function getCategories() {
             });
             check2 = true;
             checkChecks();
-        }, error: function (response) {
+        },
+        error: function (response) {
+            if (response.status == 401) {
+                window.top.location.href = "index.html";
+            }
         }
     });
 }
@@ -384,6 +441,9 @@ function getPosts(userP) {
             checkChecks();
         },
         error: function (response) {
+            if (response.status == 401) {
+                window.top.location.href = "index.html";
+            }
         }
     });
 }
@@ -415,6 +475,9 @@ function getProfile(userP) {
             $("input[name=radioAllow][value=" + response['allowLocation'] + "]").attr('checked', 'checked');
         },
         error: function (response) {
+            if (response.status == 401) {
+                window.top.location.href = "index.html";
+            }
         }
     });
 }
@@ -432,11 +495,11 @@ function getParamValue(paramName) {
     }
 }
 
-function checkChecks(){
+function checkChecks() {
     if (check1 == true && check2 == true && check3 == true) {
-      $(".spinnerContainer").fadeOut();
-      $(".spinnerContainer").removeClass("d-flex");
-      $(".spinnerMusic").hide();
-      $(".main-container").fadeIn(1000);
+        $(".spinnerContainer").fadeOut();
+        $(".spinnerContainer").removeClass("d-flex");
+        $(".spinnerMusic").hide();
+        $(".main-container").fadeIn(1000);
     }
 }

@@ -19,7 +19,7 @@
     <nav class='navbar navbar-expand sticky-top justify-content-between bg-dark mainNav'>
       <div class='nav navbar-nav'>
           <a id="posts" role="button" class='navMenu nav-item nav-link text-light active'>Spot Social</a>
-          <a id="people" role="button" class='navMenu nav-item nav-link text-light'>Spot Gente</a>
+          <a id="people" role="button" class='navMenu nav-item nav-link text-light'>Spot Gent</a>
           <a id="music" role="button" class='navMenu nav-item nav-link text-light'>Spot Música</a>
       </div>
       <div class="h-100">
@@ -30,7 +30,7 @@
             <button id="play" class="play m-2 action-btn action-btn-big">
               <i id="buttonPlay" class="buttonPlay fas fa-play"></i>
             </button>
-            <img id="navSongImage" src="img/LAV.jpg" alt="">
+            <img id="navSongImage" src="img/default.jpg" alt="">
             <button id="stop" class="stop m-2 action-btn action-btn-big">
               <i class="buttonStop fas fa-stop"></i>
             </button>
@@ -60,7 +60,6 @@
                   aria-labelledby="dropdownMenuButton m-auto">
                   <a id="profile" class="navMenu dropdown-item"><i class="fa fa-user-circle" aria-hidden="true"></i>
                       Profile</a>
-                  <a class="dropdown-item" type="button"><i class="fas fa-cog"></i> Config</a>
                   <a id="logOut" class="dropdown-item"><i class="fas fa-sign-out-alt    "></i>
                       Log out</a>
               </div>
@@ -75,16 +74,32 @@
   <ul class="nav nav-tabs" id="navId">
     <nav class='navbar navbar-expand sticky-top justify-content-between bg-dark'>
       <div class='nav navbar-nav'>
-          <a id="posts" role="button" class='navMenu nav-item nav-link text-light text-center col-3'><i class="fas fa-newspaper    "></i></a>
-          <a id="people" role="button" class='navMenu nav-item nav-link text-light text-center col-3'><i class="fas fa-user-friends" aria-hidden="true"></i></a>
-          <a id="musicNav" role="button" class='navMenu nav-item nav-link text-light text-center col-3'><i class="fa fa-music" aria-hidden="true"></i></a>
-          <a id="profile" class="navMenu nav-item nav-link text-light text-center col-3"><i class="fa fa-user-circle" aria-hidden="true"></i></a>
+          <a style="
+          display: flex;
+          justify-content: center;
+          align-items: center;
+      " id="posts" role="button" class='navMenu nav-item nav-link text-light text-center col'><i class="fas fa-newspaper"></i></a>
+          <a style="
+          display: flex;
+          justify-content: center;
+          align-items: center;
+      " id="people" role="button" class='navMenu nav-item nav-link text-light text-center col'><i class="fas fa-user-friends" aria-hidden="true"></i></a>
+          <a style="
+          display: flex;
+          justify-content: center;
+          align-items: center;
+      " id="musicNav" role="button" class='navMenu nav-item nav-link text-light text-center col'><i class="fa fa-music" aria-hidden="true"></i></a>
+          <a style="
+          display: flex;
+          justify-content: center;
+          align-items: center;
+      " id="profile" class="navMenu nav-item nav-link text-light text-center col"><i class="fa fa-user-circle" aria-hidden="true"></i></a>
       </div>
 
     </nav>
 </div>
-  <script src='https://code.jquery.com/jquery-3.6.0.js' integrity='sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk='
-    crossorigin='anonymous'></script>
+  <script src='js/jquery-3.6.0.min.js'></script>
+
   <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js'
     integrity='sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1' crossorigin='anonymous'>
   </script>

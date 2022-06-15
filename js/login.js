@@ -58,7 +58,6 @@ function registerUser(){
         },
         dataType: "json",
         success: function (response) {
-            console.log(response);
             if (response.status != "Created") {
                 if (typeof response.email !== 'undefined') {
                     $(".avisRegister").text("Aquest e-mail ja existeix");
@@ -103,7 +102,7 @@ function loginUser(){
             Cookies.set('token', response.token);
             getUserLogged();
             $(".spinner").hide();
-            window.location.href="main.html";
+                    window.top.location.href="main.html";
         }, error: function(response){
             $(".avis").text("Credencials incorrectes");
             $(".spinner").hide();

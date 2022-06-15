@@ -20,8 +20,8 @@ $(function () {
     });
     Cookies.remove("user");
     Cookies.remove("username");
-    window.location = "main.html";
-});
+            window.top.location.href = "index.html";
+  });
 getRecentChats();
 });
 
@@ -53,7 +53,6 @@ function retrieveMessagesFromUser(otherUserUsername) {
     success: function (response) {
       $(".messages").empty();
       $("#followerUsername").text(otherUserUsername);
-      console.log(response);
       response.forEach(element => {
         if (element['userFrom']['id_user'] != user) {
           $(".messages").append("<div id='" + element['id_message'] + "' class='followerMessage'>" +
@@ -62,6 +61,7 @@ function retrieveMessagesFromUser(otherUserUsername) {
             "<img class='userIcon mr-2' src='"+element['userFrom']['picture']+"' alt='' />" +
             "<p>" + element['text'] + "</p>" +
             "</div>" +
+            "<p>" + element['date'] + "</p>" +
             "</div>" +
             "</div>");
         } else {
@@ -71,6 +71,7 @@ function retrieveMessagesFromUser(otherUserUsername) {
             "<p class='textUserMessage'>" + element['text'] + "</p>" +
             "<img class='userIcon mr-2' src='"+element['userFrom']['picture']+"' alt='' />" +
             "</div>" +
+            "<p>" + element['date'] + "</p>" +
             "</div>" +
             "</div>");
         }
@@ -96,9 +97,6 @@ function getFollowersMessages() {
           "<div class='userInfo mw-100'>" +
           "<div class='name'>" +
           "<span id='"+element['username']+"'>" + element['username'] + "</span>" +
-          "</div>" +
-          "<div class='message'>" +
-          "<span>Oye habla conmigo vamos!</span>" +
           "</div>" +
           "</div>" +
           "</div>" +
@@ -126,7 +124,7 @@ function getRecentChats() {
     success: function (response) {
       $(".allChats").empty();
       response.forEach(element => {
-        $(".allChats").append("<div id='" + element[0]['id_user'] + "' class='followerChat overflow-hidden'>" +
+        $(".allChats").append("<div id='" + element[0]['id_user'] + "' class='followerChat overflow-hidden' style='cursor: pointer;'>" +
           "<div class='d-flex'>" +
           "<img class='userIcon mr-2' src='"+element[0]['picture']+"' alt='' />" +
           "<div class='userInfo mw-100'>" +
@@ -147,6 +145,11 @@ function getRecentChats() {
         $("#chatFollower").modal('show');
         $("#newMessages").modal('hide');
       });
+    },
+    error: function (response) {
+      if (response.status == 401) {
+                window.top.location.href = "index.html";
+      }
     }
   });
   check3 = true;

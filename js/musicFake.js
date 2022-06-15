@@ -19,6 +19,17 @@ $(function () {
     $(".buttonPlay").removeClass("fa-play");
   }
 
+  $("#stopFake").click(function (e) {
+    window.parent.document.getElementById('stop').click();
+
+  if (window.parent.document.getElementById('buttonPlay').classList.contains("fa-play")) {
+    $(".buttonPlay").addClass("fa-play");
+    $(".buttonPlay").removeClass("fa-pause");
+  } else {
+    $(".buttonPlay").addClass("fa-pause");
+    $(".buttonPlay").removeClass("fa-play");
+  }
+  });
   $("#playFake").click(function (e) {
     e.preventDefault();
     $("#songTitle").text(window.parent.document.getElementById('songName').value);
@@ -157,7 +168,12 @@ $(function () {
 
   $("#seekslider").on('mouseup touchend', function (e) {
     var leftOffset = e.pageX - $(this).offset().left;
+    console.log(e.pageX);
+    console.log($(this).offset().left);
+    console.log(leftOffset);
+    console.log($('#seekslider').width());
     var songPercents = leftOffset / $('#seekslider').width();
+    console.log("Slider: " + songPercents * audio.duration);
     audio.currentTime = songPercents * audio.duration;
     $("#seekslider").val(Math.floor(audio.currentTime));
     var mins = Math.floor(audio.currentTime / 60);

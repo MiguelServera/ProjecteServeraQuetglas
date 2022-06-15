@@ -29,7 +29,7 @@ $(function () {
                 create: function() {
                     $(this).data('ui-autocomplete')._renderItem = function(ul, item) {
                       return $('<li>')
-                        .append('<div role="button" id="'+item.desc+'" class="searchedUser"><img class="icon" src="' + item.icon + '" /><span class="searchedUser m-2">' + item.value +'</span></div>')
+                        .append('<div role="button" style="cursor: pointer;" id="'+item.desc+'" class="searchedUser"><img class="icon" src="' + item.icon + '" /><span class="searchedUser m-2">' + item.value +'</span></div>')
                         .appendTo(ul);
                     };
                   },

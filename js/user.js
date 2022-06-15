@@ -4,7 +4,7 @@ const url = "http://stm.projectebaleart.com/public/api"
     user = Cookies.get("user");
     username = Cookies.get("username");
 } else {
-    window.location.href = "main.html";
+            window.top.location.href = "main.html";
 }*/
 
 

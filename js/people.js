@@ -11,17 +11,18 @@ if (Cookies.get("user") != undefined) {
   user = Cookies.get("user");
   username = Cookies.get("username");
 } else {
-  window.location.href = "main.html";
+          window.top.location.href = "index.html";
 }
 
 $(document).ready(function () {
   getEvents();
+  getEvents2();
   $("#navUserImg").attr('src', userLogged.picture);
   $("#logOut").click(function (e) {
     e.preventDefault();
     Cookies.remove("user");
     Cookies.remove("username");
-    window.location = "main.html";
+            window.top.location.href = "index.html";
   });
 
   $(".filtersButton").click(function (e) {
@@ -31,17 +32,12 @@ $(document).ready(function () {
       $(".peopleDiv").fadeOut(500, function () {
         $(".filters").fadeIn();
       });
-      /*$(".peopleDiv").animate({ width: 'hide' }, () => {
-        $(".filters").animate({ width: 'show' });
-      });*/
+
     } else {
       $(".filtersButton").html("<i class='fa fa-arrow-circle-right' aria-hidden='true'></i>Filters");
       $(".filters").fadeOut(500, function () {
         $(".peopleDiv").fadeIn();
       });
-      /*$(".filters").animate({ width: 'hide' }, () => {
-        $(".peopleDiv").animate({ width: 'show' });
-      });*/
     }
   });
   $('input[type=radio][name=radioDistance]').change(function () {
@@ -55,6 +51,37 @@ $(document).ready(function () {
   getPeopleNearby()
 });
 
+function getEvents2() {
+  $.ajax({
+      type: "GET",
+      headers: { Authorization: 'Bearer ' + userLogged.token },
+      url: url + "/events",
+      dataType: "json",
+      success: function (response) {
+          let contador = 0;
+          let bool = 0;
+          let string = "";
+          $(".events2").empty();
+          response.forEach(element => {
+              console.log(element);
+              string += '<div class="swiper-slide">' +
+                  '<div class="eventProfile col-12">' +
+                  '<h4>' + element["name"] + '</h4>' +
+                  '<h5>Lloc de event: ' + element["location"] + '</h5>' +
+                  '<img src="' + element["picture"] + '" alt="">' +
+                  '<p class="descripcionEvento">' + element["description"] + '</p>' +
+                  '</div></div>';
+          });
+          $(".events2").html(string);
+      },
+      error: function (response) {
+        if (response.status == 401) {
+                  window.top.location.href = "index.html";
+        }
+      }
+  });
+}
+
 function getEvents() {
   $.ajax({
     type: "GET",
@@ -62,7 +89,6 @@ function getEvents() {
     url: url + "/events",
     dataType: "json",
     success: function (response) {
-      console.log(response);
       let contador = 0;
       let bool = 0;
       let string = "";
@@ -74,16 +100,17 @@ function getEvents() {
             '<div class="d-flex h-100 justify-content-center bg-light">' +
             '<div class="eventProfile col-4">' +
             '<h4>' + element["name"] + '</h4>' +
+            '<h5>Lloc de event: ' + element["location"] + '</h5>' +
             '<img src="' + element["picture"] + '" alt="">' +
             '<p class="descripcionEvento">' + element["description"] + '</p>' +
             '</div>';
             contador++;
           } else {
-            console.log(element['name']);
             string += '<div class="carousel-item">' +
             '<div class="d-flex h-100 justify-content-center bg-light">' +
             '<div class="eventProfile col-4">' +
             '<h4>' + element["name"] + '</h4>' +
+            '<h5>Lloc de event: ' + element["location"] + '</h5>' +
             '<img src="' + element["picture"] + '" alt="">' +
             '<p class="descripcionEvento">' + element["description"] + '</p>' +
             '</div>';
@@ -94,6 +121,7 @@ function getEvents() {
           if (contador == 1) {
             string += '<div class="eventProfile col-4">' +
               '<h4>' + element["name"] + '</h4>' +
+              '<h5>Lloc de event: ' + element["location"] + '</h5>' +
               '<img src="' + element["picture"] + '" alt="">' +
               '<p class="descripcionEvento">' + element["description"] + '</p>' +
               '</div></div></div>';
@@ -103,10 +131,12 @@ function getEvents() {
           }
         }
       });
-      console.log(string);
       $(".events").html(string);
     },
     error: function (response) {
+      if (response.status == 401) {
+                window.top.location.href = "index.html";
+      }
     }
   });
 }
@@ -123,7 +153,11 @@ function getCategories() {
       });
       check1 = true;
       checkChecks();
-    }, error: function (response) {
+    },
+    error: function (response) {
+      if (response.status == 401) {
+                window.top.location.href = "index.html";
+      }
     }
   });
 }
@@ -177,7 +211,7 @@ function getPeopleNearby() {
               "<span>" + element['username'] + "</span>" +
               "</div>" +
               "<div class='description'>" +
-              "<span>Pues mira soy Pep</span>" +
+              "<span>"+element['description']+"</span>" +
               "</div>" +
               "</div>" +
               "</div>");

@@ -2,6 +2,7 @@ const musicContainer = document.getElementById('music-container');
 const playBtn = document.getElementById('play');
 const prevBtn = document.getElementById('prev');
 const nextBtn = document.getElementById('next');
+const stopBtn = document.getElementById('stop');
 
 const audio = document.getElementById('audio');
 //const progress = document.getElementById('progress');
@@ -17,7 +18,6 @@ var songsPictures = [];
 var artistName = [];
 $(function () {
   if ($(".hideMob").is(":hidden")) {
-    console.log("hello");
     $(".hideMob").remove();
     window.parent.document.getElementById('navPc').remove();
   }
@@ -49,6 +49,11 @@ function updateSongs() {
         songsName.push(element['name']);
         songsPictures.push(element['song_picture']);
       });
+    },
+    error: function (response) {
+      if (response.status == 401) {
+                window.top.location.href = "index.html";
+      }
     }
   });
 }
@@ -118,10 +123,17 @@ playBtn.addEventListener('click', () => {
   }
 });
 
+function stopSong(){
+  audio.pause();
+  audio.currentTime = 0;
+  musicContainer.classList.remove('play');
+  $(".buttonPlay").addClass("fa-play");
+  $(".buttonPlay").removeClass("fa-pause");
+}
 // Change song
 prevBtn.addEventListener('click', prevSong);
 nextBtn.addEventListener('click', nextSong);
-
+stopBtn.addEventListener('click', stopSong);
 // Song ends
 audio.addEventListener('ended', nextSong);
 

@@ -6,7 +6,7 @@ if (Cookies.get("user") != undefined) {
     user = Cookies.get("user");
     username = Cookies.get("username");
 } else {
-    window.location.href = "main.html";
+            window.top.location.href = "index.html";
 }
 
 $(function () {
@@ -25,7 +25,7 @@ $(function () {
     });
 
     setInterval(() => {
-        getPosts()
+        //getPosts()
     }, 10000);
 });
 
@@ -50,16 +50,17 @@ function getPosts() {
                         "<div class='text w-100'>" +
                         "<span>" + element['text'] + "</span>" +
                         "</div>" +
-                        "<div class='text w-100'>" +
-                        "<span class='text-center ml-1 mr-1 col-3'><i role='button' class='musicFav fas fa-music'></i> 0 </span>" +
-                        "<span class='text-center ml-1 mr-1 col-3'><i role='button' class='rePost fa fa-retweet'></i> " + element['spots'] + " </span>" +
-                        "<span class='text-center ml-1 mr-1 col-3'><i role='button' class='like far fa-heart'></i> " + element['likes'] + " </span>" +
+                        "<div class='text w-100 d-flex'>" +
+                        "<span class='text-center ml-1 mr-1 col-6'><i role='button' class='rePost fa fa-retweet'></i> " + element['spots'] + " </span>" +
+                        "<span class='text-center ml-1 mr-1 col-6'><i role='button' class='like far fa-heart'></i> " + element['likes'] + " </span>" +
                         "</div>" +
                         "</div>" +
                         "</div>" +
                         "</div>");
                 });
                 $(".usersPost").click(function (e) {
+                    e.preventDefault();
+                    e.stopImmediatePropagation();
                     let idUserClicked = $(this).find('.name').find('span').attr("id");
                     window.parent.document.getElementById('contenedor').src = 'profile.html?user=' + idUserClicked;
                 });
@@ -98,6 +99,9 @@ function getPosts() {
             checkChecks();
         },
         error: function (response) {
+          if (response.status == 401) {
+                    window.top.location.href = "index.html";
+          }
         }
     });
 }
@@ -116,6 +120,9 @@ function insertPost() {
             getPosts();
         },
         error: function (response) {
+          if (response.status == 0) {
+                    window.top.location.href = "index.html";
+          }
         }
     });
 }
@@ -147,6 +154,11 @@ function deleteFollowUser(parent) {
         },
         dataType: "json",
         success: function (response) {
+        },
+        error: function (response) {
+          if (response.status == 0) {
+                    window.top.location.href = "index.html";
+          }
         }
     });
 }
@@ -189,7 +201,11 @@ function randomSuggests() {
             });
             check2 = true;
             checkChecks();
-        }, error: function (response) {
+        },
+        error: function (response) {
+          if (response.status == 401) {
+                    window.top.location.href = "index.html";
+          }
         }
     });
 }
