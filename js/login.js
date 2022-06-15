@@ -60,7 +60,7 @@ function registerUser(){
         success: function (response) {
             if (response.status != "Created") {
                 if (typeof response.email !== 'undefined') {
-                    $(".avisRegister").text("Aquest e-mail ja existeix");
+                    $(".avisRegister").text("Aquest e-mail no es valid o ja existeix");
                     $(".spinner2").hide();
                 } else if (typeof response.username !== 'undefined') {
                     $(".avisRegister").text("Aquest username ja existeix");
